@@ -1,0 +1,6 @@
+start on runlevel [2345]
+stop on runlevel [016]
+respawn
+chdir <%= node['mattermost']['config']['install_path'] %>/mattermost
+setuid <%= node['mattermost']['config']['user'] %>
+exec bin/platform

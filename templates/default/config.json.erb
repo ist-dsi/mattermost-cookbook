@@ -1,0 +1,116 @@
+{
+    "ServiceSettings": {
+        "ListenAddress": "<%= node['mattermost']['app']['ListenAddress'] %>",
+        "MaximumLoginAttempts": <%= node['mattermost']['app']['MaximumLoginAttempts'] %>,
+        "SegmentDeveloperKey": "<%= node['mattermost']['app']['SegmentDeveloperKey'] %>",
+        "GoogleDeveloperKey": "<%= node['mattermost']['app']['GoogleDeveloperKey'] %>",
+        "EnableOAuthServiceProvider": <%= node['mattermost']['app']['EnableOAuthServiceProvider'] %>,
+        "EnableIncomingWebhooks": <%= node['mattermost']['app']['EnableIncomingWebhooks'] %>,
+        "EnableOutgoingWebhooks": <%= node['mattermost']['app']['EnableOutgoingWebhooks'] %>,
+        "EnableCommands": <%= node['mattermost']['app']['EnableCommands'] %>,
+        "EnableOnlyAdminIntegrations": <%= node['mattermost']['app']['EnableOnlyAdminIntegrations'] %>,
+        "EnablePostUsernameOverride": <%= node['mattermost']['app']['EnablePostUsernameOverride'] %>,
+        "EnablePostIconOverride": <%= node['mattermost']['app']['EnablePostIconOverride'] %>,
+        "EnableTesting": <%= node['mattermost']['app']['EnableTesting'] %>,
+        "EnableDeveloper": <%= node['mattermost']['app']['EnableDeveloper'] %>,
+        "EnableSecurityFixAlert": <%= node['mattermost']['app']['EnableSecurityFixAlert'] %>,
+        "EnableInsecureOutgoingConnections": <%= node['mattermost']['app']['EnableInsecureOutgoingConnections'] %>,
+        "SessionLengthWebInDays": <%= node['mattermost']['app']['SessionLengthWebInDays'] %>,
+        "SessionLengthMobileInDays": <%= node['mattermost']['app']['SessionLengthMobileInDays'] %>,
+        "SessionLengthSSOInDays": <%= node['mattermost']['app']['SessionLengthSSOInDays'] %>,
+        "SessionCacheInMinutes": <%= node['mattermost']['app']['SessionCacheInMinutes'] %>
+    },
+    "TeamSettings": {
+        "SiteName": "<%= node['mattermost']['app']['SiteName'] %>",
+        "MaxUsersPerTeam": <%= node['mattermost']['app']['MaxUsersPerTeam'] %>,
+        "EnableTeamCreation": <%= node['mattermost']['app']['EnableTeamCreation'] %>,
+        "EnableUserCreation": <%= node['mattermost']['app']['EnableUserCreation'] %>,
+        "RestrictCreationToDomains": "<%= node['mattermost']['app']['RestrictCreationToDomains'] %>",
+        "RestrictTeamNames": <%= node['mattermost']['app']['RestrictTeamNames'] %>,
+        "EnableTeamListing": <%= node['mattermost']['app']['EnableTeamListing'] %>
+    },
+    "SqlSettings": {
+        "DriverName": "<%= node['mattermost']['app']['DriverName'] %>",
+        "DataSource": "<%= node['mattermost']['database']['username'] %>:<%= node['mattermost']['database']['password'] %>@tcp(<%= node['mattermost']['database']['hostname'] %>:<%= node['mattermost']['database']['port'] %>)/<%= node['mattermost']['database']['database_name'] %>?charset=utf8mb4,utf8",
+        "DataSourceReplicas": <%= node['mattermost']['app']['DataSourceReplicas'] %>,
+        "MaxIdleConns": <%= node['mattermost']['app']['MaxIdleConns'] %>,
+        "MaxOpenConns": <%= node['mattermost']['app']['MaxOpenConns'] %>,
+        "Trace": <%= node['mattermost']['app']['Trace'] %>,
+        "AtRestEncryptKey": "<%= node['mattermost']['app']['AtRestEncryptKey'] %>"
+    },
+    "LogSettings": {
+        "EnableConsole": <%= node['mattermost']['app']['EnableConsole'] %>,
+        "ConsoleLevel": "<%= node['mattermost']['app']['ConsoleLevel'] %>",
+        "EnableFile": <%= node['mattermost']['app']['EnableFile'] %>,
+        "FileLevel": "<%= node['mattermost']['app']['FileLevel'] %>",
+        "FileFormat": "<%= node['mattermost']['app']['FileFormat'] %>",
+        "FileLocation": "<%= node['mattermost']['app']['FileLocation'] %>"
+    },
+    "FileSettings": {
+        "DriverName": "<%= node['mattermost']['app']['File_Driver_Name'] %>",
+        "Directory": "<%= node['mattermost']['app']['Directory'] %>",
+        "EnablePublicLink": <%= node['mattermost']['app']['EnablePublicLink'] %>,
+        "PublicLinkSalt": "<%= node['mattermost']['app']['PublicLinkSalt'] %>",
+        "ThumbnailWidth": <%= node['mattermost']['app']['ThumbnailWidth'] %>,
+        "ThumbnailHeight": <%= node['mattermost']['app']['ThumbnailHeight'] %>,
+        "PreviewWidth": <%= node['mattermost']['app']['PreviewWidth'] %>,
+        "PreviewHeight": <%= node['mattermost']['app']['PreviewHeight'] %>,
+        "ProfileWidth": <%= node['mattermost']['app']['ProfileWidth'] %>,
+        "ProfileHeight": <%= node['mattermost']['app']['ProfileHeight'] %>,
+        "InitialFont": "<%= node['mattermost']['app']['InitialFont'] %>",
+        "AmazonS3AccessKeyId": "<%= node['mattermost']['app']['AmazonS3AccessKeyId'] %>",
+        "AmazonS3SecretAccessKey": "<%= node['mattermost']['app']['AmazonS3SecretAccessKey'] %>",
+        "AmazonS3Bucket": "<%= node['mattermost']['app']['AmazonS3Bucket'] %>",
+        "AmazonS3Region": "<%= node['mattermost']['app']['AmazonS3Region'] %>",
+        "AmazonS3Endpoint": "<%= node['mattermost']['app']['AmazonS3Endpoint'] %>",
+        "AmazonS3BucketEndpoint": "<%= node['mattermost']['app']['AmazonS3BucketEndpoint'] %>",
+        "AmazonS3LocationConstraint": <%= node['mattermost']['app']['AmazonS3LocationConstraint'] %>,
+        "AmazonS3LowercaseBucket": <%= node['mattermost']['app']['AmazonS3LowercaseBucket'] %>
+    },
+    "EmailSettings": {
+        "EnableSignUpWithEmail": <%= node['mattermost']['app']['EnableSignUpWithEmail'] %>,
+        "EnableSignInWithEmail": <%= node['mattermost']['app']['EnableSignInWithEmail'] %>,
+        "EnableSignInWithUsername": <%= node['mattermost']['app']['EnableSignInWithUsername'] %>,
+        "SendEmailNotifications": <%= node['mattermost']['app']['SendEmailNotifications'] %>,
+        "RequireEmailVerification": <%= node['mattermost']['app']['RequireEmailVerification'] %>,
+        "FeedbackName": "<%= node['mattermost']['app']['FeedbackName'] %>",
+        "FeedbackEmail": "<%= node['mattermost']['app']['FeedbackEmail'] %>",
+        "SMTPUsername": "<%= node['mattermost']['app']['SMTPUsername'] %>",
+        "SMTPPassword": "<%= node['mattermost']['app']['SMTPPassword'] %>",
+        "SMTPServer": "<%= node['mattermost']['app']['SMTPServer'] %>",
+        "SMTPPort": "<%= node['mattermost']['app']['SMTPPort'] %>",
+        "ConnectionSecurity": "<%= node['mattermost']['app']['ConnectionSecurity'] %>",
+        "InviteSalt": "<%= node['mattermost']['app']['InviteSalt'] %>",
+        "PasswordResetSalt": "<%= node['mattermost']['app']['PasswordResetSalt'] %>",
+        "SendPushNotifications": <%= node['mattermost']['app']['SendPushNotifications'] %>,
+        "PushNotificationServer": "<%= node['mattermost']['app']['PushNotificationServer'] %>"
+    },
+    "RateLimitSettings": {
+        "EnableRateLimiter": <%= node['mattermost']['app']['EnableRateLimiter'] %>,
+        "PerSec": <%= node['mattermost']['app']['PerSec'] %>,
+        "MemoryStoreSize": <%= node['mattermost']['app']['MemoryStoreSize'] %>,
+        "VaryByRemoteAddr": <%= node['mattermost']['app']['VaryByRemoteAddr'] %>,
+        "VaryByHeader": "<%= node['mattermost']['app']['VaryByHeader'] %>"
+    },
+    "PrivacySettings": {
+        "ShowEmailAddress": <%= node['mattermost']['app']['ShowEmailAddress'] %>,
+        "ShowFullName": <%= node['mattermost']['app']['ShowFullName'] %>
+    },
+    "SupportSettings": {
+        "TermsOfServiceLink": "<%= node['mattermost']['app']['TermsOfServiceLink'] %>",
+        "PrivacyPolicyLink": "<%= node['mattermost']['app']['PrivacyPolicyLink'] %>",
+        "AboutLink": "<%= node['mattermost']['app']['AboutLink'] %>",
+        "HelpLink": "/static/help/help.html",
+        "ReportAProblemLink": "<%= node['mattermost']['app']['ReportAProblemLink'] %>",
+        "SupportEmail": "<%= node['mattermost']['app']['SupportEmail'] %>"
+    },
+    "GitLabSettings": {
+        "Enable": <%= node['mattermost']['app']['Enable'] %>,
+        "Secret": "<%= node['mattermost']['app']['Secret'] %>",
+        "Id": "<%= node['mattermost']['app']['Id'] %>",
+        "Scope": "<%= node['mattermost']['app']['Scope'] %>",
+        "AuthEndpoint": "<%= node['mattermost']['app']['AuthEndpoint'] %>",
+        "TokenEndpoint": "<%= node['mattermost']['app']['TokenEndpoint'] %>",
+        "UserApiEndpoint": "<%= node['mattermost']['app']['UserApiEndpoint'] %>"
+    }
+}

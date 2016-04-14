@@ -1,0 +1,20 @@
+driver:
+  name: vagrant
+  network:
+     - ["forwarded_port", {guest: 8065, host: 8065}]
+     - ["forwarded_port", {guest: 443, host: 8443}]
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: ubuntudb-14.04
+    driver_config:
+      box: trusty-server-cloudimg-amd64-vagrant-disk1
+      box_url: https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-vagrant-disk1.box
+
+suites:
+  - name: default
+    run_list:
+      - recipe[mattermost::default]
+    attributes:
