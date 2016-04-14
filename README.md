@@ -130,7 +130,7 @@ Attributes
 * `node['mattermost']['app']['VaryByHeader'] = ""`
 
 ### PrivacySettings
-* `node['mattermost']['app']['ShowEmailAddress'] = true
+* `node['mattermost']['app']['ShowEmailAddress'] = true`
 * `node['mattermost']['app']['ShowFullName'] = true`
 
 ### SupportSettings
