@@ -23,12 +23,12 @@ mysql_connection_info = {
 }
 
 mysql_database "#{node['mattermost']['database']['database_name']}" do
-	connection mysql_connection_info
-	action :create
+  connection mysql_connection_info
+  action :create
 end
 
 mysql_database_user "#{node['mattermost']['database']['username']}" do
-  connection 	  mysql_connection_info
+  connection 	mysql_connection_info
   password      node['mattermost']['database']['password']
   database_name node['mattermost']['database']['database_name']
   action     	:grant

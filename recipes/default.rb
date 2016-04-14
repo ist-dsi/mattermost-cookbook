@@ -11,11 +11,11 @@ user node['mattermost']['config']['user'] do
 end
 
 ark "mattermost" do
-	url node['mattermost']['package']['url']
-	checksum node['mattermost']['package']['checksum']
-	path node['mattermost']['config']['install_path']
-	owner node['mattermost']['config']['user']
-	action :put
+  url node['mattermost']['package']['url']
+  checksum node['mattermost']['package']['checksum']
+  path node['mattermost']['config']['install_path']
+  owner node['mattermost']['config']['user']
+  action :put
 end
 
 directory node['mattermost']['config']['data_dir'] do
