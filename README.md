@@ -2,6 +2,8 @@
 
 This cookbook installs and configures Mattermost, the opensource Slack alternative.
 
+* http://www.mattermost.org/
+
 
 ## Platforms:  
 
@@ -12,7 +14,7 @@ The following platforms and versions are tested and supported using [test-kitche
 Usage
 =====
 
-Using this cookbook is relatively straightforward. It is recommended to create a project or organization specific [wrapper cookbook](https://www.chef.io/blog/2013/12/03/doing-wrapper-cookbooks-right/) and add the desired recipes to the run list of a node. Adjust any attributes as desired.
+Using this cookbook is relatively straightforward. It is recommended to create a project or organization specific [wrapper cookbook](https://www.chef.io/blog/2013/12/03/doing-wrapper-cookbooks-right/) and add the desired recipes to the run list of a node. Adjust any attributes (listed below) as desired.
 
 Attributes
 ==========
