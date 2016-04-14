@@ -31,7 +31,7 @@ All settings are either sane defaults or default settings that come with a fresh
 * `node['mattermost']['config']['server_name'] = "localhost"` 
 
 ### Database Settings
-* `node['mattermost']['database']['remote'] = false`
+* `node['mattermost']['database']['remote'] = false` # If set to true, a local mysql server is not installed
 * `node['mattermost']['database']['mysql_root'] = 'password'`
 * `node['mattermost']['database']['hostname'] = '127.0.0.1'`
 * `node['mattermost']['database']['port'] = 3306`
