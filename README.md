@@ -19,10 +19,12 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 Attributes
 ==========
 
+All settings are either sane defaults or default settings that come with a fresh installation. Make sure to review all settings and change whats nessisary.
+
 ### Server Settings
 * `node['mattermost']['package']['url'] = "https://github.com/mattermost/platform/releases/download/v2.0.0/mattermost.tar.gz"`
 * `node['mattermost']['package']['checksum'] = "005687c6a8128e1e40d01933f09d7da1a1b70b149a6bef96d923166bc1e7ce8f"`
-* `node['mattermost']['config']['install_path'] = "/opt" # installs to /opt/mattermost`
+* `node['mattermost']['config']['install_path'] = "/opt"` # installs to /opt/mattermost
 * `node['mattermost']['config']['user'] = "mattermost"`
 * `node['mattermost']['config']['group'] = "mattermost"`
 * `node['mattermost']['config']['data_dir'] = "/mattermost/data"`
