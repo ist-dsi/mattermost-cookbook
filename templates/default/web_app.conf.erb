@@ -28,32 +28,46 @@
 </VirtualHost>
 
 <VirtualHost _default_:443>
+  ServerName <%= @params[:server_name] %>
   DocumentRoot <%= @params[:docroot] %>
-  ErrorLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-error.log
-  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>-access.log combined
 
   SSLEngine on
+  SSLProtocol all -SSLv2
+  SSLHonorCipherOrder on
+  SSLCipherSuite "ECDHE-RSA-AES128-SHA256:AES128-GCM-SHA256:RC4:HIGH:!MD5:!aNULL:!EDH"
+  Header add Strict-Transport-Security: "max-age=15768000;includeSubdomains"
+  SSLCompression Off
   SSLCertificateFile  /etc/ssl/<%= node['mattermost']['config']['server_name'] %>.crt
   SSLCertificateKeyFile /etc/ssl/<%= node['mattermost']['config']['server_name'] %>.key
 
-  <FilesMatch "\.(cgi|shtml|phtml|php)$">
-      SSLOptions +StdEnvVars
-  </FilesMatch>
+  ProxyPreserveHost On
+  ProxyRequests Off
 
-  <Directory /usr/lib/cgi-bin>
-      SSLOptions +StdEnvVars
-  </Directory>
+  RewriteEngine on
+  RewriteCond %{REQUEST_URI} ^/api/v1/websocket [NC,OR]
+  RewriteCond %{HTTP:UPGRADE} ^WebSocket$ [NC,OR]
+  RewriteCond %{HTTP:CONNECTION} ^Upgrade$ [NC]
+  RewriteRule .* ws://127.0.0.1:8065%{REQUEST_URI} [P,QSA,L]
+  RewriteCond %{DOCUMENT_ROOT}/%{REQUEST_FILENAME} !-f
+  RewriteRule .* http://127.0.0.1:8065%{REQUEST_URI} [P,QSA,L]
+  RequestHeader set X-Forwarded-Proto "https"
 
-  BrowserMatch "MSIE [2-6]" \
-      nokeepalive ssl-unclean-shutdown \
-      downgrade-1.0 force-response-1.0
-  BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
-
-  <Proxy *>
+  <Location /api/v1/websocket>
     Require all granted
-  </Proxy>
-  
-  ProxyPass        / http://localhost:8065/ connectiontimeout=5 timeout=300
-  ProxyPassReverse / http://localhost:8065/
+    ProxyPassReverse http://127.0.0.1:8065
+    ProxyPassReverseCookieDomain 127.0.0.1 <%= @params[:server_name] %>
+  </Location>
+  <Location />
+    Require all granted
+    ProxyPassReverse http://127.0.0.1:8065
+    ProxyPassReverseCookieDomain 127.0.0.1 <%= @params[:server_name] %>
+  </Location>
+
+  LogFormat "%{X-Forwarded-For}i %l %u %t \"%r\" %>s %b" common_forwarded
+  ErrorLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>_error.log
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>_forwarded.log common_forwarded
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>_access.log combined env=!dontlog
+  CustomLog <%= node['apache']['log_dir'] %>/<%= @params[:name] %>.log combined
+
 
 </VirtualHost>

@@ -31,6 +31,7 @@ template "#{node['mattermost']['config']['install_path']}/mattermost/config/conf
   source 'config.json.erb'
   owner node['mattermost']['config']['user']
   mode '0640'
+  notifies :restart, 'service[mattermost]'
 end
 
 template '/etc/init/mattermost.conf' do
