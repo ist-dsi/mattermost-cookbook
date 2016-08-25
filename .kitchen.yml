@@ -1,8 +1,9 @@
 driver:
   name: vagrant
+  customize:
+      memory: 2048
   network:
      - ["forwarded_port", {guest: 8065, host: 8065}]
-     - ["forwarded_port", {guest: 443, host: 8443}]
 
 provisioner:
   name: chef_zero
