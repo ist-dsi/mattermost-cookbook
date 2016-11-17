@@ -1,3 +1,9 @@
+#
+# Cookbook Name:: mattermost
+# Recipe:: database
+#
+# Copyright (c) 2016 The Authors, All Rights Reserved.
+
 mysql2_chef_gem 'default' do
   action :install
 end
@@ -6,14 +12,13 @@ mysql_client 'default' do
   action :create
 end
 
-if node['mattermost']['database']['remote'] == false
-  mysql_service 'mattermost' do
-    bind_address '0.0.0.0'
-    port '3306'
-    version '5.6'
-    initial_root_password node['mattermost']['database']['mysql_root']
-    action [:create, :start]
-  end
+mysql_service 'mattermost' do
+  bind_address '0.0.0.0'
+  port '3306'
+  version '5.6'
+  initial_root_password node['mattermost']['database']['mysql_root']
+  action [ :create, :start ]
+  only_if { node['mattermost']['database']['remote'] == true }
 end
 
 mysql_connection_info = {
@@ -22,14 +27,14 @@ mysql_connection_info = {
   :password => node['mattermost']['database']['mysql_root']
 }
 
-mysql_database "#{node['mattermost']['database']['database_name']}" do
+mysql_database node['mattermost']['database']['database_name'] do
   connection mysql_connection_info
   action :create
 end
 
-mysql_database_user "#{node['mattermost']['database']['username']}" do
-  connection 	mysql_connection_info
+mysql_database_user node['mattermost']['database']['username'] do
+  connection    mysql_connection_info
   password      node['mattermost']['database']['password']
   database_name node['mattermost']['database']['database_name']
-  action     	:grant
+  action      :grant
 end
