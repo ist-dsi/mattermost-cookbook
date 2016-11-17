@@ -1,11 +1,9 @@
 require 'spec_helper'
 
 describe 'mattermost::database' do
-  let(:chef_run) do
-    ChefSpec::ServerRunner.new do |node|
-      node.default['mattermost']['database']['remote'] == true
-    end.converge(described_recipe)
-  end
+  let(:chef_run) {
+    ChefSpec::ServerRunner.converge(described_recipe)
+  }
 
   mysql_connection_info = {
       :host     => '127.0.0.1',
@@ -19,16 +17,6 @@ describe 'mattermost::database' do
 
   it 'installs mysql client' do
     expect(chef_run).to create_mysql_client('default')
-  end
-
-  it 'creates and starts mysql service' do
-    expect(chef_run).to create_mysql_service('mattermost').with(
-      bind_address: '0.0.0.0',
-      port: '3306',
-      version: '5.6',
-      initial_root_password: "password"
-      )
-    expect(chef_run).to start_mysql_service('mattermost')
   end
 
   it 'connects as root and creates the mattermost databse' do

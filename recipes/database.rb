@@ -18,7 +18,7 @@ mysql_service 'mattermost' do
   version '5.6'
   initial_root_password node['mattermost']['database']['mysql_root']
   action [ :create, :start ]
-  #only_if { node['mattermost']['database']['remote'] == true }
+  only_if { node['mattermost']['database']['remote'] == true }
 end
 
 mysql_connection_info = {
