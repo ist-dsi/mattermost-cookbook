@@ -20,7 +20,7 @@ end
 
 directory node['mattermost']['config']['data_dir'] do
   owner node['mattermost']['config']['user']
-  mode '0755'
+  mode 0755
   recursive true
   action :create
 end

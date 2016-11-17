@@ -11,7 +11,7 @@ supports 'ubuntu'
 depends 'apt'
 depends 'ark'
 depends 'database'
-depends 'mysql'
+depends 'mysql', '~> 6.0'
 depends 'mysql2_chef_gem'
 
 source_url 'https://github.com/verifi-inc/mattermost' if respond_to?(:source_url)
