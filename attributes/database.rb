@@ -1,6 +1,8 @@
 default['mattermost']['database']['remote'] = false
 default['mattermost']['database']['mysql_root'] = 'password'
 default['mattermost']['database']['hostname'] = '127.0.0.1'
+default['mattermost']['database']['bind_address'] = "0.0.0.0"
+default['mattermost']['database']['mysql_version'] = "5.6"
 default['mattermost']['database']['port'] = 3306
 default['mattermost']['database']['database_name'] = 'mattermost'
 default['mattermost']['database']['username'] = 'mattermost'

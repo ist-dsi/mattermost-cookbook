@@ -13,9 +13,9 @@ mysql_client 'default' do
 end
 
 mysql_service 'mattermost' do
-  bind_address '0.0.0.0'
-  port '3306'
-  version '5.6'
+  bind_address node['mattermost']['database']['bind_address']
+  port node['mattermost']['database']['port']
+  version node['mattermost']['database']['mysql_version']
   initial_root_password node['mattermost']['database']['mysql_root']
   action [ :create, :start ]
   only_if { node['mattermost']['database']['remote'] == true }
