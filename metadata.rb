@@ -6,6 +6,7 @@ description      'Installs/Configures mattermost http://mattermost.com'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.7'
 
+chef_version '>= 12.1'
 supports 'ubuntu'
 
 depends 'apt'
@@ -16,4 +17,3 @@ depends 'mysql2_chef_gem'
 
 source_url 'https://github.com/verifi-inc/mattermost' if respond_to?(:source_url)
 issues_url 'https://github.com/verifi-inc/mattermost/issues' if respond_to?(:issues_url)
-

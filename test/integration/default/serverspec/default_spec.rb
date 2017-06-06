@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'mattermost::default' do
-  
   describe user('mattermost') do
     it { should exist }
   end
@@ -38,15 +37,14 @@ describe 'mattermost::default' do
     it { should be_owned_by 'mattermost' }
     it { should be_grouped_into 'root' }
     it { should be_mode 640 }
-    it { should contain "ServiceSettings" }
+    it { should contain 'ServiceSetting' }
   end
 
-  describe process("platform") do
+  describe process('platfor') do
     it { should be_running }
   end
 
   describe port(8065) do
     it { should be_listening }
   end
-
 end

@@ -1,14 +1,12 @@
 require 'spec_helper'
 
 describe 'mattermost::database' do
-  let(:chef_run) {
-    ChefSpec::ServerRunner.converge(described_recipe)
-  }
+  let(:chef_run) { ChefSpec::ServerRunner.converge(described_recipe) }
 
   mysql_connection_info = {
-      :host     => '127.0.0.1',
-      :username => 'root',
-      :password => 'password'
+    host: '127.0.0.1',
+    username: 'root',
+    password: 'password',
   }
 
   it 'installs mysql2_chef_gem' do
@@ -32,5 +30,4 @@ describe 'mattermost::database' do
       database_name: 'mattermost'
     )
   end
-
 end

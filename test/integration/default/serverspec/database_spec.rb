@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe 'mattermost::database' do
-
   packages = %w(
     mysql-client-5.5
     mysql-client-core-5.5
@@ -16,12 +15,11 @@ describe 'mattermost::database' do
     end
   end
 
-  describe process("mysqld") do
+  describe process('mysql') do
     it { should be_running }
   end
 
   describe port(3306) do
     it { should be_listening }
   end
-
 end

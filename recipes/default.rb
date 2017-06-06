@@ -10,7 +10,7 @@ user node['mattermost']['config']['user'] do
   action :create
 end
 
-ark "mattermost" do
+ark 'mattermost' do
   url node['mattermost']['package']['url']
   checksum node['mattermost']['package']['checksum']
   path node['mattermost']['config']['install_path']
@@ -43,6 +43,6 @@ template '/etc/init/mattermost.conf' do
 end
 
 service 'mattermost' do
-  supports :status => true, :restart => true, :reload => true
+  supports status: true, restart: true, reload: true
   action [:start, :enable]
 end
