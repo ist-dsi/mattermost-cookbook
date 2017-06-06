@@ -22,7 +22,7 @@ describe 'mattermost::default' do
 
   it 'creates data directory ' do
     expect(chef_run).to create_directory('/mattermost/data').with(
-      user: 'mattermos',
+      user: 'mattermost',
       mode: 0755,
       recursive: true
     )

@@ -37,10 +37,10 @@ describe 'mattermost::default' do
     it { should be_owned_by 'mattermost' }
     it { should be_grouped_into 'root' }
     it { should be_mode 640 }
-    it { should contain 'ServiceSetting' }
+    it { should contain 'ServiceSettings' }
   end
 
-  describe process('platfor') do
+  describe process('platform') do
     it { should be_running }
   end
 

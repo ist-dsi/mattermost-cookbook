@@ -17,7 +17,7 @@ describe 'mattermost::database' do
     expect(chef_run).to create_mysql_client('default')
   end
 
-  it 'connects as root and creates the mattermost databse' do
+  it 'connects as root and creates the mattermost database' do
     expect(chef_run).to create_mysql_database('mattermost').with(
       connection: mysql_connection_info
     )

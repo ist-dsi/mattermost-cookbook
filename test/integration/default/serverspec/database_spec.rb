@@ -15,7 +15,7 @@ describe 'mattermost::database' do
     end
   end
 
-  describe process('mysql') do
+  describe process('mysqld') do
     it { should be_running }
   end
 
