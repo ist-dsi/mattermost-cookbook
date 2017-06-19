@@ -3,5 +3,6 @@ default['mattermost']['package']['checksum'] = "0aa376254b74c32672118e304dd931d5
 
 default['mattermost']['config']['install_path'] = "/opt" # installs to /opt/mattermost
 default['mattermost']['config']['user'] = "mattermost"
+default['mattermost']['config']['group'] = "mattermost"
 default['mattermost']['config']['data_dir'] = "/mattermost/data"
 default['mattermost']['config']['server_name'] = "localhost"

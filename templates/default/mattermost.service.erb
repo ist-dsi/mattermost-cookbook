@@ -1,0 +1,12 @@
+[Service]
+ExecStart=<%= node['mattermost']['config']['install_path'] %>/mattermost/bin/platform
+WorkingDirectory=<%= node['mattermost']['config']['install_path'] %>/mattermost
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=mattermost
+User=<%= node['mattermost']['config']['user'] %>
+Group=<%= node['mattermost']['config']['group'] %>
+
+[Install]
+WantedBy=multi-user.target
