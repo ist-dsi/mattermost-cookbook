@@ -25,7 +25,8 @@ directory node['mattermost']['config']['data_dir'] do
   action :create
 end
 
-include_recipe 'mattermost::database'
+include_recipe 'mattermost::database' if node['mattermost']['database']['install_mysql']
+
 
 template "#{node['mattermost']['config']['install_path']}/mattermost/config/config.json" do
   source 'config.json.erb'

@@ -1,3 +1,4 @@
+default['mattermost']['database']['install_mysql'] = false # make MySQL install/config optional
 default['mattermost']['database']['remote'] = false
 default['mattermost']['database']['mysql_root'] = 'password'
 default['mattermost']['database']['hostname'] = '127.0.0.1'
