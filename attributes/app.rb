@@ -115,7 +115,7 @@ default['mattermost']['app']['FileSettings']['AmazonS3Endpoint'] = "s3.amazonaws
 default['mattermost']['app']['FileSettings']['AmazonS3SSL'] = true
 
 # Email Settings
-default['mattermost']['app']['EmailSettings']['EnabileSignUpWithEmail'] = true
+default['mattermost']['app']['EmailSettings']['EnableSignUpWithEmail'] = true
 default['mattermost']['app']['EmailSettings']['EnableSignInWithEmail'] = true
 default['mattermost']['app']['EmailSettings']['EnableSignInWithUsername'] = true
 default['mattermost']['app']['EmailSettings']['SendEmailNotifications'] = true
@@ -148,7 +148,7 @@ default['mattermost']['app']['RateLimitSettings']['VaryByHeader'] = ""
 
 # Privacy Settings
 default['mattermost']['app']['PrivacySettings']['ShowEmailAddress'] = false
-default['mattermost']['app']['PrivacySettings']['SHowFullName'] = true
+default['mattermost']['app']['PrivacySettings']['ShowFullName'] = true
 
 # Support Settings
 default['mattermost']['app']['SupportSettings']['TermsOfServiceLink'] = "https://about.mattermost.com/default-terms/"

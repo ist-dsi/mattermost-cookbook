@@ -205,7 +205,7 @@
         "SkipCertificateVerification": <%= node['mattermost']['app']['LdapSettings']['SkipCertificateVerification'] %>,
         "QueryTimeout": <%= node['mattermost']['app']['LdapSettings']['QueryTimeout'] %>,
         "MaxPageSize": <%= node['mattermost']['app']['LdapSettings']['MaxPageSize'] %>,
-        "LoginFieldName": <%= node['mattermost']['app']['LdapSettings']['LoginFieldName'] %>
+        "LoginFieldName": "<%= node['mattermost']['app']['LdapSettings']['LoginFieldName'] %>"
     },
     "ComplianceSettings": {
         "Enable": <%= node['mattermost']['app']['ComplianceSettings']['Enable'] %>,
@@ -234,17 +234,17 @@
         "NicknameAttribute": "<%= node['mattermost']['app']['SamlSettings']['NicknameAttribute'] %>",
         "LocaleAttribute": "<%= node['mattermost']['app']['SamlSettings']['LocaleAttribute'] %>",
         "PositionAttribute": "<%= node['mattermost']['app']['SamlSettings']['PositionAttribute'] %>",
-        "LoginButtonText": "<%= node['mattermost']['app']['SamlSettings']['LoginButtonText'] %>",
+        "LoginButtonText": "<%= node['mattermost']['app']['SamlSettings']['LoginButtonText'] %>"
     },
     "NativeAppSettings": {
         "AppDownloadLink": "<%= node['mattermost']['app']['NativeAppSettings']['AppDownloadLink'] %>",
         "AndroidAppDownloadLink": "<%= node['mattermost']['app']['NativeAppSettings']['AndroidAppDownloadLink'] %>",
-        "IosAppDownloadLink": "<%= node['mattermost']['app']['NativeAppSettings']['IosAppDownloadLink'] %>",
+        "IosAppDownloadLink": "<%= node['mattermost']['app']['NativeAppSettings']['IosAppDownloadLink'] %>"
     },
     "ClusterSettings": {
         "Enable": <%= node['mattermost']['app']['ClusterSettings']['Enable'] %>,
         "InterNodeListenAddress": "<%= node['mattermost']['app']['ClusterSettings']['InterNodeListenAddress'] %>",
-        "InterNodeUrls": <%= node['mattermost']['app']['ClusterSettings']['InterNodeUrls'] %>,
+        "InterNodeUrls": <%= node['mattermost']['app']['ClusterSettings']['InterNodeUrls'] %>
     },
     "MetricsSettings": {
         "Enable": <%= node['mattermost']['app']['MetricsSettings']['Enable'] %>,
