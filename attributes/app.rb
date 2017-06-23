@@ -7,6 +7,7 @@ default['mattermost']['app']['ServiceSettings']['ConnectionSecurity'] = ""
 default['mattermost']['app']['ServiceSettings']['TLSCertFile'] = ""
 default['mattermost']['app']['ServiceSettings']['TLSKeyFile'] = ""
 default['mattermost']['app']['ServiceSettings']['UseLetsEncrypt'] = false
+default['mattermost']['app']['ServiceSettings']['LetsEncryptCertificateCacheFile'] = "./config/letsencrypt.cache"
 default['mattermost']['app']['ServiceSettings']['Forward80To443'] = false
 default['mattermost']['app']['ServiceSettings']['ReadTimeout'] = 300
 default['mattermost']['app']['ServiceSettings']['WriteTimeout'] = 300

@@ -7,6 +7,7 @@
         "TLSCertFile": "<%= node['mattermost']['app']['ServiceSettings']['TLSCertFile'] %>",
         "TLSKeyFile": "<%= node['mattermost']['app']['ServiceSettings']['TLSKeyFile'] %>",
         "UseLetsEncrypt": <%= node['mattermost']['app']['ServiceSettings']['UseLetsEncrypt'] %>,
+        "LetsEncryptCertificateCacheFile": "<%= node['mattermost']['app']['ServiceSettings']['LetsEncryptCertificateCacheFile'] %>",
         "Forward80To443": <%= node['mattermost']['app']['ServiceSettings']['Forward80To443'] %>,
         "ReadTimeout": <%= node['mattermost']['app']['ServiceSettings']['ReadTimeout'] %>,
         "WriteTimeout": <%= node['mattermost']['app']['ServiceSettings']['WriteTimeout'] %>,
@@ -143,7 +144,7 @@
         "MaxBurst": <%= node['mattermost']['app']['RateLimitSettings']['MaxBurst'] %>,
         "MemoryStoreSize": <%= node['mattermost']['app']['RateLimitSettings']['MemoryStoreSize'] %>,
         "VaryByRemoteAdrr": <%= node['mattermost']['app']['RateLimitSettings']['VaryByRemoteAddr'] %>,
-        "VaryByHeader": <%= node['mattermost']['app']['RateLimitSettings']['VaryByHeader'] %>
+        "VaryByHeader": "<%= node['mattermost']['app']['RateLimitSettings']['VaryByHeader'] %>"
     },
     "PrivacySettings": {
         "ShowEmailAddress": <%= node['mattermost']['app']['PrivacySettings']['ShowEmailAddress'] %>,
