@@ -1,13 +1,7 @@
 require 'spec_helper'
 
-describe 'mattermost::default' do
-  let(:chef_run) {
-    ChefSpec::ServerRunner.converge(described_recipe)
-  }
-
-  it 'includes apt recipe' do
-    expect(chef_run).to include_recipe('apt')
-  end
+describe 'mattermost-cookbook::default' do
+  let(:chef_run) { ChefSpec::SoloRunner.new(platform: 'ubuntu', version: '16.04').converge(described_recipe) }
 
   it 'creates user mattermost' do
     expect(chef_run).to create_user('mattermost')

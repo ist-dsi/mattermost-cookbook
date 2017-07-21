@@ -16,6 +16,5 @@ depends 'database'
 depends 'mysql', '~> 8.2.0'
 depends 'mysql2_chef_gem'
 
-source_url 'https://github.com/verifi-inc/mattermost' if respond_to?(:source_url)
-issues_url 'https://github.com/verifi-inc/mattermost/issues' if respond_to?(:issues_url)
-
+source_url 'https://github.com/ist-dsi/mattermost-cookbook' if respond_to?(:source_url)
+issues_url 'https://jira.fenixedu.org/browse/MCC' if respond_to?(:issues_url)

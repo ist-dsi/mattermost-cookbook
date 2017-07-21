@@ -10,7 +10,7 @@ user node['mattermost']['config']['user'] do
   action :create
 end
 
-ark "mattermost" do
+ark 'mattermost' do
   url node['mattermost']['package']['url']
   checksum node['mattermost']['package']['checksum']
   path node['mattermost']['config']['install_path']
@@ -26,7 +26,6 @@ directory node['mattermost']['config']['data_dir'] do
 end
 
 include_recipe 'mattermost::database' if node['mattermost']['database']['install_mysql']
-
 
 template "#{node['mattermost']['config']['install_path']}/mattermost/config/config.json" do
   source 'config.json.erb'
@@ -55,6 +54,6 @@ when 'rhel'
 end
 
 service 'mattermost' do
-  supports :status => true, :restart => true, :reload => true
+  supports status: true, restart: true, reload: true
   action [:start, :enable]
 end

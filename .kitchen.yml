@@ -17,5 +17,6 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[mattermost::default]
+      - recipe[mysql_test::default]
+      - recipe[mattermost-cookbook::default]
     attributes:
