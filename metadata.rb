@@ -1,13 +1,17 @@
-name             'mattermost'
-maintainer       'Kyle Corupe'
-maintainer_email 'kyle.corupe@gmail.com'
-license          'Apache 2.0'
-description      'Installs/Configures mattermost http://mattermost.com'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-version          '0.2.1b'
+name 'mattermost'
+license 'Apache-2.0'
+version '1.0.0'
 
-%w(redhat centos ubuntu).each do |os|
-    supports os
+chef_version '>= 12.1'
+
+maintainer 'David Duarte'
+maintainer_email 'david.duarte@tecnico.ulisboa.pt'
+
+description 'Installs/Configures mattermost http://mattermost.com'
+long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
+
+%w(redhat centos debian ubuntu).each do |os|
+  supports os
 end
 
 depends 'apt'

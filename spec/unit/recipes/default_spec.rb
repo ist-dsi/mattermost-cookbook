@@ -13,15 +13,15 @@ describe 'mattermost-cookbook::default' do
       checksum: '0aa376254b74c32672118e304dd931d507968209f44cb5ca4099c8cc5b511699',
       path: '/opt',
       owner: 'mattermost'
-      )
+    )
   end
 
   it 'creates data directory ' do
     expect(chef_run).to create_directory('/mattermost/data').with(
-      user: "mattermost",
+      user: 'mattermost',
       mode: 0755,
       recursive: true
-      )
+    )
   end
 
   it 'creates mattermost config template' do
@@ -36,5 +36,4 @@ describe 'mattermost-cookbook::default' do
     expect(chef_run).to enable_service('mattermost')
     expect(chef_run).to start_service('mattermost')
   end
-
 end
