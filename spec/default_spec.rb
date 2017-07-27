@@ -9,15 +9,15 @@ describe 'mattermost-cookbook::default' do
 
   it 'downloads and extracts ark' do
     expect(chef_run).to put_ark('mattermost').with(
-      url: 'https://releases.mattermost.com/3.5.0/mattermost-enterprise-3.5.0-linux-amd64.tar.gz',
-      checksum: '0aa376254b74c32672118e304dd931d507968209f44cb5ca4099c8cc5b511699',
+      url: 'https://releases.mattermost.com/3.9.2/mattermost-3.9.2-linux-amd64.tar.gz',
+      checksum: '49097757a4e97b26339446754859f2589ab420d56a795a57c507fcc1b02ba91b',
       path: '/opt',
       owner: 'mattermost'
     )
   end
 
   it 'creates data directory ' do
-    expect(chef_run).to create_directory('/mattermost/data').with(
+    expect(chef_run).to create_directory('/opt/mattermost/data').with(
       user: 'mattermost',
       mode: 0755,
       recursive: true
@@ -26,10 +26,6 @@ describe 'mattermost-cookbook::default' do
 
   it 'creates mattermost config template' do
     expect(chef_run).to create_template('/opt/mattermost/config/config.json')
-  end
-
-  it 'creates mattermost init template' do
-    expect(chef_run).to create_template('/etc/init/mattermost.conf')
   end
 
   it 'enables and starts mattermost service' do
