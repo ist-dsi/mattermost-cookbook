@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe 'mattermost::database' do
   packages = %w(
-    mysql-client-5.5
-    mysql-client-core-5.5
+    mysql-client-5.6
+    mysql-client-core-5.6
     mysql-common
     mysql-common-5.6
     mysql-server-core-5.6
