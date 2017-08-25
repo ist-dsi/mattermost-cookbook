@@ -1,12 +1,12 @@
+---
 driver:
   name: vagrant
   customize:
-      memory: 2048
-  network:
-     - ["forwarded_port", {guest: 8065, host: 8065}]
+    memory: 1024
 
 provisioner:
   name: chef_zero
+  deprecations_as_errors: true
 
 verifier:
   name: inspec
@@ -15,6 +15,8 @@ platforms:
   - name: centos-7
     driver:
       box: bento/centos-7.3
+    run_list:
+    - recipe[selinux::disabled]
   - name: ubuntu-16.04
     driver:
       box: bento/ubuntu-16.04
@@ -25,6 +27,24 @@ platforms:
 suites:
   - name: default
     run_list:
+      - recipe[mariadb::server]
       - recipe[mysql_test::default]
       - recipe[mattermost-cookbook::default]
     attributes:
+      mariadb:
+        use_default_repository: true
+        install:
+          version: "10.1"
+          prefer_os_package: true
+      mattermost:
+        app:
+          email_settings:
+            smtp_server: localhost
+            smtp_port: 25
+        database:
+          address: 127.0.0.1
+          username: root
+          password: ""
+    verifier:
+      inspec_tests:
+        - test/integration/default/inspec
