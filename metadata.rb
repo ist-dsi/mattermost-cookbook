@@ -2,7 +2,7 @@ name 'mattermost-cookbook'
 license 'Apache-2.0'
 version '1.0.0'
 
-chef_version '>= 12.1'
+chef_version '>= 12.7'
 
 maintainer 'David Duarte'
 maintainer_email 'david.duarte@tecnico.ulisboa.pt'
