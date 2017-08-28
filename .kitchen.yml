@@ -27,15 +27,12 @@ platforms:
 suites:
   - name: default
     run_list:
-      - recipe[mariadb::server]
       - recipe[mysql_test::default]
       - recipe[mattermost-cookbook::default]
     attributes:
       mariadb:
-        use_default_repository: true
         install:
           version: "10.1"
-          prefer_os_package: true
       mattermost:
         app:
           email_settings:
