@@ -21,6 +21,7 @@
         "EnableOnlyAdminIntegrations": <%= node['mattermost']['app']['service_settings']['enable_only_admin_integrations'] %>,
         "EnablePostUsernameOverride": <%= node['mattermost']['app']['service_settings']['enable_post_username_override'] %>,
         "EnablePostIconOverride": <%= node['mattermost']['app']['service_settings']['enable_post_icon_override'] %>,
+        "EnableAPIv3": <%= node['mattermost']['app']['service_settings']['enable_api_v3'] %>,
         "EnableLinkPreviews": <%= node['mattermost']['app']['service_settings']['enable_link_previews'] %>,
         "EnableTesting": <%= node['mattermost']['app']['service_settings']['enable_testing'] %>,
         "EnableDeveloper": <%= node['mattermost']['app']['service_settings']['enable_developer'] %>,
@@ -37,6 +38,7 @@
         "WebsocketPort": <%= node['mattermost']['app']['service_settings']['websocket_port'] %>,
         "WebserverMode": "<%= node['mattermost']['app']['service_settings']['webserver_mode']%>",
         "EnableCustomEmoji": <%= node['mattermost']['app']['service_settings']['enable_custom_emoji'] %>,
+        "EnableEmojiPicker": <%= node['mattermost']['app']['service_settings']['enable_custom_picker'] %>,
         "RestrictCustomEmojiCreation": "<%= node['mattermost']['app']['service_settings']['restrict_custom_emoji_creation'] %>",
         "RestrictPostDelete": "<%= node['mattermost']['app']['service_settings']['restrict_post_delete'] %>",
         "AllowEditPost": "<%= node['mattermost']['app']['service_settings']['allow_edit_post'] %>",
@@ -45,6 +47,7 @@
         "EnablePostSearch": <%= node['mattermost']['app']['service_settings']['enable_post_search'] %>,
         "EnableUserTypingMessages": <%= node['mattermost']['app']['service_settings']['enable_user_typing_messages'] %>,
         "EnableUserStatuses": <%= node['mattermost']['app']['service_settings']['enable_user_statuses'] %>,
+        "EnableChannelViewedMessages": <%= node['mattermost']['app']['service_settings']['enable_channel_viewed_messages'] %>,
         "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>
     },
     "ElasticSearchSettings": {
@@ -76,7 +79,8 @@
         "RestrictPrivateChannelManageMembers": "<%= node['mattermost']['app']['team_settings']['restrict_private_channel_manage_members'] %>",
         "UserStatusAwayTimeout": <%= node['mattermost']['app']['team_settings']['user_status_away_timeout'] %>,
         "MaxChannelsPerTeam": <%= node['mattermost']['app']['team_settings']['max_channels_per_team'] %>,
-        "MaxNotificationsPerChannel": <%= node['mattermost']['app']['team_settings']['max_notifications_per_channel'] %>
+        "MaxNotificationsPerChannel": <%= node['mattermost']['app']['team_settings']['max_notifications_per_channel'] %>,
+        "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>"
     },
     "SqlSettings": {
         "DriverName": "<%= node['mattermost']['app']['sql_settings']['driver_name'] %>",
@@ -113,12 +117,6 @@
         "Directory": "<%= node['mattermost']['app']['file_settings']['directory'] %>",
         "EnablePublicLink": <%= node['mattermost']['app']['file_settings']['enable_public_link'] %>,
         "PublicLinkSalt": "<%= node['mattermost']['app']['file_settings']['public_link_salt'] %>",
-        "ThumbnailWidth": <%= node['mattermost']['app']['file_settings']['thumbnail_width'] %>,
-        "ThumbnailHeight": <%= node['mattermost']['app']['file_settings']['thumbnail_height'] %>,
-        "PreviewWidth": <%= node['mattermost']['app']['file_settings']['preview_width'] %>,
-        "PreviewHeight": <%= node['mattermost']['app']['file_settings']['preview_height'] %>,
-        "ProfileWidth": <%= node['mattermost']['app']['file_settings']['profile_width'] %>,
-        "ProfileHeight": <%= node['mattermost']['app']['file_settings']['profile_height'] %>,
         "InitialFont": "<%= node['mattermost']['app']['file_settings']['initial_font'] %>",
         "AmazonS3AccessKeyId": "<%= node['mattermost']['app']['file_settings']['amazon_s3_access_key_id'] %>",
         "AmazonS3SecretAccessKey": "<%= node['mattermost']['app']['file_settings']['amazon_s3_secret_access_key'] %>",
@@ -263,8 +261,13 @@
     },
     "ClusterSettings": {
         "Enable": <%= node['mattermost']['app']['cluster_settings']['enable'] %>,
-        "InterNodeListenAddress": "<%= node['mattermost']['app']['cluster_settings']['inter_node_listen_address'] %>",
-        "InterNodeUrls": <%= node['mattermost']['app']['cluster_settings']['inter_node_urls'] %>
+        "ClusterName": "<%= node['mattermost']['app']['cluster_settings']['cluster_name'] %>",
+        "OverrideHostname": "<%= node['mattermost']['app']['cluster_settings']['override_hostname'] %>",
+        "UseIpAddress": <%= node['mattermost']['app']['cluster_settings']['use_ip_address'] %>,
+        "UseExperimentalGossip": <%= node['mattermost']['app']['cluster_settings']['use_experimental_gossip'] %>,
+        "ReadOnlyConfig":  <%= node['mattermost']['app']['cluster_settings']['read_only_config'] %>,
+        "GossipPort":  <%= node['mattermost']['app']['cluster_settings']['gossip_port'] %>,
+        "StreamingPort":  <%= node['mattermost']['app']['cluster_settings']['streaming_port'] %>
     },
     "MetricsSettings": {
         "Enable": <%= node['mattermost']['app']['metrics_settings']['enable'] %>,

@@ -20,6 +20,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_only_admin_integrations' => true,
   'enable_post_username_override' => false,
   'enable_post_icon_override' => false,
+  'enable_api_v3' => true,
   'enable_link_previews' => false,
   'enable_testing' => false,
   'enable_developer' => false,
@@ -36,6 +37,7 @@ default['mattermost']['app']['service_settings'] = {
   'websocket_port' => 80,
   'webserver_mode' => 'gzip',
   'enable_custom_emoji' => false,
+  'enable_custom_picker' => true,
   'restrict_custom_emoji_creation' => 'all',
   'restrict_post_delete' => 'all',
   'allow_edit_post' => 'always',
@@ -44,6 +46,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_post_search' => true,
   'enable_user_typing_messages' => true,
   'enable_user_statuses' => true,
+  'enable_channel_viewed_messages' => true,
   'cluster_log_timeout_milliseconds' => 2000,
 }
 
@@ -78,6 +81,7 @@ default['mattermost']['app']['team_settings'] = {
   'user_status_away_timeout' => 300,
   'max_channels_per_team' => 2000,
   'max_notifications_per_channel' => 1000,
+  'teammate_name_display' => 'username',
 }
 
 default['mattermost']['app']['sql_settings'] = {
@@ -122,12 +126,7 @@ default['mattermost']['app']['file_settings'] = {
   'directory' => './data/',
   'enable_public_link' => false,
   'public_link_salt' => '', # SET THIS!
-  'thumbnail_width' => 120,
-  'thumbnail_height' => 100,
-  'preview_width' => 1024,
-  'preview_height' => 0,
-  'profile_width' => 128,
-  'profile_height' => 128,
+
   'initial_font' => 'luximbi.ttf',
   'amazon_s3_access_key_id' => '',
   'amazon_s3_secret_access_key' => '',
@@ -286,8 +285,13 @@ default['mattermost']['app']['native_app_settings'] = {
 
 default['mattermost']['app']['cluster_settings'] = {
   'enable' => false,
-  'inter_node_listen_address' => ':8075',
-  'inter_node_urls' => [],
+  'cluster_name' => '',
+  'override_hostname' => '',
+  'use_ip_address' => true,
+  'use_experimental_gossip' => false,
+  'read_only_config' => true,
+  'gossip_port' => 8074,
+  'streaming_port' => 8075,
 }
 
 default['mattermost']['app']['metrics_settings'] = {

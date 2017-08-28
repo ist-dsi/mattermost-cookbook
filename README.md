@@ -14,6 +14,7 @@ This cookbook installs and configures Mattermost, the opensource Slack alternati
 |:----------------:|:------------------:|
 | v1.0.0           | 3.9.2              |
 | v1.1.0           | 3.10.3             |
+| v1.2.0           | 4.0.4              |
 
 ## Requirements
 
