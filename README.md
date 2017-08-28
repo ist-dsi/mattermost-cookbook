@@ -13,6 +13,7 @@ This cookbook installs and configures Mattermost, the opensource Slack alternati
 | Cookbook Version | Mattermost Version |
 |:----------------:|:------------------:|
 | v1.0.0           | 3.9.2              |
+| v1.1.0           | 3.10.3             |
 
 ## Requirements
 
@@ -38,7 +39,7 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 
 ### Attributes
 
-All settings are the default settings that come from [Mattermost](https://github.com/mattermost/platform/blob/v3.9.2/config/config.json) repository. Make sure to review them all and change what's necessary.
+All settings are the default settings that come from [Mattermost](https://github.com/mattermost/platform/blob/release-3.10/config/config.json) repository. Make sure to review them all and change what's necessary.
 
 ## License and Authors
 

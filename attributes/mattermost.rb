@@ -1,6 +1,6 @@
 default['mattermost']['package'] = {
-  'url' => 'https://releases.mattermost.com/3.9.2/mattermost-3.9.2-linux-amd64.tar.gz',
-  'checksum' => '49097757a4e97b26339446754859f2589ab420d56a795a57c507fcc1b02ba91b',
+  'url' => 'https://releases.mattermost.com/3.10.3/mattermost-3.10.3-linux-amd64.tar.gz',
+  'checksum' => 'a70a29986f62fdced9195eeb6d26dd3f6dad2bb9fe8badef708f779043e6d438',
 }
 
 default['mattermost']['config'] = {

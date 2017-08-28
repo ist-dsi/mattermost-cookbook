@@ -11,6 +11,7 @@ default['mattermost']['app']['service_settings'] = {
   'read_timeout' => 300,
   'write_timeout' => 300,
   'maximum_login_attempts' => 10,
+  'goroutine_health_threshold' => -1,
   'google_developer_key' => '',
   'enable_oauth_service_provider' => false,
   'enable_incoming_webhooks' => true,
@@ -44,6 +45,15 @@ default['mattermost']['app']['service_settings'] = {
   'enable_user_typing_messages' => true,
   'enable_user_statuses' => true,
   'cluster_log_timeout_milliseconds' => 2000,
+}
+
+default['mattermost']['app']['elastic_search_settings'] = {
+  'connection_url' => 'http://dockerhost:9200',
+  'username' => 'elastic',
+  'password' => 'changeme',
+  'enable_indexing' => false,
+  'enable_searching' => false,
+  'sniff' => true,
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -83,6 +93,7 @@ default['mattermost']['app']['sql_settings'] = {
   'max_open_conns' => 300,
   'trace' => false,
   'at_rest_encrypt_key' => '', # SET THIS!
+  'query_timeout' => 30,
 }
 
 default['mattermost']['app']['log_settings'] = {
@@ -124,6 +135,7 @@ default['mattermost']['app']['file_settings'] = {
   'amazon_s3_region' => 'us-east-1',
   'amazon_s3_endpoint' => 's3.amazonaws.com',
   'amazon_s3_ssl' => true,
+  'amazon_s3_sign_v2' => false,
 }
 
 default['mattermost']['app']['email_settings'] = {
@@ -171,6 +183,14 @@ default['mattermost']['app']['support_settings'] = {
   'help_link' => 'https://about.mattermost.com/default-help/',
   'report_a_problem_link' => 'https://about.mattermost.com/default-report-a-problem/',
   'support_email' => 'feedback@mattermost.com',
+}
+
+default['mattermost']['app']['announcement_settings'] = {
+  'enable_banner' => false,
+  'banner_text' => '',
+  'banner_color' => '#f2a93b',
+  'banner_text_color' => '#333333',
+  'allow_banner_dismissal' => true,
 }
 
 default['mattermost']['app']['gitlab_settings'] = {
@@ -288,3 +308,5 @@ default['mattermost']['app']['webrtc_settings'] = {
   'turn_username' => '',
   'turn_shared_key' => '',
 }
+
+default['mattermost']['app']['data_retention_settings']['enable'] = false
