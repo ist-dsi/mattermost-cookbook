@@ -28,6 +28,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_insecure_outgoing_connections' => false,
   'enable_multifactor_authentication' => false,
   'enforce_multifactor_authentication' => false,
+  'enable_user_access_tokens' => false,
   'allow_cors_from' => '',
   'session_length_web_in_days' => 30,
   'session_length_mobile_in_days' => 30,
@@ -57,6 +58,8 @@ default['mattermost']['app']['elastic_search_settings'] = {
   'enable_indexing' => false,
   'enable_searching' => false,
   'sniff' => true,
+  'post_index_replicas' => 1,
+  'post_index_shards' => 1,
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -121,12 +124,13 @@ default['mattermost']['app']['password_settings'] = {
 
 default['mattermost']['app']['file_settings'] = {
   'enable_file_attachments' => true,
+  'enable_mobile_upload' => true,
+  'enable_mobile_download' => true,
   'max_file_size' => 52428800,
   'driver_name' => 'local',
   'directory' => './data/',
   'enable_public_link' => false,
   'public_link_salt' => '', # SET THIS!
-
   'initial_font' => 'luximbi.ttf',
   'amazon_s3_access_key_id' => '',
   'amazon_s3_secret_access_key' => '',
@@ -146,6 +150,7 @@ default['mattermost']['app']['email_settings'] = {
   'feedback_name' => '',
   'feedback_email' => 'test@example.com',
   'feedback_organization' => '',
+  'enable_smtp_auth' => false,
   'smtp_username' => '',
   'smtp_password' => '',
   'smtp_server' => 'dockerhost',
@@ -159,6 +164,7 @@ default['mattermost']['app']['email_settings'] = {
   'email_batching_buffer_size' => 256,
   'email_batching_interval' => 30,
   'skip_server_certificate_verification' => false,
+  'email_notification_contents_type' => 'full',
 }
 
 default['mattermost']['app']['rate_limit_settings'] = {
@@ -181,6 +187,9 @@ default['mattermost']['app']['support_settings'] = {
   'about_link' => 'https://about.mattermost.com/default-about/',
   'help_link' => 'https://about.mattermost.com/default-help/',
   'report_a_problem_link' => 'https://about.mattermost.com/default-report-a-problem/',
+  'administrators_guide_link' => 'https://about.mattermost.com/administrators-guide/',
+  'troubleshooting_forum_link' => 'https://about.mattermost.com/troubleshooting-forum/',
+  'commercial_support_link' => 'https://about.mattermost.com/commercial-support/',
   'support_email' => 'feedback@mattermost.com',
 }
 
@@ -314,3 +323,10 @@ default['mattermost']['app']['webrtc_settings'] = {
 }
 
 default['mattermost']['app']['data_retention_settings']['enable'] = false
+
+default['mattermost']['app']['job_settings'] = {
+  'run_jobs' => true,
+  'run_scheduler' => true,
+}
+
+default['mattermost']['app']['plugin_settings']['plugins'] = {}
