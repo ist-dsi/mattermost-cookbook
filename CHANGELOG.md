@@ -4,7 +4,7 @@ This file is used to list changes made in each version of the apache2 cookbook.
 
 ## v1.3.0 (2017-08-29)
 
-- [] Update settings for Mattermost 4.1.0
+- [MCC-14] Update settings for Mattermost 4.1.0
 
 ## v1.2.0 (2017-08-28)
 
