@@ -2,7 +2,7 @@
 
 ## Quick-contribute
 
-* Create an issue on the Jira [issue tracker](https://jira.fenixedu.org/projects/MCC/summary)
+* Create an issue on the Github [issue page](https://github.com/ist-dsi/mattermost-cookbook/issues)
 * Create a pull request from the ticket with your changes
 
 We regularly review contributions and will get back to you if we have

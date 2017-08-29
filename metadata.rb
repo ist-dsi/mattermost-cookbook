@@ -20,4 +20,4 @@ supports 'ubuntu', '>= 16.04'
 depends 'ark'
 
 source_url 'https://github.com/ist-dsi/mattermost-cookbook' if respond_to?(:source_url)
-issues_url 'https://jira.fenixedu.org/browse/MCC' if respond_to?(:issues_url)
+issues_url 'https://github.com/ist-dsi/mattermost-cookbook/issues' if respond_to?(:issues_url)
