@@ -1,6 +1,6 @@
 # Mattermost Cookbook
 
-[![Build Status](https://travis-ci.org/ist-dsi/mattermost.svg?branch=master)](https://travis-ci.org/ist-dsi/mattermost) [![Cookbook Version](https://img.shields.io/cookbook/v/mattermost-cookbook.svg)](https://supermarket.chef.io/cookbooks/mattermost-cookbook)
+[![Build Status](https://travis-ci.org/ist-dsi/mattermost-cookbook.svg?branch=master)](https://travis-ci.org/ist-dsi/mattermost) [![Cookbook Version](https://img.shields.io/cookbook/v/mattermost-cookbook.svg)](https://supermarket.chef.io/cookbooks/mattermost-cookbook)
 
 ## Overview
 
@@ -15,6 +15,7 @@ This cookbook installs and configures Mattermost, the opensource Slack alternati
 | v1.0.0           | 3.9.2              |
 | v1.1.0           | 3.10.3             |
 | v1.2.0           | 4.0.4              |
+| v1.3.0           | 4.1.0              |
 
 ## Requirements
 
@@ -40,7 +41,7 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 
 ### Attributes
 
-All settings are the default settings that come from [Mattermost](https://github.com/mattermost/platform/blob/release-3.10/config/config.json) repository. Make sure to review them all and change what's necessary.
+All settings are the default settings that come from [Mattermost](https://github.com/mattermost/platform/blob/v4.1.0/config/config.json) repository. Make sure to review them all and change what's necessary.
 
 ## License and Authors
 
