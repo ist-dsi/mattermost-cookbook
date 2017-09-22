@@ -26,6 +26,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_developer' => false,
   'enable_security_fix_alert' => true,
   'enable_insecure_outgoing_connections' => false,
+  'enable_untrusted_internal_connections' => '',
   'enable_multifactor_authentication' => false,
   'enforce_multifactor_authentication' => false,
   'enable_user_access_tokens' => false,
@@ -51,17 +52,6 @@ default['mattermost']['app']['service_settings'] = {
   'cluster_log_timeout_milliseconds' => 2000,
 }
 
-default['mattermost']['app']['elastic_search_settings'] = {
-  'connection_url' => 'http://dockerhost:9200',
-  'username' => 'elastic',
-  'password' => 'changeme',
-  'enable_indexing' => false,
-  'enable_searching' => false,
-  'sniff' => true,
-  'post_index_replicas' => 1,
-  'post_index_shards' => 1,
-}
-
 default['mattermost']['app']['team_settings'] = {
   'site_name' => 'Mattermost',
   'max_users_per_team' => 50,
@@ -81,10 +71,21 @@ default['mattermost']['app']['team_settings'] = {
   'restrict_public_channel_deletion' => 'all',
   'restrict_private_channel_deletion' => 'all',
   'restrict_private_channel_manage_members' => 'all',
+  'enable_x_to_leave_channels_from_lhs' => false,
   'user_status_away_timeout' => 300,
   'max_channels_per_team' => 2000,
   'max_notifications_per_channel' => 1000,
   'teammate_name_display' => 'username',
+  'experimental_town_square_is_read_only' => false,
+}
+
+default['mattermost']['app']['client_requirements'] = {
+  'android_latest_version' => '',
+  'android_min_version' => '',
+  'desktop_latest_version' => '',
+  'desktop_min_version' => '',
+  'ios_latest_version' => '',
+  'ios_min_version' => '',
 }
 
 default['mattermost']['app']['sql_settings'] = {
@@ -139,6 +140,8 @@ default['mattermost']['app']['file_settings'] = {
   'amazon_s3_endpoint' => 's3.amazonaws.com',
   'amazon_s3_ssl' => true,
   'amazon_s3_sign_v2' => false,
+  'amazon_s3_sse' => false,
+  'amazon_s3_trace' => false,
 }
 
 default['mattermost']['app']['email_settings'] = {
@@ -187,9 +190,6 @@ default['mattermost']['app']['support_settings'] = {
   'about_link' => 'https://about.mattermost.com/default-about/',
   'help_link' => 'https://about.mattermost.com/default-help/',
   'report_a_problem_link' => 'https://about.mattermost.com/default-report-a-problem/',
-  'administrators_guide_link' => 'https://about.mattermost.com/administrators-guide/',
-  'troubleshooting_forum_link' => 'https://about.mattermost.com/troubleshooting-forum/',
-  'commercial_support_link' => 'https://about.mattermost.com/commercial-support/',
   'support_email' => 'feedback@mattermost.com',
 }
 
@@ -199,6 +199,13 @@ default['mattermost']['app']['announcement_settings'] = {
   'banner_color' => '#f2a93b',
   'banner_text_color' => '#333333',
   'allow_banner_dismissal' => true,
+}
+
+default['mattermost']['app']['theme_settings'] = {
+  'enable_theme_selection' => true,
+  'default_theme' => 'default',
+  'allow_custom_themes' => true,
+  'allowed_themes' => [],
 }
 
 default['mattermost']['app']['gitlab_settings'] = {
@@ -322,6 +329,19 @@ default['mattermost']['app']['webrtc_settings'] = {
   'turn_shared_key' => '',
 }
 
+default['mattermost']['app']['elastic_search_settings'] = {
+  'connection_url' => 'http://dockerhost:9200',
+  'username' => 'elastic',
+  'password' => 'changeme',
+  'enable_indexing' => false,
+  'enable_searching' => false,
+  'sniff' => true,
+  'post_index_replicas' => 1,
+  'post_index_shards' => 1,
+  'aggregate_posts_after_days' => 365,
+  'post_aggregator_job_start_time' => '03:00',
+}
+
 default['mattermost']['app']['data_retention_settings']['enable'] = false
 
 default['mattermost']['app']['job_settings'] = {
@@ -329,4 +349,7 @@ default['mattermost']['app']['job_settings'] = {
   'run_scheduler' => true,
 }
 
-default['mattermost']['app']['plugin_settings']['plugins'] = {}
+default['mattermost']['app']['plugin_settings'] = {
+  'enable' => false,
+  'plugins' => {},
+}
