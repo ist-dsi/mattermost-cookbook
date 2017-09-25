@@ -27,6 +27,7 @@
         "EnableDeveloper": <%= node['mattermost']['app']['service_settings']['enable_developer'] %>,
         "EnableSecurityFixAlert": <%= node['mattermost']['app']['service_settings']['enable_security_fix_alert'] %>,
         "EnableInsecureOutgoingConnections": <%= node['mattermost']['app']['service_settings']['enable_insecure_outgoing_connections'] %>,
+        "AllowedUntrustedInternalConnections": "<%= node['mattermost']['app']['service_settings']['enable_untrusted_internal_connections'] %>",
         "EnableMultifactorAuthentication": <%= node['mattermost']['app']['service_settings']['enable_multifactor_authentication'] %>,
         "EnforceMultifactorAuthentication": <%= node['mattermost']['app']['service_settings']['enforce_multifactor_authentication'] %>,
         "EnableUserAccessTokens": <%= node['mattermost']['app']['service_settings']['enable_user_access_tokens'] %>,
@@ -70,10 +71,20 @@
         "RestrictPublicChannelDeletion": "<%= node['mattermost']['app']['team_settings']['restrict_public_channel_deletion'] %>",
         "RestrictPrivateChannelDeletion": "<%= node['mattermost']['app']['team_settings']['restrict_private_channel_deletion'] %>",
         "RestrictPrivateChannelManageMembers": "<%= node['mattermost']['app']['team_settings']['restrict_private_channel_manage_members'] %>",
+        "EnableXToLeaveChannelsFromLHS": <%= node['mattermost']['app']['team_settings']['enable_x_to_leave_channels_from_lhs'] %>,
         "UserStatusAwayTimeout": <%= node['mattermost']['app']['team_settings']['user_status_away_timeout'] %>,
         "MaxChannelsPerTeam": <%= node['mattermost']['app']['team_settings']['max_channels_per_team'] %>,
         "MaxNotificationsPerChannel": <%= node['mattermost']['app']['team_settings']['max_notifications_per_channel'] %>,
-        "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>"
+        "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>",
+        "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>
+    },
+    "ClientRequirements": {
+        "AndroidLatestVersion": "<%= node['mattermost']['app']['client_requirements']['android_latest_version'] %>",
+        "AndroidMinVersion": "<%= node['mattermost']['app']['client_requirements']['android_min_version'] %>",
+        "DesktopLatestVersion": "<%= node['mattermost']['app']['client_requirements']['desktop_latest_version'] %>",
+        "DesktopMinVersion": "<%= node['mattermost']['app']['client_requirements']['desktop_min_version'] %>",
+        "IosLatestVersion": "<%= node['mattermost']['app']['client_requirements']['ios_latest_version'] %>",
+        "IosMinVersion": "<%= node['mattermost']['app']['client_requirements']['ios_min_version'] %>"
     },
     "SqlSettings": {
         "DriverName": "<%= node['mattermost']['app']['sql_settings']['driver_name'] %>",
@@ -119,7 +130,9 @@
         "AmazonS3Region": "<%= node['mattermost']['app']['file_settings']['amazon_s3_region'] %>",
         "AmazonS3Endpoint": "<%= node['mattermost']['app']['file_settings']['amazon_s3_endpoint'] %>",
         "AmazonS3SSL": <%= node['mattermost']['app']['file_settings']['amazon_s3_ssl'] %>,
-        "AmazonS3SignV2": <%= node['mattermost']['app']['file_settings']['amazon_s3_sign_v2'] %>
+        "AmazonS3SignV2": <%= node['mattermost']['app']['file_settings']['amazon_s3_sign_v2'] %>,
+        "AmazonS3SSE": <%= node['mattermost']['app']['file_settings']['amazon_s3_sse']%>,
+        "AmazonS3Trace": <%= node['mattermost']['app']['file_settings']['amazon_s3_trace']%>
     },
     "EmailSettings": {
         "EnableSignUpWithEmail": <%= node['mattermost']['app']['email_settings']['enable_sign_up_with_email'] %>,
@@ -164,9 +177,6 @@
         "AboutLink": "<%= node['mattermost']['app']['support_settings']['about_link'] %>",
         "HelpLink": "<%= node['mattermost']['app']['support_settings']['help_link'] %>",
         "ReportAProblemLink": "<%= node['mattermost']['app']['support_settings']['report_a_problem_link'] %>",
-        "AdministratorsGuideLink": "<%= node['mattermost']['app']['support_settings']['administrators_guide_link'] %>",
-        "TroubleshootingForumLink": "<%= node['mattermost']['app']['support_settings']['troubleshooting_forum_link'] %>",
-        "CommercialSupportLink": "<%= node['mattermost']['app']['support_settings']['commercial_support_link'] %>",
         "SupportEmail": "<%= node['mattermost']['app']['support_settings']['support_email'] %>"
     },
     "AnnouncementSettings": {
@@ -175,6 +185,12 @@
         "BannerColor": "<%= node['mattermost']['app']['announcement_settings']['banner_color'] %>",
         "BannerTextColor": "<%= node['mattermost']['app']['announcement_settings']['banner_text_color'] %>",
         "AllowBannerDismissal": <%= node['mattermost']['app']['announcement_settings']['allow_banner_dismissal'] %>
+    },
+    "ThemeSettings": {
+        "EnableThemeSelection": <%= node['mattermost']['app']['theme_settings']['enable_theme_selection'] %>,
+        "DefaultTheme": "<%= node['mattermost']['app']['theme_settings']['default_theme'] %>",
+        "AllowCustomThemes": <%= node['mattermost']['app']['theme_settings']['allow_custom_themes'] %>,
+        "AllowedThemes": <%= node['mattermost']['app']['theme_settings']['allowed_themes'] %>
     },
     "GitLabSettings": {
         "Enable": <%= node['mattermost']['app']['gitlab_settings']['enable'] %>,
@@ -295,7 +311,9 @@
         "EnableSearching": <%= node['mattermost']['app']['elastic_search_settings']['enable_searching'] %>,
         "Sniff": <%= node['mattermost']['app']['elastic_search_settings']['sniff'] %>,
         "PostIndexReplicas": <%= node['mattermost']['app']['elastic_search_settings']['post_index_replicas'] %>, 
-        "PostIndexShards": <%= node['mattermost']['app']['elastic_search_settings']['post_index_shards'] %> 
+        "PostIndexShards": <%= node['mattermost']['app']['elastic_search_settings']['post_index_shards'] %>,
+        "AggregatePostsAfterDays": <%= node['mattermost']['app']['elastic_search_settings']['aggregate_posts_after_days'] %>,
+        "PostsAggregatorJobStartTime": "<%= node['mattermost']['app']['elastic_search_settings']['post_aggregator_job_start_time'] %>"
     },
     "DataRetentionSettings": {
         "Enable": <%= node['mattermost']['app']['data_retention_settings']['enable'] %>
@@ -305,6 +323,7 @@
         "RunScheduler": <%= node['mattermost']['app']['job_settings']['run_scheduler'] %>
     },
     "PluginSettings": {
+        "Enable": <%= node['mattermost']['app']['plugin_settings']['enable'] %>,
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>
     }
 }
