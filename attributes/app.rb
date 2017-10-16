@@ -35,6 +35,7 @@ default['mattermost']['app']['service_settings'] = {
   'session_length_mobile_in_days' => 30,
   'SessionLengthSSOInDays' => 30,
   'session_cache_in_minutes' => 10,
+  'session_idle_timeout' => 0,
   'websocket_secure_port' => 443,
   'websocket_port' => 80,
   'webserver_mode' => 'gzip',
@@ -75,6 +76,7 @@ default['mattermost']['app']['team_settings'] = {
   'user_status_away_timeout' => 300,
   'max_channels_per_team' => 2000,
   'max_notifications_per_channel' => 1000,
+  'enable_confirm_notifications_to_channel' => true,
   'teammate_name_display' => 'username',
   'experimental_town_square_is_read_only' => false,
 }
@@ -340,9 +342,16 @@ default['mattermost']['app']['elastic_search_settings'] = {
   'post_index_shards' => 1,
   'aggregate_posts_after_days' => 365,
   'post_aggregator_job_start_time' => '03:00',
+  'index_prefix' => '',
 }
 
-default['mattermost']['app']['data_retention_settings']['enable'] = false
+default['mattermost']['app']['data_retention_settings'] = {
+  'enable_message_deletion' => false,
+  'enable_file_deletion' => false,
+  'message_retention_days' => 365,
+  'file_retention_days' => 365,
+  'deletion_job_start_time' => '02:00',
+}
 
 default['mattermost']['app']['job_settings'] = {
   'run_jobs' => true,

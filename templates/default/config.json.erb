@@ -36,6 +36,7 @@
         "SessionLengthMobileInDays": <%= node['mattermost']['app']['service_settings']['session_length_mobile_in_days'] %>,
         "SessionLengthSSOInDays": <%= node['mattermost']['app']['service_settings']['SessionLengthSSOInDays'] %>,
         "SessionCacheInMinutes": <%= node['mattermost']['app']['service_settings']['session_cache_in_minutes'] %>,
+        "SessionIdleTimeout": <%= node['mattermost']['app']['service_settings']['session_idle_timeout'] %>,
         "WebsocketSecurePort": <%= node['mattermost']['app']['service_settings']['websocket_secure_port'] %>,
         "WebsocketPort": <%= node['mattermost']['app']['service_settings']['websocket_port'] %>,
         "WebserverMode": "<%= node['mattermost']['app']['service_settings']['webserver_mode']%>",
@@ -75,6 +76,7 @@
         "UserStatusAwayTimeout": <%= node['mattermost']['app']['team_settings']['user_status_away_timeout'] %>,
         "MaxChannelsPerTeam": <%= node['mattermost']['app']['team_settings']['max_channels_per_team'] %>,
         "MaxNotificationsPerChannel": <%= node['mattermost']['app']['team_settings']['max_notifications_per_channel'] %>,
+        "EnableConfirmNotificationsToChannel": <%= node['mattermost']['app']['team_settings']['enable_confirm_notifications_to_channel'] %>,
         "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>",
         "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>
     },
@@ -313,10 +315,15 @@
         "PostIndexReplicas": <%= node['mattermost']['app']['elastic_search_settings']['post_index_replicas'] %>, 
         "PostIndexShards": <%= node['mattermost']['app']['elastic_search_settings']['post_index_shards'] %>,
         "AggregatePostsAfterDays": <%= node['mattermost']['app']['elastic_search_settings']['aggregate_posts_after_days'] %>,
-        "PostsAggregatorJobStartTime": "<%= node['mattermost']['app']['elastic_search_settings']['post_aggregator_job_start_time'] %>"
+        "PostsAggregatorJobStartTime": "<%= node['mattermost']['app']['elastic_search_settings']['post_aggregator_job_start_time'] %>",
+        "IndexPrefix": "<%= node['mattermost']['app']['elastic_search_settings']['index_prefix'] %>"
     },
     "DataRetentionSettings": {
-        "Enable": <%= node['mattermost']['app']['data_retention_settings']['enable'] %>
+        "EnableMessageDeletion": <%= node['mattermost']['app']['data_retention_settings']['enable_message_deletion'] %>,
+        "EnableFileDeletion": <%= node['mattermost']['app']['data_retention_settings']['enable_file_deletion'] %>,
+        "MessageRetentionDays": <%= node['mattermost']['app']['data_retention_settings']['message_retention_days'] %>,
+        "FileRetentionDays": <%= node['mattermost']['app']['data_retention_settings']['file_retention_days'] %>,
+        "DeletionJobStartTime": "<%= node['mattermost']['app']['data_retention_settings']['deletion_job_start_time'] %>"
     },
     "JobSettings": {
         "RunJobs": <%= node['mattermost']['app']['job_settings']['run_jobs'] %>,
