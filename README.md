@@ -1,6 +1,6 @@
 # Mattermost Cookbook
 
-[![Build Status](https://travis-ci.org/ist-dsi/mattermost-cookbook.svg?branch=master)](https://travis-ci.org/ist-dsi/mattermost) [![Cookbook Version](https://img.shields.io/cookbook/v/mattermost-cookbook.svg)](https://supermarket.chef.io/cookbooks/mattermost-cookbook)
+[![Build Status](https://travis-ci.org/ist-dsi/mattermost-cookbook.svg?branch=master)](https://travis-ci.org/ist-dsi/mattermost-cookbook) [![Cookbook Version](https://img.shields.io/cookbook/v/mattermost-cookbook.svg)](https://supermarket.chef.io/cookbooks/mattermost-cookbook)
 
 ## Overview
 
