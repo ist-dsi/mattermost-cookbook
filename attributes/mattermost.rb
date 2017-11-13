@@ -1,6 +1,6 @@
 default['mattermost']['package'] = {
-  'url' => 'https://releases.mattermost.com/4.3.1/mattermost-4.3.1-linux-amd64.tar.gz',
-  'checksum' => '1bd39d94e97802e55aa8b1a6bfc69a9322ac4da03a7d3825819656bf24224be6',
+  'url' => 'https://releases.mattermost.com/4.3.2/mattermost-4.3.2-linux-amd64.tar.gz',
+  'checksum' => 'e1bdef75114de7dbabc77becb267405bbacee0b5b28a93393ab2ec04fc272335',
 }
 
 default['mattermost']['config'] = {
