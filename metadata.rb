@@ -1,13 +1,13 @@
 name 'mattermost-cookbook'
 license 'Apache-2.0'
-version '1.5.3'
+version '1.5.4'
 
 chef_version '>= 12.7'
 
 maintainer 'David Duarte'
 maintainer_email 'david.duarte@tecnico.ulisboa.pt'
 
-description 'Installs/Configures mattermost http://mattermost.com'
+description 'Installs/Configures mattermost https://about.mattermost.com'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 %w(redhat centos).each do |el|

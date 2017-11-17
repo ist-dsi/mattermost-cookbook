@@ -51,6 +51,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_user_statuses' => true,
   'enable_channel_viewed_messages' => true,
   'cluster_log_timeout_milliseconds' => 2000,
+  'close_unused_direct_messages' => false,
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -242,6 +243,7 @@ default['mattermost']['app']['office_365_settings'] = {
 
 default['mattermost']['app']['ldap_settings'] = {
   'enable' => false,
+  'enable_sync' => false,
   'ldap_server' => '',
   'ldap_port' => 389,
   'connection_security' => '',
@@ -277,6 +279,7 @@ default['mattermost']['app']['localization_settings'] = {
 
 default['mattermost']['app']['saml_settings'] = {
   'enable' => false,
+  'enable_sync_with_ldap' => false,
   'verify' => true,
   'encrypt' => true,
   'idp_url' => '',
@@ -343,6 +346,9 @@ default['mattermost']['app']['elastic_search_settings'] = {
   'aggregate_posts_after_days' => 365,
   'post_aggregator_job_start_time' => '03:00',
   'index_prefix' => '',
+  'live_indexing_batch_size' => 1,
+  'request_timeout_seconds' => 30,
+  'bulk_indexing_time_window_seconds' => 3600,
 }
 
 default['mattermost']['app']['data_retention_settings'] = {
@@ -359,6 +365,9 @@ default['mattermost']['app']['job_settings'] = {
 }
 
 default['mattermost']['app']['plugin_settings'] = {
-  'enable' => false,
+  'enable' => true,
+  'enable_uploads' => false,
+  'directory' => './plugins',
   'plugins' => {},
+  'plugin_states' => {},
 }

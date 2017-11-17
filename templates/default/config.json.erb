@@ -51,7 +51,8 @@
         "EnableUserTypingMessages": <%= node['mattermost']['app']['service_settings']['enable_user_typing_messages'] %>,
         "EnableUserStatuses": <%= node['mattermost']['app']['service_settings']['enable_user_statuses'] %>,
         "EnableChannelViewedMessages": <%= node['mattermost']['app']['service_settings']['enable_channel_viewed_messages'] %>,
-        "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>
+        "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>,
+        "CloseUnusedDirectMessages": <%= node['mattermost']['app']['service_settings']['close_unused_direct_messages'] %>
     },
     "TeamSettings": {
         "SiteName": "<%= node['mattermost']['app']['team_settings']['site_name'] %>",
@@ -223,6 +224,7 @@
     },
     "LdapSettings": {
         "Enable": <%= node['mattermost']['app']['ldap_settings']['enable'] %>,
+        "EnableSync": <%= node['mattermost']['app']['ldap_settings']['enable_sync'] %>,
         "LdapServer": "<%= node['mattermost']['app']['ldap_settings']['ldap_server'] %>",
         "LdapPort": <%= node['mattermost']['app']['ldap_settings']['ldap_port'] %>,
         "ConnectionSecurity": "<%= node['mattermost']['app']['ldap_settings']['connection_security'] %>",
@@ -255,6 +257,7 @@
     },
     "SamlSettings": {
         "Enable": <%= node['mattermost']['app']['saml_settings']['enable'] %>,
+        "EnableSyncWithLdap": <%= node['mattermost']['app']['saml_settings']['enable_sync_with_ldap'] %>,
         "Verify": <%= node['mattermost']['app']['saml_settings']['verify'] %>,
         "Encrypt": <%= node['mattermost']['app']['saml_settings']['encrypt'] %>,
         "IdpUrl": "<%= node['mattermost']['app']['saml_settings']['idp_url'] %>",
@@ -316,7 +319,10 @@
         "PostIndexShards": <%= node['mattermost']['app']['elastic_search_settings']['post_index_shards'] %>,
         "AggregatePostsAfterDays": <%= node['mattermost']['app']['elastic_search_settings']['aggregate_posts_after_days'] %>,
         "PostsAggregatorJobStartTime": "<%= node['mattermost']['app']['elastic_search_settings']['post_aggregator_job_start_time'] %>",
-        "IndexPrefix": "<%= node['mattermost']['app']['elastic_search_settings']['index_prefix'] %>"
+        "IndexPrefix": "<%= node['mattermost']['app']['elastic_search_settings']['index_prefix'] %>",
+        "LiveIndexingBatchSize": <%= node['mattermost']['app']['elastic_search_settings']['live_indexing_batch_size'] %>,
+        "RequestTimeoutSeconds": <%= node['mattermost']['app']['elastic_search_settings']['request_timeout_seconds'] %>,
+        "BulkIndexingTimeWindowSeconds": <%= node['mattermost']['app']['elastic_search_settings']['bulk_indexing_time_window_seconds'] %>
     },
     "DataRetentionSettings": {
         "EnableMessageDeletion": <%= node['mattermost']['app']['data_retention_settings']['enable_message_deletion'] %>,
@@ -331,6 +337,9 @@
     },
     "PluginSettings": {
         "Enable": <%= node['mattermost']['app']['plugin_settings']['enable'] %>,
-        "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>
+        "EnableUploads": <%= node['mattermost']['app']['plugin_settings']['enable_uploads'] %>,
+        "Directory": "<%= node['mattermost']['app']['plugin_settings']['directory'] %>",
+        "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
+        "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>        
     }
 }
