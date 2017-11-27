@@ -45,6 +45,11 @@ template mattermost_service_dir do
   notifies :restart, 'service[mattermost]'
 end
 
+execute 'setcap cap_net_bind_service=+ep ./platform' do
+  cwd "#{node['mattermost']['config']['install_path']}/mattermost/bin"
+  user 'root'
+end
+
 service 'mattermost' do
   supports status: true, restart: true, reload: true
   action [:start, :enable]
