@@ -3,10 +3,7 @@
 # Recipe:: default
 #
 # Copyright (c) 2017 The Authors, All Rights Reserved.
-mattermost_service_dir = '/etc/systemd/system/mattermost.service'
-if node['platform_family'] == 'debian'
-  mattermost_service_dir = '/lib/systemd/system/mattermost.service'
-end
+apt_package 'libcap2-bin' if node['platform_family'] == 'debian'
 
 user node['mattermost']['config']['user'] do
   action :create
