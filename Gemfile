@@ -7,12 +7,31 @@
 
 source 'https://rubygems.org'
 
+gem 'chef'
+gem 'berkshelf'
 gem 'stove'
 
+group :lint do
+  gem 'foodcritic'
+  gem 'cookstyle'
+end
+
+group :unit do
+  gem 'chefspec'
+end
+
 group :integration do
-  gem 'chef-zero', '~> 5.3'
-  gem 'inspec', '~> 1.19'
-  gem 'kitchen-docker', '~> 2.6.0'
-  gem 'kitchen-inspec', '~> 0.17'
-  gem 'test-kitchen', '~> 1.16'
+  gem 'inspec'
+end
+
+group :kitchen_common do
+  gem 'test-kitchen'
+end
+
+group :kitchen_vagrant do
+  gem 'kitchen-vagrant'
+end
+
+group :kitchen_dokken do
+  gem 'kitchen-dokken'
 end
