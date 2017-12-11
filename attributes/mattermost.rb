@@ -10,3 +10,5 @@ default['mattermost']['config'] = {
   'data_dir' => '/opt/mattermost/data',
   'server_name' => 'localhost',
 }
+
+default['mattermost']['systemd']['after'] = %w( syslog.target network.target )

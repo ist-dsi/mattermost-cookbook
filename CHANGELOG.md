@@ -2,6 +2,12 @@
 
 This file is used to list changes made in each version of the Mattermost cookbook.
 
+## v1.6.0 (2017.12.11)
+
+- [#14](https://github.com/ist-dsi/mattermost-cookbook/issues/14) Update settings for Mattermost 4.4.3
+- [#12](https://github.com/ist-dsi/mattermost-cookbook//issues/12) Refactor creation of `SystemD` service
+- Set capability `CAP_NET_BIND_SERVICE` for `./platform` as stated in [installation guide](https://docs.mattermost.com/install/install-rhel-71.html#configuring-tls-on-mattermost-server).
+
 ## v1.5.5 (2017.11.23)
 
 - [#13](https://github.com/ist-dsi/mattermost-cookbook/issues/13) Update settings for Mattermost 4.4.2

@@ -33,7 +33,7 @@ The following platforms and versions are tested and supported using [test-kitche
 
 ### Chef
 
-* Chef 12.7+
+* Chef 12.19+
 
 ### Cookbooks
 

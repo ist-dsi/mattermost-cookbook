@@ -31,15 +31,7 @@ template "#{node['mattermost']['config']['install_path']}/mattermost/config/conf
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
   mode '0640'
-  notifies :restart, 'service[mattermost]'
-end
-
-template mattermost_service_dir do
-  source 'mattermost.service.erb'
-  owner 'root'
-  group 'root'
-  mode '0644'
-  notifies :restart, 'service[mattermost]'
+  notifies :restart, 'systemd_unit[mattermost.service]'
 end
 
 execute 'setcap cap_net_bind_service=+ep ./platform' do
@@ -47,7 +39,26 @@ execute 'setcap cap_net_bind_service=+ep ./platform' do
   user 'root'
 end
 
-service 'mattermost' do
-  supports status: true, restart: true, reload: true
-  action [:start, :enable]
+systemd_unit 'mattermost.service' do
+  content(
+    Unit: {
+      Description: 'Mattermost',
+      After: node['mattermost']['systemd']['after'].join(' '),
+    },
+    Service: {
+      ExecStart: "#{node['mattermost']['config']['install_path']}/mattermost/bin/platform",
+      WorkingDirectory: "#{node['mattermost']['config']['install_path']}/mattermost",
+      Restart: 'always',
+      StandardOutput: 'syslog',
+      StandardError: 'syslog',
+      SyslogIdentifier: 'mattermost',
+      User: node['mattermost']['config']['user'].to_s,
+      Group: node['mattermost']['config']['group'].to_s,
+    },
+    Install: {
+      WantedBy: 'multi-user.target',
+    }
+  )
+  verify false
+  action [:create, :enable, :start]
 end

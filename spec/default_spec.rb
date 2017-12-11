@@ -29,7 +29,8 @@ describe 'mattermost-cookbook::default' do
   end
 
   it 'enables and starts mattermost service' do
-    expect(chef_run).to enable_service('mattermost')
-    expect(chef_run).to start_service('mattermost')
+    expect(chef_run).to create_systemd_unit('mattermost.service')
+    expect(chef_run).to enable_systemd_unit('mattermost.service')
+    expect(chef_run).to start_systemd_unit('mattermost.service')
   end
 end
