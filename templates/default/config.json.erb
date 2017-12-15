@@ -339,6 +339,7 @@
         "Enable": <%= node['mattermost']['app']['plugin_settings']['enable'] %>,
         "EnableUploads": <%= node['mattermost']['app']['plugin_settings']['enable_uploads'] %>,
         "Directory": "<%= node['mattermost']['app']['plugin_settings']['directory'] %>",
+        "ClientDirectory": "<%= node['mattermost']['app']['plugin_settings']['client_directory'] %>",
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
         "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>        
     }
