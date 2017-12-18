@@ -45,12 +45,14 @@ default['mattermost']['app']['service_settings'] = {
   'restrict_post_delete' => 'all',
   'allow_edit_post' => 'always',
   'post_edit_time_limit' => 300,
+  'experimental_enable_authentication_transfer' => true,
   'time_between_user_typing_updates_milliseconds' => 5000,
   'enable_post_search' => true,
   'enable_user_typing_messages' => true,
   'enable_user_statuses' => true,
   'enable_channel_viewed_messages' => true,
   'cluster_log_timeout_milliseconds' => 2000,
+  'enable_preview_features' => true,
   'close_unused_direct_messages' => false,
 }
 
@@ -152,6 +154,7 @@ default['mattermost']['app']['email_settings'] = {
   'enable_sign_in_with_email' => true,
   'enable_sign_in_with_username' => true,
   'send_email_notifications' => true,
+  'use_channel_in_email_notifications' => false,
   'require_email_verification' => false,
   'feedback_name' => '',
   'feedback_email' => 'test@example.com',
@@ -357,6 +360,14 @@ default['mattermost']['app']['data_retention_settings'] = {
   'message_retention_days' => 365,
   'file_retention_days' => 365,
   'deletion_job_start_time' => '02:00',
+}
+
+default['mattermost']['app']['message_export_settings'] = {
+  'enable_export' => false,
+  'daily_run_time' => '01:00',
+  'export_from_timestamp' => 0,
+  'file_location' => 'export',
+  'batch_size' => 10000,
 }
 
 default['mattermost']['app']['job_settings'] = {

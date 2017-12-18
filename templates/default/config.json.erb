@@ -46,12 +46,14 @@
         "RestrictPostDelete": "<%= node['mattermost']['app']['service_settings']['restrict_post_delete'] %>",
         "AllowEditPost": "<%= node['mattermost']['app']['service_settings']['allow_edit_post'] %>",
         "PostEditTimeLimit": <%= node['mattermost']['app']['service_settings']['post_edit_time_limit'] %>,
+        "ExperimentalEnableAuthenticationTransfer": <%= node['mattermost']['app']['service_settings']['experimental_enable_authentication_transfer'] %>,
         "TimeBetweenUserTypingUpdatesMilliseconds": <%= node['mattermost']['app']['service_settings']['time_between_user_typing_updates_milliseconds'] %>,
         "EnablePostSearch": <%= node['mattermost']['app']['service_settings']['enable_post_search'] %>,
         "EnableUserTypingMessages": <%= node['mattermost']['app']['service_settings']['enable_user_typing_messages'] %>,
         "EnableUserStatuses": <%= node['mattermost']['app']['service_settings']['enable_user_statuses'] %>,
         "EnableChannelViewedMessages": <%= node['mattermost']['app']['service_settings']['enable_channel_viewed_messages'] %>,
         "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>,
+        "EnablePreviewFeatures": <%= node['mattermost']['app']['service_settings']['enable_preview_features'] %>,
         "CloseUnusedDirectMessages": <%= node['mattermost']['app']['service_settings']['close_unused_direct_messages'] %>
     },
     "TeamSettings": {
@@ -142,6 +144,7 @@
         "EnableSignInWithEmail": <%= node['mattermost']['app']['email_settings']['enable_sign_in_with_email'] %>,
         "EnableSignInWithUsername": <%= node['mattermost']['app']['email_settings']['enable_sign_in_with_username'] %>,
         "SendEmailNotifications": <%= node['mattermost']['app']['email_settings']['send_email_notifications'] %>,
+        "UseChannelInEmailNotifications": <%= node['mattermost']['app']['email_settings']['use_channel_in_email_notifications'] %>,
         "RequireEmailVerification": <%= node['mattermost']['app']['email_settings']['require_email_verification'] %>,
         "FeedbackName": "<%= node['mattermost']['app']['email_settings']['feedback_name'] %>",
         "FeedbackEmail": "<%= node['mattermost']['app']['email_settings']['feedback_email'] %>",
@@ -330,6 +333,13 @@
         "MessageRetentionDays": <%= node['mattermost']['app']['data_retention_settings']['message_retention_days'] %>,
         "FileRetentionDays": <%= node['mattermost']['app']['data_retention_settings']['file_retention_days'] %>,
         "DeletionJobStartTime": "<%= node['mattermost']['app']['data_retention_settings']['deletion_job_start_time'] %>"
+    },
+    "MessageExportSettings": {
+        "EnableExport": <%= node['mattermost']['app']['message_export_settings']['enable_export'] %>,
+        "DailyRunTime": "<%= node['mattermost']['app']['message_export_settings']['daily_run_time'] %>",
+        "ExportFromTimestamp": <%= node['mattermost']['app']['message_export_settings']['export_from_timestamp'] %>,
+        "FileLocation": "<%= node['mattermost']['app']['message_export_settings']['file_location'] %>",
+        "BatchSize": <%= node['mattermost']['app']['message_export_settings']['batch_size'] %>
     },
     "JobSettings": {
         "RunJobs": <%= node['mattermost']['app']['job_settings']['run_jobs'] %>,
