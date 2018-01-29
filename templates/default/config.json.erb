@@ -54,7 +54,8 @@
         "EnableChannelViewedMessages": <%= node['mattermost']['app']['service_settings']['enable_channel_viewed_messages'] %>,
         "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>,
         "EnablePreviewFeatures": <%= node['mattermost']['app']['service_settings']['enable_preview_features'] %>,
-        "CloseUnusedDirectMessages": <%= node['mattermost']['app']['service_settings']['close_unused_direct_messages'] %>
+        "CloseUnusedDirectMessages": <%= node['mattermost']['app']['service_settings']['close_unused_direct_messages'] %>,
+        "EnableTutorial": <%= node['mattermost']['app']['service_settings']['enable_tutorial'] %>
     },
     "TeamSettings": {
         "SiteName": "<%= node['mattermost']['app']['team_settings']['site_name'] %>",
@@ -81,7 +82,8 @@
         "MaxNotificationsPerChannel": <%= node['mattermost']['app']['team_settings']['max_notifications_per_channel'] %>,
         "EnableConfirmNotificationsToChannel": <%= node['mattermost']['app']['team_settings']['enable_confirm_notifications_to_channel'] %>,
         "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>",
-        "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>
+        "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>,
+        "ExperimentalPrimaryTeam": "<%= node['mattermost']['app']['team_settings']['experimental_primary_team'] %>"
     },
     "ClientRequirements": {
         "AndroidLatestVersion": "<%= node['mattermost']['app']['client_requirements']['android_latest_version'] %>",
@@ -163,7 +165,10 @@
         "EmailBatchingBufferSize": <%= node['mattermost']['app']['email_settings']['email_batching_buffer_size'] %>,
         "EmailBatchingInterval": <%= node['mattermost']['app']['email_settings']['email_batching_interval'] %>,
         "SkipServerCertificateVerification": <%= node['mattermost']['app']['email_settings']['skip_server_certificate_verification'] %>,
-        "EmailNotificationContentsType": "<%= node['mattermost']['app']['email_settings']['email_notification_contents_type'] %>"
+        "EmailNotificationContentsType": "<%= node['mattermost']['app']['email_settings']['email_notification_contents_type'] %>",
+        "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
+        "LoginButtonBorderColor": "<%= node['mattermost']['app']['email_settings']['login_button_border_color'] %>",
+        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"
     },
     "RateLimitSettings": {
         "Enable": <%= node['mattermost']['app']['rate_limit_settings']['enable'] %>,
@@ -246,7 +251,10 @@
         "SkipCertificateVerification": <%= node['mattermost']['app']['ldap_settings']['skip_certificate_verification'] %>,
         "QueryTimeout": <%= node['mattermost']['app']['ldap_settings']['query_timeout'] %>,
         "MaxPageSize": <%= node['mattermost']['app']['ldap_settings']['max_page_size'] %>,
-        "LoginFieldName": "<%= node['mattermost']['app']['ldap_settings']['login_field_name'] %>"
+        "LoginFieldName": "<%= node['mattermost']['app']['ldap_settings']['login_field_name'] %>",
+        "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
+        "LoginButtonBorderColor": "<%= node['mattermost']['app']['email_settings']['login_button_border_color'] %>",
+        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"
     },
     "ComplianceSettings": {
         "Enable": <%= node['mattermost']['app']['compliance_settings']['enable'] %>,
@@ -276,7 +284,10 @@
         "NicknameAttribute": "<%= node['mattermost']['app']['saml_settings']['nickname_attribute'] %>",
         "LocaleAttribute": "<%= node['mattermost']['app']['saml_settings']['locale_attribute'] %>",
         "PositionAttribute": "<%= node['mattermost']['app']['saml_settings']['position_attribute'] %>",
-        "LoginButtonText": "<%= node['mattermost']['app']['saml_settings']['login_button_text'] %>"
+        "LoginButtonText": "<%= node['mattermost']['app']['saml_settings']['login_button_text'] %>",
+        "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
+        "LoginButtonBorderColor": "<%= node['mattermost']['app']['email_settings']['login_button_border_color'] %>",
+        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"
     },
     "NativeAppSettings": {
         "AppDownloadLink": "<%= node['mattermost']['app']['native_app_settings']['app_download_link'] %>",

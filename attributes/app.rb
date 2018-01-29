@@ -54,6 +54,7 @@ default['mattermost']['app']['service_settings'] = {
   'cluster_log_timeout_milliseconds' => 2000,
   'enable_preview_features' => true,
   'close_unused_direct_messages' => false,
+  'enable_tutorial' => true,
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -82,6 +83,7 @@ default['mattermost']['app']['team_settings'] = {
   'enable_confirm_notifications_to_channel' => true,
   'teammate_name_display' => 'username',
   'experimental_town_square_is_read_only' => false,
+  'experimental_primary_team' => '',
 }
 
 default['mattermost']['app']['client_requirements'] = {
@@ -174,6 +176,9 @@ default['mattermost']['app']['email_settings'] = {
   'email_batching_interval' => 30,
   'skip_server_certificate_verification' => false,
   'email_notification_contents_type' => 'full',
+  'login_button_color' => '',
+  'login_button_border_color' => '',
+  'login_button_text_color' => '',
 }
 
 default['mattermost']['app']['rate_limit_settings'] = {
@@ -266,6 +271,9 @@ default['mattermost']['app']['ldap_settings'] = {
   'query_timeout' => 60,
   'max_page_size' => 0,
   'login_field_name' => '',
+  'login_button_color' => '',
+  'login_button_border_color' => '',
+  'login_button_text_color' => '',
 }
 
 default['mattermost']['app']['compliance_settings'] = {
@@ -299,6 +307,9 @@ default['mattermost']['app']['saml_settings'] = {
   'locale_attribute' => '',
   'position_attribute' => '',
   'login_button_text' => 'With SAML',
+  'login_button_color' => '',
+  'login_button_border_color' => '',
+  'login_button_text_color' => '',
 }
 
 default['mattermost']['app']['native_app_settings'] = {

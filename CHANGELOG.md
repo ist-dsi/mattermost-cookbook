@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Mattermost cookbook.
 
+## v1.6.3 (2018.01.29)
+
+- [#18](https://github.com/ist-dsi/mattermost-cookbook/issues/18) Update settings for Mattermost 4.6.0
+
 ## v1.6.2 (2017.12.18)
 
 - [#17](https://github.com/ist-dsi/mattermost-cookbook/issues/17) Update settings for Mattermost 4.5.0
