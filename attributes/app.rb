@@ -55,6 +55,11 @@ default['mattermost']['app']['service_settings'] = {
   'enable_preview_features' => true,
   'close_unused_direct_messages' => false,
   'enable_tutorial' => true,
+  'experimental_enable_default_channel_leave_join_messages' => true,
+  'experimental_group_unread_channels' => 'disabled',
+  'image_proxy_type' => '',
+  'image_proxy_options' => '',
+  'image_proxy_url' => '',
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -187,6 +192,7 @@ default['mattermost']['app']['rate_limit_settings'] = {
   'max_burst' => 100,
   'memory_store_size' => 10000,
   'vary_by_remote_addr' => true,
+  'vary_by_user' => false,
   'vary_by_header' => '',
 }
 

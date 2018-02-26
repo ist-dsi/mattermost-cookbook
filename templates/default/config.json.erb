@@ -55,7 +55,12 @@
         "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>,
         "EnablePreviewFeatures": <%= node['mattermost']['app']['service_settings']['enable_preview_features'] %>,
         "CloseUnusedDirectMessages": <%= node['mattermost']['app']['service_settings']['close_unused_direct_messages'] %>,
-        "EnableTutorial": <%= node['mattermost']['app']['service_settings']['enable_tutorial'] %>
+        "EnableTutorial": <%= node['mattermost']['app']['service_settings']['enable_tutorial'] %>,
+        "ExperimentalEnableDefaultChannelLeaveJoinMessages": <%= node['mattermost']['app']['service_settings']['experimental_enable_default_channel_leave_join_messages'] %>,
+        "ExperimentalGroupUnreadChannels": "<%= node['mattermost']['app']['service_settings']['experimental_group_unread_channels'] %>",
+        "ImageProxyType": "<%= node['mattermost']['app']['service_settings']['image_proxy_type'] %>",
+        "ImageProxyOptions": "<%= node['mattermost']['app']['service_settings']['image_proxy_options'] %>",
+        "ImageProxyURL": "<%= node['mattermost']['app']['service_settings']['image_proxy_url'] %>"
     },
     "TeamSettings": {
         "SiteName": "<%= node['mattermost']['app']['team_settings']['site_name'] %>",
@@ -176,6 +181,7 @@
         "MaxBurst": <%= node['mattermost']['app']['rate_limit_settings']['max_burst'] %>,
         "MemoryStoreSize": <%= node['mattermost']['app']['rate_limit_settings']['memory_store_size'] %>,
         "VaryByRemoteAddr": <%= node['mattermost']['app']['rate_limit_settings']['vary_by_remote_addr'] %>,
+        "VaryByUser": <%= node['mattermost']['app']['rate_limit_settings']['vary_by_user'] %>,
         "VaryByHeader": "<%= node['mattermost']['app']['rate_limit_settings']['vary_by_header'] %>"
     },
     "PrivacySettings": {
