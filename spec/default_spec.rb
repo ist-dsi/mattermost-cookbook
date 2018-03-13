@@ -9,8 +9,8 @@ describe 'mattermost-cookbook::default' do
 
   it 'downloads and extracts ark' do
     expect(chef_run).to put_ark('mattermost').with(
-      url: 'https://releases.mattermost.com/4.7.2/mattermost-4.7.2-linux-amd64.tar.gz',
-      checksum: '947577631a94a003d660b4eb08f07585e0e1f93c3e5b63a8c30a72e0abcde9c1',
+      url: 'https://releases.mattermost.com/4.7.3/mattermost-4.7.3-linux-amd64.tar.gz',
+      checksum: '09a728ad189d2cf315d664fed7caf68fbf9af60f85e2619d308b5345e576293c',
       path: '/opt',
       owner: 'mattermost'
     )
