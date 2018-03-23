@@ -32,6 +32,7 @@
         "EnforceMultifactorAuthentication": <%= node['mattermost']['app']['service_settings']['enforce_multifactor_authentication'] %>,
         "EnableUserAccessTokens": <%= node['mattermost']['app']['service_settings']['enable_user_access_tokens'] %>,
         "AllowCorsFrom": "<%= node['mattermost']['app']['service_settings']['allow_cors_from'] %>",
+        "AllowCookiesForSubdomains": <%= node['mattermost']['app']['service_settings']['allow_cookies_for_subdomains'] %>,
         "SessionLengthWebInDays": <%= node['mattermost']['app']['service_settings']['session_length_web_in_days'] %>,
         "SessionLengthMobileInDays": <%= node['mattermost']['app']['service_settings']['session_length_mobile_in_days'] %>,
         "SessionLengthSSOInDays": <%= node['mattermost']['app']['service_settings']['session_length_sso_in_days'] %>,
@@ -320,6 +321,7 @@
     },
     "WebrtcSettings": {
         "Enable": <%= node['mattermost']['app']['webrtc_settings']['enable'] %>,
+        "WebsocketURL": "<%= node['mattermost']['app']['webrtc_settings']['websocket_url'] %>",
         "GatewayWebsocketUrl": "<%= node['mattermost']['app']['webrtc_settings']['gateway_websocket_url'] %>",
         "GatewayAdminUrl": "<%= node['mattermost']['app']['webrtc_settings']['gateway_admin_url'] %>",
         "GatewayAdminSecret": "<%= node['mattermost']['app']['webrtc_settings']['gateway_admin_secret'] %>",
