@@ -1,5 +1,6 @@
 default['mattermost']['app']['service_settings'] = {
   'site_url' => 'http://localhost:8065',
+  'websocket_url' => '',
   'license_file_location' => '',
   'listen_address' => ':8065',
   'connection_security' => '',
@@ -45,7 +46,7 @@ default['mattermost']['app']['service_settings'] = {
   'restrict_custom_emoji_creation' => 'all',
   'restrict_post_delete' => 'all',
   'allow_edit_post' => 'always',
-  'post_edit_time_limit' => 300,
+  'post_edit_time_limit' => -1,
   'experimental_enable_authentication_transfer' => true,
   'time_between_user_typing_updates_milliseconds' => 5000,
   'enable_post_search' => true,
@@ -149,7 +150,7 @@ default['mattermost']['app']['file_settings'] = {
   'amazon_s3_access_key_id' => '',
   'amazon_s3_secret_access_key' => '',
   'amazon_s3_bucket' => '',
-  'amazon_s3_region' => 'us-east-1',
+  'amazon_s3_region' => '',
   'amazon_s3_endpoint' => 's3.amazonaws.com',
   'amazon_s3_ssl' => true,
   'amazon_s3_sign_v2' => false,
@@ -303,6 +304,8 @@ default['mattermost']['app']['saml_settings'] = {
   'idp_url' => '',
   'idp_descriptor_url' => '',
   'assertion_consumer_service_url' => '',
+  'scoping_idp_provider_id' => '',
+  'scoping_idp_name' => '',
   'idp_certificate_file' => '',
   'public_certificate_file' => '',
   'private_key_file' => '',
@@ -346,7 +349,6 @@ default['mattermost']['app']['analytics_settings']['max_users_for_statistics'] =
 
 default['mattermost']['app']['webrtc_settings'] = {
   'enable' => false,
-  'websocket_url' => '',
   'gateway_websocket_url' => '',
   'gateway_admin_url' => '',
   'gateway_admin_secret' => '',
@@ -387,6 +389,12 @@ default['mattermost']['app']['message_export_settings'] = {
   'export_from_timestamp' => 0,
   'file_location' => 'export',
   'batch_size' => 10000,
+  'global_relay_settings' => {
+    'customer_type' => 'A9',
+    'smtp_username' => '',
+    'smtp_password' => '',
+    'email_address' => '',
+  },
 }
 
 default['mattermost']['app']['job_settings'] = {

@@ -1,6 +1,7 @@
 {
     "ServiceSettings": {
         "SiteURL": "<%= node['mattermost']['app']['service_settings']['site_url'] %>",
+        "WebsocketURL": "<%= node['mattermost']['app']['service_settings']['websocket_url'] %>",
         "LicenseFileLocation": "<%= node['mattermost']['app']['service_settings']['license_file_location'] %>",
         "ListenAddress": "<%= node['mattermost']['app']['service_settings']['listen_address'] %>",
         "ConnectionSecurity": "<%= node['mattermost']['app']['service_settings']['connection_security'] %>",
@@ -281,6 +282,8 @@
         "IdpUrl": "<%= node['mattermost']['app']['saml_settings']['idp_url'] %>",
         "IdpDescriptorUrl": "<%= node['mattermost']['app']['saml_settings']['idp_descriptor_url'] %>",
         "AssertionConsumerServiceURL": "<%= node['mattermost']['app']['saml_settings']['assertion_consumer_service_url'] %>",
+        "ScopingIDPProviderId": "<%= node['mattermost']['app']['saml_settings']['scoping_idp_provider_id'] %>",
+        "ScopingIDPName": "<%= node['mattermost']['app']['saml_settings']['scoping_idp_name'] %>",
         "IdpCertificateFile": "<%= node['mattermost']['app']['saml_settings']['idp_certificate_file'] %>",
         "PublicCertificateFile": "<%= node['mattermost']['app']['saml_settings']['public_certificate_file'] %>",
         "PrivateKeyFile": "<%= node['mattermost']['app']['saml_settings']['private_key_file'] %>",
@@ -321,7 +324,6 @@
     },
     "WebrtcSettings": {
         "Enable": <%= node['mattermost']['app']['webrtc_settings']['enable'] %>,
-        "WebsocketURL": "<%= node['mattermost']['app']['webrtc_settings']['websocket_url'] %>",
         "GatewayWebsocketUrl": "<%= node['mattermost']['app']['webrtc_settings']['gateway_websocket_url'] %>",
         "GatewayAdminUrl": "<%= node['mattermost']['app']['webrtc_settings']['gateway_admin_url'] %>",
         "GatewayAdminSecret": "<%= node['mattermost']['app']['webrtc_settings']['gateway_admin_secret'] %>",
@@ -343,8 +345,8 @@
         "PostsAggregatorJobStartTime": "<%= node['mattermost']['app']['elastic_search_settings']['post_aggregator_job_start_time'] %>",
         "IndexPrefix": "<%= node['mattermost']['app']['elastic_search_settings']['index_prefix'] %>",
         "LiveIndexingBatchSize": <%= node['mattermost']['app']['elastic_search_settings']['live_indexing_batch_size'] %>,
-        "RequestTimeoutSeconds": <%= node['mattermost']['app']['elastic_search_settings']['request_timeout_seconds'] %>,
-        "BulkIndexingTimeWindowSeconds": <%= node['mattermost']['app']['elastic_search_settings']['bulk_indexing_time_window_seconds'] %>
+        "BulkIndexingTimeWindowSeconds": <%= node['mattermost']['app']['elastic_search_settings']['bulk_indexing_time_window_seconds'] %>,
+        "RequestTimeoutSeconds": <%= node['mattermost']['app']['elastic_search_settings']['request_timeout_seconds'] %>
     },
     "DataRetentionSettings": {
         "EnableMessageDeletion": <%= node['mattermost']['app']['data_retention_settings']['enable_message_deletion'] %>,
@@ -358,7 +360,13 @@
         "DailyRunTime": "<%= node['mattermost']['app']['message_export_settings']['daily_run_time'] %>",
         "ExportFromTimestamp": <%= node['mattermost']['app']['message_export_settings']['export_from_timestamp'] %>,
         "FileLocation": "<%= node['mattermost']['app']['message_export_settings']['file_location'] %>",
-        "BatchSize": <%= node['mattermost']['app']['message_export_settings']['batch_size'] %>
+        "BatchSize": <%= node['mattermost']['app']['message_export_settings']['batch_size'] %>,
+        "GlobalRelaySettings": {
+            "CustomerType": "<%= node['mattermost']['app']['message_export_settings']['global_relay_settings']['customer_type'] %>",
+            "SmtpUsername": "<%= node['mattermost']['app']['message_export_settings']['global_relay_settings']['smtp_username'] %>",
+            "SmtpPassword": "<%= node['mattermost']['app']['message_export_settings']['global_relay_settings']['smtp_password'] %>",
+            "EmailAddress": "<%= node['mattermost']['app']['message_export_settings']['global_relay_settings']['email_address'] %>"
+        }
     },
     "JobSettings": {
         "RunJobs": <%= node['mattermost']['app']['job_settings']['run_jobs'] %>,
