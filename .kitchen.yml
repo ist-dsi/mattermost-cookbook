@@ -6,7 +6,7 @@ driver:
 
 provisioner:
   name: chef_zero
-  deprecations_as_errors: true
+  deprecations_as_errors: false
 
 verifier:
   name: inspec
