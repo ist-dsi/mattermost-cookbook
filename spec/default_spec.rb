@@ -7,12 +7,12 @@ describe 'mattermost-cookbook::default' do
     expect(chef_run).to create_user('mattermost')
   end
 
-  it 'downloads and extracts ark' do
-    expect(chef_run).to put_ark('mattermost').with(
-      url: 'https://releases.mattermost.com/4.9.2/mattermost-4.9.2-linux-amd64.tar.gz',
-      checksum: '51cc30502eb1ae84742098db26c22bdfb464849bfdd8b3597d950e389f090839',
-      path: '/opt',
-      owner: 'mattermost'
+  it 'downloads and extracts' do
+    expect(chef_run).to extract_tar_extract('https://releases.mattermost.com/4.10.1/mattermost-4.10.1-linux-amd64.tar.gz').with(
+      checksum: 'cef8a706d6da1d8756d70d06a9e9444ba078fb107a194ce91ea2e6beae9726f7',
+      target_dir: '/opt',
+      user: 'mattermost',
+      group: 'mattermost'
     )
   end
 

@@ -89,6 +89,7 @@
         "MaxNotificationsPerChannel": <%= node['mattermost']['app']['team_settings']['max_notifications_per_channel'] %>,
         "EnableConfirmNotificationsToChannel": <%= node['mattermost']['app']['team_settings']['enable_confirm_notifications_to_channel'] %>,
         "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>",
+        "ExperimentalEnableAutomaticReplies": <%= node['mattermost']['app']['team_settings']['experimental_enable_automatic_replies'] %>,
         "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>,
         "ExperimentalPrimaryTeam": "<%= node['mattermost']['app']['team_settings']['experimental_primary_team'] %>"
     },
@@ -114,9 +115,10 @@
     "LogSettings": {
         "EnableConsole": <%= node['mattermost']['app']['log_settings']['enable_console'] %>,
         "ConsoleLevel": "<%= node['mattermost']['app']['log_settings']['console_level'] %>",
+        "ConsoleJson": <%= node['mattermost']['app']['log_settings']['console_json'] %>,
         "EnableFile": <%= node['mattermost']['app']['log_settings']['enable_file'] %>,
         "FileLevel": "<%= node['mattermost']['app']['log_settings']['file_level'] %>",
-        "FileFormat": "<%= node['mattermost']['app']['log_settings']['file_format'] %>",
+        "FileJson": <%= node['mattermost']['app']['log_settings']['file_json'] %>,
         "FileLocation": "<%= node['mattermost']['app']['log_settings']['file_location'] %>",
         "EnableWebhookDebugging": <%= node['mattermost']['app']['log_settings']['enable_webhook_debugging'] %>,
         "EnableDiagnostics": <%= node['mattermost']['app']['log_settings']['enable_diagnostics'] %>

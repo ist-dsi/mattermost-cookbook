@@ -4,14 +4,13 @@
 
 ## Overview
 
-This cookbook installs and configures Mattermost, the opensource Slack alternative.
-
-* http://www.mattermost.org/
+This cookbook installs and configures [Mattermost, the opensource Slack alternative](http://www.mattermost.org/).
 
 ### Supported Mattermost Versions
 
 | Mattermost Version | Cookbook Version |
 |:------------------:|:----------------:|
+| 4.10.1             | v1.6.10          |
 | 4.9.2              | v1.6.9           |
 | 4.8.1              | v1.6.7           |
 | 4.7.3              | v1.6.5           |
@@ -27,13 +26,13 @@ This cookbook installs and configures Mattermost, the opensource Slack alternati
 
 ## Requirements
 
-### Platforms: 
+### Platforms
 
 The following platforms and versions are tested and supported using [test-kitchen](http://kitchen.ci/)  
 
 * Ubuntu 16 LTS
 * Debian 9
-* CentOS 7 
+* CentOS 7
 
 ### Chef
 
@@ -49,7 +48,7 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 
 ### Attributes
 
-All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v4.9.0/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
+All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v4.10.1/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
 
 ## License and Authors
 
@@ -67,4 +66,3 @@ distributed under the License is distributed on an "AS IS" BASIS,
 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
-

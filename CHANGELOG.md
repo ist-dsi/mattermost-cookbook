@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the Mattermost cookbook.
 
+## v1.6.10 (2018.06.14)
+
+- [#30](https://github.com/ist-dsi/mattermost-cookbook/issues/30) Update settings for Mattermost 4.10.1
+- Replace [ark](https://supermarket.chef.io/cookbooks/ark) cookbook with [tar](https://supermarket.chef.io/cookbooks/tar)
+
 ## v1.6.9 (2018.05.14)
 
 - [#26](https://github.com/ist-dsi/mattermost-cookbook/issues/24) Update settings for Mattermost 4.9.2

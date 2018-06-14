@@ -9,13 +9,20 @@ user node['mattermost']['config']['user'] do
   action :create
 end
 
-ark 'mattermost' do
-  url node['mattermost']['package']['url']
-  checksum node['mattermost']['package']['checksum']
-  path node['mattermost']['config']['install_path']
+directory "#{node['mattermost']['config']['install_path']}/mattermost" do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
-  action :put
+  mode 0755
+  recursive true
+  action :create
+end
+
+tar_extract node['mattermost']['package']['url'] do
+  target_dir node['mattermost']['config']['install_path']
+  checksum node['mattermost']['package']['checksum']
+  user node['mattermost']['config']['user']
+  group node['mattermost']['config']['user']
+  action :extract
 end
 
 directory node['mattermost']['config']['data_dir'] do
