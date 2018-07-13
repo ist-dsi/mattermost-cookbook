@@ -10,6 +10,7 @@ This cookbook installs and configures [Mattermost, the opensource Slack alternat
 
 | Mattermost Version | Cookbook Version |
 |:------------------:|:----------------:|
+| 5.0.1              | v2.0.0           |
 | 4.10.1             | v1.6.10          |
 | 4.9.2              | v1.6.9           |
 | 4.8.1              | v1.6.7           |
@@ -38,9 +39,9 @@ The following platforms and versions are tested and supported using [test-kitche
 
 * Chef 12.19+
 
-### Cookbooks
+### Dependencies
 
-* [ark](https://github.com/chef-cookbooks/ark)
+* [tar](https://supermarket.chef.io/cookbooks/tar)
 
 ## Usage
 
@@ -48,7 +49,7 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 
 ### Attributes
 
-All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v4.10.1/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
+All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v5.0.1/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
 
 ## License and Authors
 

@@ -22,6 +22,7 @@ tar_extract node['mattermost']['package']['url'] do
   checksum node['mattermost']['package']['checksum']
   user node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
+  creates "#{node['mattermost']['config']['install_path']}/mattermost/config"
   action :extract
 end
 
@@ -53,7 +54,7 @@ systemd_unit 'mattermost.service' do
       After: node['mattermost']['systemd']['after'].join(' '),
     },
     Service: {
-      ExecStart: "#{node['mattermost']['config']['install_path']}/mattermost/bin/platform",
+      ExecStart: "#{node['mattermost']['config']['install_path']}/mattermost/bin/mattermost",
       WorkingDirectory: "#{node['mattermost']['config']['install_path']}/mattermost",
       Restart: 'always',
       StandardOutput: 'syslog',

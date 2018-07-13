@@ -1,21 +1,10 @@
-if node['platform'] == 'debian'
-  apt_update 'update'
-else
-  node.normal['mariadb']['use_default_repository'] = true
-end
+node.normal['mariadb']['use_default_repository'] = true
 
-include_recipe 'mariadb::server'
+include_recipe 'mariadb::default'
 
-mysql2_chef_gem_mariadb 'default' do
-  action :install
-end
-
-# Create a mysql database
-mysql_database 'mattermost_test' do
-  connection(
-    host: 'localhost',
-    username: 'root',
-    password: ''
-  )
+mariadb_database 'mattermost_test' do
+  user 'root'
+  host 'localhost'
+  password ''
   action :create
 end

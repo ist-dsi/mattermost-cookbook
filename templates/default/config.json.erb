@@ -22,7 +22,6 @@
         "EnableOnlyAdminIntegrations": <%= node['mattermost']['app']['service_settings']['enable_only_admin_integrations'] %>,
         "EnablePostUsernameOverride": <%= node['mattermost']['app']['service_settings']['enable_post_username_override'] %>,
         "EnablePostIconOverride": <%= node['mattermost']['app']['service_settings']['enable_post_icon_override'] %>,
-        "EnableAPIv3": <%= node['mattermost']['app']['service_settings']['enable_api_v3'] %>,
         "EnableLinkPreviews": <%= node['mattermost']['app']['service_settings']['enable_link_previews'] %>,
         "EnableTesting": <%= node['mattermost']['app']['service_settings']['enable_testing'] %>,
         "EnableDeveloper": <%= node['mattermost']['app']['service_settings']['enable_developer'] %>,
@@ -52,17 +51,19 @@
         "TimeBetweenUserTypingUpdatesMilliseconds": <%= node['mattermost']['app']['service_settings']['time_between_user_typing_updates_milliseconds'] %>,
         "EnablePostSearch": <%= node['mattermost']['app']['service_settings']['enable_post_search'] %>,
         "EnableUserTypingMessages": <%= node['mattermost']['app']['service_settings']['enable_user_typing_messages'] %>,
-        "EnableUserStatuses": <%= node['mattermost']['app']['service_settings']['enable_user_statuses'] %>,
         "EnableChannelViewedMessages": <%= node['mattermost']['app']['service_settings']['enable_channel_viewed_messages'] %>,
+        "EnableUserStatuses": <%= node['mattermost']['app']['service_settings']['enable_user_statuses'] %>,
         "ClusterLogTimeoutMilliseconds": <%= node['mattermost']['app']['service_settings']['cluster_log_timeout_milliseconds'] %>,
-        "EnablePreviewFeatures": <%= node['mattermost']['app']['service_settings']['enable_preview_features'] %>,
         "CloseUnusedDirectMessages": <%= node['mattermost']['app']['service_settings']['close_unused_direct_messages'] %>,
+        "EnablePreviewFeatures": <%= node['mattermost']['app']['service_settings']['enable_preview_features'] %>,
         "EnableTutorial": <%= node['mattermost']['app']['service_settings']['enable_tutorial'] %>,
         "ExperimentalEnableDefaultChannelLeaveJoinMessages": <%= node['mattermost']['app']['service_settings']['experimental_enable_default_channel_leave_join_messages'] %>,
         "ExperimentalGroupUnreadChannels": "<%= node['mattermost']['app']['service_settings']['experimental_group_unread_channels'] %>",
         "ImageProxyType": "<%= node['mattermost']['app']['service_settings']['image_proxy_type'] %>",
         "ImageProxyOptions": "<%= node['mattermost']['app']['service_settings']['image_proxy_options'] %>",
-        "ImageProxyURL": "<%= node['mattermost']['app']['service_settings']['image_proxy_url'] %>"
+        "ImageProxyURL": "<%= node['mattermost']['app']['service_settings']['image_proxy_url'] %>",
+        "EnableAPITeamDeletion": <%= node['mattermost']['app']['service_settings']['enable_api_team_deletion'] %>,
+        "ExperimentalEnableHardenedMode": <%= node['mattermost']['app']['service_settings']['experimental_enable_hardened_mode'] %>
     },
     "TeamSettings": {
         "SiteName": "<%= node['mattermost']['app']['team_settings']['site_name'] %>",
@@ -70,6 +71,7 @@
         "EnableTeamCreation": <%= node['mattermost']['app']['team_settings']['enable_team_creation'] %>,
         "EnableUserCreation": <%= node['mattermost']['app']['team_settings']['enable_user_creation'] %>,
         "EnableOpenServer": <%= node['mattermost']['app']['team_settings']['enable_open_server'] %>,
+        "EnableUserDeactivation": <%= node['mattermost']['app']['team_settings']['enable_user_deactivation'] %>,
         "RestrictCreationToDomains": "<%= node['mattermost']['app']['team_settings']['restrict_creation_to_domains'] %>",
         "EnableCustomBrand": <%= node['mattermost']['app']['team_settings']['enable_custom_brand'] %>,
         "CustomBrandText": "<%= node['mattermost']['app']['team_settings']['custom_brand_text'] %>",
@@ -90,6 +92,7 @@
         "EnableConfirmNotificationsToChannel": <%= node['mattermost']['app']['team_settings']['enable_confirm_notifications_to_channel'] %>,
         "TeammateNameDisplay": "<%= node['mattermost']['app']['team_settings']['teammate_name_display'] %>",
         "ExperimentalEnableAutomaticReplies": <%= node['mattermost']['app']['team_settings']['experimental_enable_automatic_replies'] %>,
+        "ExperimentalHideTownSquareinLHS": <%= node['mattermost']['app']['team_settings']['experimental_hide_town_square_in_lhs'] %>,
         "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>,
         "ExperimentalPrimaryTeam": "<%= node['mattermost']['app']['team_settings']['experimental_primary_team'] %>"
     },
@@ -173,6 +176,7 @@
         "EnableEmailBatching": <%= node['mattermost']['app']['email_settings']['enable_email_batching'] %>,
         "EmailBatchingBufferSize": <%= node['mattermost']['app']['email_settings']['email_batching_buffer_size'] %>,
         "EmailBatchingInterval": <%= node['mattermost']['app']['email_settings']['email_batching_interval'] %>,
+        "EnablePreviewModeBanner": <%= node['mattermost']['app']['email_settings']['enable_preview_mode_banner'] %>,
         "SkipServerCertificateVerification": <%= node['mattermost']['app']['email_settings']['skip_server_certificate_verification'] %>,
         "EmailNotificationContentsType": "<%= node['mattermost']['app']['email_settings']['email_notification_contents_type'] %>",
         "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
@@ -257,6 +261,7 @@
         "NicknameAttribute": "<%= node['mattermost']['app']['ldap_settings']['nickname_attribute'] %>",
         "IdAttribute": "<%= node['mattermost']['app']['ldap_settings']['id_attribute'] %>",
         "PositionAttribute": "<%= node['mattermost']['app']['ldap_settings']['position_attribute'] %>",
+        "LoginIdAttribute": "<%= node['mattermost']['app']['ldap_settings']['login_id_attribute'] %>",
         "SyncIntervalMinutes": <%= node['mattermost']['app']['ldap_settings']['sync_interval_minutes'] %>,
         "SkipCertificateVerification": <%= node['mattermost']['app']['ldap_settings']['skip_certificate_verification'] %>,
         "QueryTimeout": <%= node['mattermost']['app']['ldap_settings']['query_timeout'] %>,
@@ -312,9 +317,12 @@
         "OverrideHostname": "<%= node['mattermost']['app']['cluster_settings']['override_hostname'] %>",
         "UseIpAddress": <%= node['mattermost']['app']['cluster_settings']['use_ip_address'] %>,
         "UseExperimentalGossip": <%= node['mattermost']['app']['cluster_settings']['use_experimental_gossip'] %>,
-        "ReadOnlyConfig":  <%= node['mattermost']['app']['cluster_settings']['read_only_config'] %>,
-        "GossipPort":  <%= node['mattermost']['app']['cluster_settings']['gossip_port'] %>,
-        "StreamingPort":  <%= node['mattermost']['app']['cluster_settings']['streaming_port'] %>
+        "ReadOnlyConfig": <%= node['mattermost']['app']['cluster_settings']['read_only_config'] %>,
+        "GossipPort": <%= node['mattermost']['app']['cluster_settings']['gossip_port'] %>,
+        "StreamingPort": <%= node['mattermost']['app']['cluster_settings']['streaming_port'] %>,
+        "MaxIdleConns": <%= node['mattermost']['app']['cluster_settings']['max_idle_conns'] %>,
+        "MaxIdleConnsPerHost": <%= node['mattermost']['app']['cluster_settings']['max_idle_conns_per_host'] %>,
+        "IdleConnTimeoutMilliseconds": <%= node['mattermost']['app']['cluster_settings']['idle_conn_timeout_milliseconds'] %>
     },
     "MetricsSettings": {
         "Enable": <%= node['mattermost']['app']['metrics_settings']['enable'] %>,
@@ -341,7 +349,7 @@
         "EnableIndexing": <%= node['mattermost']['app']['elastic_search_settings']['enable_indexing'] %>,
         "EnableSearching": <%= node['mattermost']['app']['elastic_search_settings']['enable_searching'] %>,
         "Sniff": <%= node['mattermost']['app']['elastic_search_settings']['sniff'] %>,
-        "PostIndexReplicas": <%= node['mattermost']['app']['elastic_search_settings']['post_index_replicas'] %>, 
+        "PostIndexReplicas": <%= node['mattermost']['app']['elastic_search_settings']['post_index_replicas'] %>,
         "PostIndexShards": <%= node['mattermost']['app']['elastic_search_settings']['post_index_shards'] %>,
         "AggregatePostsAfterDays": <%= node['mattermost']['app']['elastic_search_settings']['aggregate_posts_after_days'] %>,
         "PostsAggregatorJobStartTime": "<%= node['mattermost']['app']['elastic_search_settings']['post_aggregator_job_start_time'] %>",
@@ -380,6 +388,6 @@
         "Directory": "<%= node['mattermost']['app']['plugin_settings']['directory'] %>",
         "ClientDirectory": "<%= node['mattermost']['app']['plugin_settings']['client_directory'] %>",
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
-        "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>        
+        "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>
     }
 }
