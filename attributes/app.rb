@@ -21,6 +21,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_only_admin_integrations' => true,
   'enable_post_username_override' => false,
   'enable_post_icon_override' => false,
+  'enable_api_v3' => false,
   'enable_link_previews' => false,
   'enable_testing' => false,
   'enable_developer' => false,
@@ -42,6 +43,9 @@ default['mattermost']['app']['service_settings'] = {
   'webserver_mode' => 'gzip',
   'enable_custom_emoji' => false,
   'enable_custom_picker' => true,
+  'enable_gif_picker' => false,
+  'gfycat_api_key' => '2_KtH_W5',
+  'gfycat_api_secret' => '3wLVZPiswc3DnaiaFoLkDvB4X0IV6CpMkj4tf2inJRsBY6-FnkT08zGmppWFgeof',
   'restrict_custom_emoji_creation' => 'all',
   'restrict_post_delete' => 'all',
   'allow_edit_post' => 'always',
@@ -63,6 +67,8 @@ default['mattermost']['app']['service_settings'] = {
   'image_proxy_options' => '',
   'enable_api_team_deletion' => false,
   'experimental_enable_hardened_mode' => false,
+  'experimental_limit_client_config' => false,
+  'enable_email_invitations' => false,
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -115,6 +121,7 @@ default['mattermost']['app']['sql_settings'] = {
   'database_name' => 'mattermost_test',
   'data_source_replicas' => [],
   'data_source_search_replicas' => [],
+  'conn_max_lifetime_milliseconds' => 3600000,
   'max_idle_conns' => 20,
   'max_open_conns' => 300,
   'trace' => false,
@@ -353,6 +360,11 @@ default['mattermost']['app']['metrics_settings'] = {
   'enable' => false,
   'block_profile_rate' => 0,
   'listen_address' => ':8067',
+}
+
+default['mattermost']['app']['experimental_settings'] = {
+  'client_side_cert_enable' => false,
+  'client_side_cert_check' => 'secondary',
 }
 
 default['mattermost']['app']['analytics_settings']['max_users_for_statistics'] = 2500

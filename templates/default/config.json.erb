@@ -22,6 +22,7 @@
         "EnableOnlyAdminIntegrations": <%= node['mattermost']['app']['service_settings']['enable_only_admin_integrations'] %>,
         "EnablePostUsernameOverride": <%= node['mattermost']['app']['service_settings']['enable_post_username_override'] %>,
         "EnablePostIconOverride": <%= node['mattermost']['app']['service_settings']['enable_post_icon_override'] %>,
+        "EnableAPIv3": <%= node['mattermost']['app']['service_settings']['enable_api_v3'] %>,
         "EnableLinkPreviews": <%= node['mattermost']['app']['service_settings']['enable_link_previews'] %>,
         "EnableTesting": <%= node['mattermost']['app']['service_settings']['enable_testing'] %>,
         "EnableDeveloper": <%= node['mattermost']['app']['service_settings']['enable_developer'] %>,
@@ -43,6 +44,9 @@
         "WebserverMode": "<%= node['mattermost']['app']['service_settings']['webserver_mode']%>",
         "EnableCustomEmoji": <%= node['mattermost']['app']['service_settings']['enable_custom_emoji'] %>,
         "EnableEmojiPicker": <%= node['mattermost']['app']['service_settings']['enable_custom_picker'] %>,
+        "EnableGifPicker": <%= node['mattermost']['app']['service_settings']['enable_gif_picker'] %>,
+        "GfycatApiKey": "<%= node['mattermost']['app']['service_settings']['gfycat_api_key'] %>",
+        "GfycatApiSecret": "<%= node['mattermost']['app']['service_settings']['gfycat_api_secret'] %>",
         "RestrictCustomEmojiCreation": "<%= node['mattermost']['app']['service_settings']['restrict_custom_emoji_creation'] %>",
         "RestrictPostDelete": "<%= node['mattermost']['app']['service_settings']['restrict_post_delete'] %>",
         "AllowEditPost": "<%= node['mattermost']['app']['service_settings']['allow_edit_post'] %>",
@@ -63,7 +67,9 @@
         "ImageProxyOptions": "<%= node['mattermost']['app']['service_settings']['image_proxy_options'] %>",
         "ImageProxyURL": "<%= node['mattermost']['app']['service_settings']['image_proxy_url'] %>",
         "EnableAPITeamDeletion": <%= node['mattermost']['app']['service_settings']['enable_api_team_deletion'] %>,
-        "ExperimentalEnableHardenedMode": <%= node['mattermost']['app']['service_settings']['experimental_enable_hardened_mode'] %>
+        "ExperimentalEnableHardenedMode": <%= node['mattermost']['app']['service_settings']['experimental_enable_hardened_mode'] %>,
+        "ExperimentalLimitClientConfig": <%= node['mattermost']['app']['service_settings']['experimental_limit_client_config'] %>,
+        "EnableEmailInvitations": <%= node['mattermost']['app']['service_settings']['enable_email_invitations'] %>
     },
     "TeamSettings": {
         "SiteName": "<%= node['mattermost']['app']['team_settings']['site_name'] %>",
@@ -110,6 +116,7 @@
         "DataSourceReplicas": <%= node['mattermost']['app']['sql_settings']['data_source_replicas'] %>,
         "DataSourceSearchReplicas": <%= node['mattermost']['app']['sql_settings']['data_source_search_replicas'] %>,
         "MaxIdleConns": <%= node['mattermost']['app']['sql_settings']['max_idle_conns'] %>,
+        "ConnMaxLifetimeMilliseconds": <%= node['mattermost']['app']['sql_settings']['conn_max_lifetime_milliseconds'] %>,
         "MaxOpenConns": <%= node['mattermost']['app']['sql_settings']['max_open_conns'] %>,
         "Trace": <%= node['mattermost']['app']['sql_settings']['trace'] %>,
         "AtRestEncryptKey": "<%= node['mattermost']['app']['sql_settings']['at_rest_encrypt_key'] %>",
@@ -328,6 +335,10 @@
         "Enable": <%= node['mattermost']['app']['metrics_settings']['enable'] %>,
         "BlockProfileRate": <%= node['mattermost']['app']['metrics_settings']['block_profile_rate'] %>,
         "ListenAddress": "<%= node['mattermost']['app']['metrics_settings']['listen_address'] %>"
+    },
+    "ExperimentalSettings": {
+        "ClientSideCertEnable": <%= node['mattermost']['app']['experimental_settings']['client_side_cert_enable'] %>,
+        "ClientSideCertCheck": " <%= node['mattermost']['app']['experimental_settings']['client_side_cert_check'] %>"
     },
     "AnalyticsSettings": {
         "MaxUsersForStatistics": <%= node['mattermost']['app']['analytics_settings']['max_users_for_statistics'] %>
