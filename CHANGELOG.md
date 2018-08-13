@@ -1,6 +1,12 @@
 # Mattermost Cookbook Changelog
 
 This file is used to list changes made in each version of the Mattermost cookbook.
+
+## v2.1.1 (2018.08.13)
+
+- [#34](https://github.com/ist-dsi/mattermost-cookbook/issues/34) Update to Mattermost 5.1.1
+- [#35](https://github.com/ist-dsi/mattermost-cookbook/pull/35) Add `download_dir` option to `tar_extract` resource.
+
 ## v2.1.0 (2018.07.16)
 
 - Update settings for Mattermost 5.1.0
