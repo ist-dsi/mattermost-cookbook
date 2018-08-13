@@ -18,6 +18,7 @@ directory "#{node['mattermost']['config']['install_path']}/mattermost" do
 end
 
 tar_extract node['mattermost']['package']['url'] do
+  download_dir node['mattermost']['config']['install_path']
   target_dir node['mattermost']['config']['install_path']
   checksum node['mattermost']['package']['checksum']
   user node['mattermost']['config']['user']
