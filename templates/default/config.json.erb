@@ -297,6 +297,7 @@
     "SamlSettings": {
         "Enable": <%= node['mattermost']['app']['saml_settings']['enable'] %>,
         "EnableSyncWithLdap": <%= node['mattermost']['app']['saml_settings']['enable_sync_with_ldap'] %>,
+        "EnableSyncWithLdapIncludeAuth": <%= node['mattermost']['app']['saml_settings']['enable_sync_with_ldap_include_auth'] %>,
         "Verify": <%= node['mattermost']['app']['saml_settings']['verify'] %>,
         "Encrypt": <%= node['mattermost']['app']['saml_settings']['encrypt'] %>,
         "IdpUrl": "<%= node['mattermost']['app']['saml_settings']['idp_url'] %>",
@@ -307,6 +308,7 @@
         "IdpCertificateFile": "<%= node['mattermost']['app']['saml_settings']['idp_certificate_file'] %>",
         "PublicCertificateFile": "<%= node['mattermost']['app']['saml_settings']['public_certificate_file'] %>",
         "PrivateKeyFile": "<%= node['mattermost']['app']['saml_settings']['private_key_file'] %>",
+        "IdAttribute": "<%= node['mattermost']['app']['saml_settings']['id_attribute'] %>",
         "FirstNameAttribute": "<%= node['mattermost']['app']['saml_settings']['first_name_attribute'] %>",
         "LastNameAttribute": "<%= node['mattermost']['app']['saml_settings']['last_name_attribute'] %>",
         "EmailAttribute": "<%= node['mattermost']['app']['saml_settings']['email_attribute'] %>",
