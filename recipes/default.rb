@@ -35,6 +35,14 @@ directory node['mattermost']['config']['data_dir'] do
   action :create
 end
 
+directory "#{node['mattermost']['config']['install_path']}/#{node['mattermost']['app']['plugin_settings']['client_directory']}" do
+  owner node['mattermost']['config']['user']
+  group node['mattermost']['config']['user']
+  mode 0755
+  recursive true
+  action :create
+end
+
 template "#{node['mattermost']['config']['install_path']}/mattermost/config/config.json" do
   source 'config.json.erb'
   owner node['mattermost']['config']['user']

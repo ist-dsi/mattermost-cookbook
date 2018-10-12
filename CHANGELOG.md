@@ -2,6 +2,10 @@
 
 This file is used to list changes made in each version of the Mattermost cookbook.
 
+## v4.0.1 (2018.10.12)
+
+- Create plugins directory.
+
 ## v4.0.0 (2018.09.24)
 
 - [#38](https://github.com/ist-dsi/mattermost-cookbook/issues/38) Update to Mattermost 5.3.1
