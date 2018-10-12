@@ -3,13 +3,15 @@
 # Recipe:: default
 #
 # Copyright (c) 2017 The Authors, All Rights Reserved.
+install_directory = "#{node['mattermost']['config']['install_path']}/mattermost"
+
 apt_package 'libcap2-bin' if node['platform_family'] == 'debian'
 
 user node['mattermost']['config']['user'] do
   action :create
 end
 
-directory "#{node['mattermost']['config']['install_path']}/mattermost" do
+directory install_directory do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
   mode 0755
@@ -23,7 +25,7 @@ tar_extract node['mattermost']['package']['url'] do
   checksum node['mattermost']['package']['checksum']
   user node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
-  creates "#{node['mattermost']['config']['install_path']}/mattermost/config"
+  creates "#{install_directory}/config"
   action :extract
 end
 
@@ -35,7 +37,7 @@ directory node['mattermost']['config']['data_dir'] do
   action :create
 end
 
-directory "#{node['mattermost']['config']['install_path']}/#{node['mattermost']['app']['plugin_settings']['client_directory']}" do
+directory "#{install_directory}/#{node['mattermost']['app']['plugin_settings']['client_directory']}" do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
   mode 0755
@@ -43,7 +45,7 @@ directory "#{node['mattermost']['config']['install_path']}/#{node['mattermost'][
   action :create
 end
 
-template "#{node['mattermost']['config']['install_path']}/mattermost/config/config.json" do
+template "#{install_directory}/config/config.json" do
   source 'config.json.erb'
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
@@ -52,7 +54,7 @@ template "#{node['mattermost']['config']['install_path']}/mattermost/config/conf
 end
 
 execute 'setcap cap_net_bind_service=+ep ./platform' do
-  cwd "#{node['mattermost']['config']['install_path']}/mattermost/bin"
+  cwd "#{install_directory}/bin"
   user 'root'
 end
 
@@ -63,8 +65,8 @@ systemd_unit 'mattermost.service' do
       After: node['mattermost']['systemd']['after'].join(' '),
     },
     Service: {
-      ExecStart: "#{node['mattermost']['config']['install_path']}/mattermost/bin/mattermost",
-      WorkingDirectory: "#{node['mattermost']['config']['install_path']}/mattermost",
+      ExecStart: "#{install_directory}/bin/mattermost",
+      WorkingDirectory: install_directory,
       Restart: 'always',
       StandardOutput: 'syslog',
       StandardError: 'syslog',

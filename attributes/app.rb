@@ -434,8 +434,8 @@ default['mattermost']['app']['job_settings'] = {
 default['mattermost']['app']['plugin_settings'] = {
   'enable' => true,
   'enable_uploads' => false,
-  'directory' => './plugins',
-  'client_directory' => './client/plugins',
+  'directory' => 'plugins',
+  'client_directory' => 'client/plugins',
   'plugins' => {},
   'plugin_states' => {},
 }

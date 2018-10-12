@@ -24,6 +24,14 @@ describe 'mattermost-cookbook::default' do
     )
   end
 
+  it 'creates plugins directory ' do
+    expect(chef_run).to create_directory('/opt/mattermost/client/plugins').with(
+      user: 'mattermost',
+      mode: 0755,
+      recursive: true
+    )
+  end
+
   it 'creates mattermost config template' do
     expect(chef_run).to create_template('/opt/mattermost/config/config.json')
   end
