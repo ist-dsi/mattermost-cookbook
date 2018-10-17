@@ -126,7 +126,8 @@
         "MaxOpenConns": <%= node['mattermost']['app']['sql_settings']['max_open_conns'] %>,
         "Trace": <%= node['mattermost']['app']['sql_settings']['trace'] %>,
         "AtRestEncryptKey": "<%= node['mattermost']['app']['sql_settings']['at_rest_encrypt_key'] %>",
-        "QueryTimeout": <%= node['mattermost']['app']['sql_settings']['query_timeout'] %>
+        "QueryTimeout": <%= node['mattermost']['app']['sql_settings']['query_timeout'] %>,
+        "EnablePublicChannelsMaterialization": <%= node['mattermost']['app']['sql_settings']['enable_public_channels_materialization'] %>,
     },
     "LogSettings": {
         "EnableConsole": <%= node['mattermost']['app']['log_settings']['enable_console'] %>,

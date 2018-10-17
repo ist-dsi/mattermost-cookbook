@@ -132,6 +132,7 @@ default['mattermost']['app']['sql_settings'] = {
   'trace' => false,
   'at_rest_encrypt_key' => '', # SET THIS!
   'query_timeout' => 30,
+  'enable_public_channels_materialization' => true,
 }
 
 default['mattermost']['app']['log_settings'] = {
