@@ -2,6 +2,11 @@
 
 This file is used to list changes made in each version of the Mattermost cookbook.
 
+## v5.0.1 (2018.10.26)
+
+- Fix setting CAP_NET_BIND_SERVICE
+- Remove extra coma from `config.json`
+
 ## v5.0.0 (2018.10.17)
 
 - [#39](https://github.com/ist-dsi/mattermost-cookbook/issues/39) Update to Mattermost 5.4.0
