@@ -53,8 +53,7 @@ template "#{install_directory}/config/config.json" do
   notifies :restart, 'systemd_unit[mattermost.service]'
 end
 
-execute 'setcap cap_net_bind_service=+ep ./platform' do
-  cwd "#{install_directory}/bin"
+execute "setcap cap_net_bind_service=+ep #{install_directory}/bin/platform" do
   user 'root'
 end
 
