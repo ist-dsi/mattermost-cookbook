@@ -2,7 +2,7 @@ source 'https://supermarket.chef.io'
 
 metadata
 
-cookbook 'tar', '~> 2.1.1'
+cookbook 'tar', '~> 2.2.0'
 
 group :integration do
   cookbook 'selinux'
