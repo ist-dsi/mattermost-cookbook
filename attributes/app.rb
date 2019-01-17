@@ -6,6 +6,10 @@ default['mattermost']['app']['service_settings'] = {
   'connection_security' => '',
   'tls_cert_file' => '',
   'tls_key_file' => '',
+  'tls_min_ver' => '1.2',
+  'tls_strict_transport' => false,
+  'tls_strict_transport_max_age' => 63072000,
+  'tls_overwrite_ciphers' => [],
   'use_lets_encrypt' => false,
   'lets_encrypt_certificate_cache_file' => './config/letsencrypt.cache',
   'forward_80_to_443' => false,
@@ -373,6 +377,7 @@ default['mattermost']['app']['metrics_settings'] = {
 default['mattermost']['app']['experimental_settings'] = {
   'client_side_cert_enable' => false,
   'client_side_cert_check' => 'secondary',
+  'enable_post_metadata' => false,
 }
 
 default['mattermost']['app']['analytics_settings']['max_users_for_statistics'] = 2500

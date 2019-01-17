@@ -1,6 +1,6 @@
 name 'mattermost-cookbook'
 license 'Apache-2.0'
-version '5.5.1'
+version '5.6.3'
 
 chef_version '>= 12.19'
 

@@ -7,6 +7,10 @@
         "ConnectionSecurity": "<%= node['mattermost']['app']['service_settings']['connection_security'] %>",
         "TLSCertFile": "<%= node['mattermost']['app']['service_settings']['tls_cert_file'] %>",
         "TLSKeyFile": "<%= node['mattermost']['app']['service_settings']['tls_key_file'] %>",
+        "TLSMinVer": "<%= node['mattermost']['app']['service_settings']['tls_min_ver'] %>",
+        "TLSStrictTransport": <%= node['mattermost']['app']['service_settings']['tls_strict_transport'] %>,
+        "TLSStrictTransportMaxAge": <%= node['mattermost']['app']['service_settings']['tls_strict_transport_max_age'] %>,
+        "TLSOverwriteCiphers": <%= node['mattermost']['app']['service_settings']['tls_overwrite_ciphers'] %>,
         "UseLetsEncrypt": <%= node['mattermost']['app']['service_settings']['use_lets_encrypt'] %>,
         "LetsEncryptCertificateCacheFile": "<%= node['mattermost']['app']['service_settings']['lets_encrypt_certificate_cache_file'] %>",
         "Forward80To443": <%= node['mattermost']['app']['service_settings']['forward_80_to_443'] %>,
@@ -347,7 +351,8 @@
     },
     "ExperimentalSettings": {
         "ClientSideCertEnable": <%= node['mattermost']['app']['experimental_settings']['client_side_cert_enable'] %>,
-        "ClientSideCertCheck": " <%= node['mattermost']['app']['experimental_settings']['client_side_cert_check'] %>"
+        "ClientSideCertCheck": " <%= node['mattermost']['app']['experimental_settings']['client_side_cert_check'] %>",
+        "EnablePostMetadata": <%= node['mattermost']['app']['experimental_settings']['enable_post_metadata'] %>
     },
     "AnalyticsSettings": {
         "MaxUsersForStatistics": <%= node['mattermost']['app']['analytics_settings']['max_users_for_statistics'] %>
