@@ -10,6 +10,7 @@ This cookbook installs and configures [Mattermost, the opensource Slack alternat
 
 | Mattermost Version | Cookbook Version |
 |:------------------:|:----------------:|
+| 5.7.0              | v5.7.0           |
 | 5.6.3              | v5.6.3           |
 | 5.5.1              | v5.5.1           |
 | 5.5.0              | v5.5.0           |
@@ -20,6 +21,7 @@ This cookbook installs and configures [Mattermost, the opensource Slack alternat
 | 5.1.1              | v2.1.1           |
 | 5.0.1              | v2.0.0           |
 | 4.10.1             | v1.6.10          |
+|:------------------:|:----------------:|
 
 For older versions see this cookbook history at [Supermarket](https://supermarket.chef.io/cookbooks/mattermost-cookbook).
 
@@ -47,12 +49,14 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 
 ### Attributes
 
-All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v5.6.3/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
+All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v5.7.0/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
 
 ## License and Authors
 
-* Author:: David Duarte <david.duarte@tecnico.ulisboa.pt>
-* Author:: Kyle Corupe <kyle.corupe@gmail.com>
+* Author:: Simão Martins    <simao.martins@tecnico.ulisboa.pt>
+* Author:: Simão Silva      <simao.silva@tecnico.ulisboa.pt>
+* Author:: David Duarte     <david.duarte@tecnico.ulisboa.pt>
+* Author:: Kyle Corupe      <kyle.corupe@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

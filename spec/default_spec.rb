@@ -8,8 +8,8 @@ describe 'mattermost-cookbook::default' do
   end
 
   it 'downloads and extracts' do
-    expect(chef_run).to extract_tar_extract('https://releases.mattermost.com/5.6.3/mattermost-5.6.3-linux-amd64.tar.gz').with(
-      checksum: '98b67a0fa4018a1576a5bb3595c050dce547383ce889dd89f7d5dcd4cc825d67',
+    expect(chef_run).to extract_tar_extract('https://releases.mattermost.com/5.7.0/mattermost-5.7.0-linux-amd64.tar.gz').with(
+      checksum: '1220e25f501e41db9bee6af14dd12583c1f95658a55862da42a1268d160b10c4',
       target_dir: '/opt',
       user: 'mattermost',
       group: 'mattermost'

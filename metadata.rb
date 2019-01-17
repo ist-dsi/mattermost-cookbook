@@ -1,11 +1,11 @@
 name 'mattermost-cookbook'
 license 'Apache-2.0'
-version '5.6.3'
+version '5.7.0'
 
 chef_version '>= 12.19'
 
-maintainer 'David Duarte'
-maintainer_email 'david.duarte@tecnico.ulisboa.pt'
+maintainer 'Simão Silva'
+maintainer_email 'simao.silva@tecnico.ulisboa.pt'
 
 description 'Installs/Configures mattermost https://about.mattermost.com'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
