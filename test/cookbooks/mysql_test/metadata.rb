@@ -1,4 +1,4 @@
 name 'mysql_test'
-version '0.0.1'
+version '0.0.2'
 
-depends 'mariadb'
+depends 'mariadb', '= 1.5.4' 
