@@ -69,13 +69,20 @@ default['mattermost']['app']['service_settings'] = {
   'enable_tutorial' => true,
   'experimental_enable_default_channel_leave_join_messages' => true,
   'experimental_group_unread_channels' => 'disabled',
-  'image_proxy_type' => '',
-  'image_proxy_url' => '',
-  'image_proxy_options' => '',
+  'experimental_ldap_group_sync' => false,
+  'group_filter' => '',
+  'group_display_name_attribute' => '',
+  'group_id_attribute' => '',
   'enable_api_team_deletion' => false,
   'experimental_enable_hardened_mode' => false,
   'experimental_limit_client_config' => false,
   'enable_email_invitations' => false,
+}
+default['mattermost']['app']['image_proxy_settings'] = {
+  'enable_image_proxy' => true,
+  'image_proxy_type' => 'local',
+  'remote_image_proxy_url' => '',
+  'remote_image_proxy_options' => '',
 }
 
 default['mattermost']['app']['team_settings'] = {
@@ -377,7 +384,8 @@ default['mattermost']['app']['metrics_settings'] = {
 default['mattermost']['app']['experimental_settings'] = {
   'client_side_cert_enable' => false,
   'client_side_cert_check' => 'secondary',
-  'enable_post_metadata' => false,
+  'disable_post_metadata' => false,
+  'link_metadata_timeout_milliseconds' => 5000,
 }
 
 default['mattermost']['app']['analytics_settings']['max_users_for_statistics'] = 2500

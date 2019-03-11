@@ -70,14 +70,22 @@
         "EnablePreviewFeatures": <%= node['mattermost']['app']['service_settings']['enable_preview_features'] %>,
         "EnableTutorial": <%= node['mattermost']['app']['service_settings']['enable_tutorial'] %>,
         "ExperimentalEnableDefaultChannelLeaveJoinMessages": <%= node['mattermost']['app']['service_settings']['experimental_enable_default_channel_leave_join_messages'] %>,
-        "ExperimentalGroupUnreadChannels": "<%= node['mattermost']['app']['service_settings']['experimental_group_unread_channels'] %>",
-        "ImageProxyType": "<%= node['mattermost']['app']['service_settings']['image_proxy_type'] %>",
-        "ImageProxyOptions": "<%= node['mattermost']['app']['service_settings']['image_proxy_options'] %>",
-        "ImageProxyURL": "<%= node['mattermost']['app']['service_settings']['image_proxy_url'] %>",
+        "ExperimentalGroupUnreadChannels": "<%= node['mattermost']['app']['service_settings']['experimental_group_unread_channels'] %>", 
         "EnableAPITeamDeletion": <%= node['mattermost']['app']['service_settings']['enable_api_team_deletion'] %>,
         "ExperimentalEnableHardenedMode": <%= node['mattermost']['app']['service_settings']['experimental_enable_hardened_mode'] %>,
         "ExperimentalLimitClientConfig": <%= node['mattermost']['app']['service_settings']['experimental_limit_client_config'] %>,
-        "EnableEmailInvitations": <%= node['mattermost']['app']['service_settings']['enable_email_invitations'] %>
+        "EnableEmailInvitations": <%= node['mattermost']['app']['service_settings']['enable_email_invitations'] %>,
+        "ExperimentalLdapGroupSync": <%= node['mattermost']['app']['service_settings']['experimental_ldap_group_sync'] %>,
+        "GroupFilter": "<%= node['mattermost']['app']['service_settings']['group_filter'] %>",
+        "GroupDisplayNameAttribute": "<%= node['mattermost']['app']['service_settings']['group_display_name_attribute'] %>",
+        "GroupIdAttribute": "<%= node['mattermost']['app']['service_settings']['group_id_attribute'] %>"
+
+    },
+    "ImageProxySettings": {
+        "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
+        "ImageProxyType": "<%= node['mattermost']['app']['image_proxy_settings']['image_proxy_type'] %>",
+        "RemoteImageProxyURL": "<%= node['mattermost']['app']['image_proxy_settings']['remote_image_proxy_url'] %>",
+        "RemoteImageProxyOptions": "<%= node['mattermost']['app']['image_proxy_settings']['remote_image_proxy_options'] %>"
     },
     "TeamSettings": {
         "SiteName": "<%= node['mattermost']['app']['team_settings']['site_name'] %>",
@@ -352,7 +360,9 @@
     "ExperimentalSettings": {
         "ClientSideCertEnable": <%= node['mattermost']['app']['experimental_settings']['client_side_cert_enable'] %>,
         "ClientSideCertCheck": " <%= node['mattermost']['app']['experimental_settings']['client_side_cert_check'] %>",
-        "EnablePostMetadata": <%= node['mattermost']['app']['experimental_settings']['enable_post_metadata'] %>
+        "DisablePostMetadata": <%= node['mattermost']['app']['experimental_settings']['disable_post_metadata'] %>,
+        "LinkMetadataTimeoutMilliseconds": <%= node['mattermost']['app']['experimental_settings']['link_metadata_timeout_milliseconds'] %>
+
     },
     "AnalyticsSettings": {
         "MaxUsersForStatistics": <%= node['mattermost']['app']['analytics_settings']['max_users_for_statistics'] %>

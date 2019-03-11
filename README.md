@@ -10,6 +10,7 @@ This cookbook installs and configures [Mattermost, the opensource Slack alternat
 
 | Mattermost Version | Cookbook Version |
 |:------------------:|:----------------:|
+| 5.8.0              | v5.8.0           |
 | 5.7.2              | v5.7.2           |
 | 5.7.0              | v5.7.0           |
 | 5.6.3              | v5.6.3           |
@@ -31,6 +32,7 @@ For older versions see this cookbook history at [Supermarket](https://supermarke
 
 The following platforms and versions are tested and supported using [test-kitchen](http://kitchen.ci/)  
 
+* Ubuntu 18 LTS
 * Ubuntu 16 LTS
 * Debian 9
 * CentOS 7
@@ -49,7 +51,7 @@ Using this cookbook is relatively straightforward. It is recommended to create a
 
 ### Attributes
 
-All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v5.7.2/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
+All settings are the [default settings](https://github.com/mattermost/mattermost-server/blob/v5.8.0/config/default.json) that come from [Mattermost repository](https://github.com/mattermost/mattermost-server/). Make sure to review them all and change what's necessary.
 
 ## License and Authors
 

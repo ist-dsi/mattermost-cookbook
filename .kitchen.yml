@@ -25,7 +25,7 @@ platforms:
       box: bento/ubuntu-18.04
   - name: debian-9
     driver:
-      box: bento/debian-9.0
+      box: bento/debian-9.6
 
 suites:
   - name: default
@@ -33,9 +33,6 @@ suites:
       - recipe[mysql_test::default]
       - recipe[mattermost-cookbook::default]
     attributes:
-      mariadb:
-        install:
-          version: "10.1"
       mattermost:
         app:
           email_settings:

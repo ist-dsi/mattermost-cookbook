@@ -1,6 +1,12 @@
-node.normal['mariadb']['use_default_repository'] = true
+mariadb_repository 'install'
 
-include_recipe 'mariadb::default'
+mariadb_server_install 'mariadb server' do
+  action [:install, :create]
+  password ''
+end
+mariadb_client_install 'mariadb client' do
+  version '10.3'
+end
 
 mariadb_database 'mattermost_test' do
   user 'root'
