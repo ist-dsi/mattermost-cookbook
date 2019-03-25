@@ -77,6 +77,7 @@ default['mattermost']['app']['service_settings'] = {
   'experimental_enable_hardened_mode' => false,
   'experimental_limit_client_config' => false,
   'enable_email_invitations' => false,
+  'disable_legacy_mfa' => false,
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,

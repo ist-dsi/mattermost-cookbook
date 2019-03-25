@@ -78,7 +78,8 @@
         "ExperimentalLdapGroupSync": <%= node['mattermost']['app']['service_settings']['experimental_ldap_group_sync'] %>,
         "GroupFilter": "<%= node['mattermost']['app']['service_settings']['group_filter'] %>",
         "GroupDisplayNameAttribute": "<%= node['mattermost']['app']['service_settings']['group_display_name_attribute'] %>",
-        "GroupIdAttribute": "<%= node['mattermost']['app']['service_settings']['group_id_attribute'] %>"
+        "GroupIdAttribute": "<%= node['mattermost']['app']['service_settings']['group_id_attribute'] %>",
+        "DisableLegacyMFA": <%= node['mattermost']['app']['service_settings']['disable_legacy_mfa'] %>
 
     },
     "ImageProxySettings": {
