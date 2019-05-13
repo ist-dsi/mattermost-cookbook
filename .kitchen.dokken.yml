@@ -1,16 +1,16 @@
 driver:
   name: dokken
   privileged: true # because Docker and SystemD/Upstart
-  chef_version: current
-  accept_license: true
+  #chef_version: current
+  #accept_license: true
 
 transport:
   name: dokken
 
 provisioner:
   name: dokken
-  chef_license: accept
-  accept_license: true
+  chef_license: accept-no-persist
+  #accept_license: true
   deprecations_as_errors: false
 
 platforms:

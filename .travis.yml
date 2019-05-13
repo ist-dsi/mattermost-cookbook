@@ -30,6 +30,8 @@ before_script:
   - chef --version
   - cookstyle --version
   - foodcritic --version
+  - export CHEF_LICENSE="accept-no-persist"
+  - echo "chef_license = 'accept'" >> ~/.chef/knife.rb
 
 script: KITCHEN_LOCAL_YAML=.kitchen.dokken.yml kitchen verify ${INSTANCE}
 
