@@ -78,6 +78,7 @@ default['mattermost']['app']['service_settings'] = {
   'experimental_limit_client_config' => false,
   'enable_email_invitations' => false,
   'disable_legacy_mfa' => false,
+  'minimum_hashtag_length' => 3,
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,
@@ -383,6 +384,7 @@ default['mattermost']['app']['metrics_settings'] = {
 }
 
 default['mattermost']['app']['experimental_settings'] = {
+  'restrict_system_admin' => false,
   'client_side_cert_enable' => false,
   'client_side_cert_check' => 'secondary',
   'disable_post_metadata' => false,
