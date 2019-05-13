@@ -9,6 +9,7 @@ transport:
 
 provisioner:
   name: dokken
+  chef_license: accept
   accept_license: true
   deprecations_as_errors: false
 
