@@ -28,6 +28,7 @@ before_script:
   - sudo iptables -L DOCKER || ( echo "DOCKER iptables chain missing" ; sudo iptables -N DOCKER )
   - eval "$(chef shell-init bash)"
   - chef --version
+  - chef --chef-license accept
   - cookstyle --version
   - foodcritic --version
 
