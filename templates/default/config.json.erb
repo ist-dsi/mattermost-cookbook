@@ -79,8 +79,10 @@
         "GroupFilter": "<%= node['mattermost']['app']['service_settings']['group_filter'] %>",
         "GroupDisplayNameAttribute": "<%= node['mattermost']['app']['service_settings']['group_display_name_attribute'] %>",
         "GroupIdAttribute": "<%= node['mattermost']['app']['service_settings']['group_id_attribute'] %>",
-        "DisableLegacyMFA": <%= node['mattermost']['app']['service_settings']['disable_legacy_mfa'] %>
-
+        "DisableLegacyMFA": <%= node['mattermost']['app']['service_settings']['disable_legacy_mfa'] %>,
+        "EnableBotAccountCreation": <%= node['mattermost']['app']['service_settings']['enable_bot_account_creation'] %>,
+        "DisableBotsWhenOwnerIsDeactivated": <%= node['mattermost']['app']['service_settings']['disable_bots_when_owner_is_deactivated'] %>,
+        "TrustedProxyIPHeader": <%= node['mattermost']['app']['service_settings']['trusted_proxy_ip__header'] %>,
     },
     "ImageProxySettings": {
         "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
@@ -142,6 +144,15 @@
         "AtRestEncryptKey": "<%= node['mattermost']['app']['sql_settings']['at_rest_encrypt_key'] %>",
         "QueryTimeout": <%= node['mattermost']['app']['sql_settings']['query_timeout'] %>,
         "EnablePublicChannelsMaterialization": <%= node['mattermost']['app']['sql_settings']['enable_public_channels_materialization'] %>
+    },
+    "NotificationLogSettings": {
+        "EnableConsole": <%= node['mattermost']['app']['notification_log_settings']['enable_console'] %>,
+        "ConsoleLevel": "<%= node['mattermost']['app']['notification_log_settings']['console_level'] %>",
+        "ConsoleJson": <%= node['mattermost']['app']['notification_log_settings']['console_json'] %>,
+        "EnableFile": <%= node['mattermost']['app']['notification_log_settings']['enable_file'] %>,
+        "FileLevel": "<%= node['mattermost']['app']['notification_log_settings']['file_level'] %>",
+        "FileJson": <%= node['mattermost']['app']['notification_log_settings']['file_json'] %>,
+        "FileLocation": "<%= node['mattermost']['app']['notification_log_settings']['file_location'] %>",
     },
     "LogSettings": {
         "EnableConsole": <%= node['mattermost']['app']['log_settings']['enable_console'] %>,
@@ -425,6 +436,7 @@
         "EnableUploads": <%= node['mattermost']['app']['plugin_settings']['enable_uploads'] %>,
         "Directory": "./<%= node['mattermost']['app']['plugin_settings']['directory'] %>",
         "ClientDirectory": "./<%= node['mattermost']['app']['plugin_settings']['client_directory'] %>",
+        "EnableHealthCheck": <%= node['mattermost']['app']['plugin_settings']['enable_health_check'] %>,
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
         "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>
     }

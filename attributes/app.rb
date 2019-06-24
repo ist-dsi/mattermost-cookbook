@@ -79,6 +79,9 @@ default['mattermost']['app']['service_settings'] = {
   'enable_email_invitations' => false,
   'disable_legacy_mfa' => false,
   'minimum_hashtag_length' => 3,
+  'enable_bot_account_creation' => false,
+  'disable_bots_when_owner_is_deactivated' => true,
+  'trusted_proxy_ip_header' => [],
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,
@@ -146,6 +149,16 @@ default['mattermost']['app']['sql_settings'] = {
   'at_rest_encrypt_key' => '', # SET THIS!
   'query_timeout' => 30,
   'enable_public_channels_materialization' => true,
+}
+
+default['mattermost']['app']['notification_log_settings'] = {
+  'enable_console' => true,
+  'console_level' => 'DEBUG',
+  'console_json' => true,
+  'enable_file' => true,
+  'file_level' => 'INFO',
+  'file_json' => true,
+  'file_location' => '',
 }
 
 default['mattermost']['app']['log_settings'] = {
@@ -453,6 +466,7 @@ default['mattermost']['app']['plugin_settings'] = {
   'enable_uploads' => false,
   'directory' => 'plugins',
   'client_directory' => 'client/plugins',
+  'enable_health_check' => true,
   'plugins' => {},
   'plugin_states' => {},
 }
