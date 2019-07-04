@@ -6,6 +6,8 @@ driver:
 
 provisioner:
   name: chef_zero
+  client_rb:
+    chef_license: "accept-silent"
   deprecations_as_errors: false
 
 verifier:
@@ -14,7 +16,7 @@ verifier:
 platforms:
   - name: centos-7
     driver:
-      box: bento/centos-7.3
+      box: bento/centos-7.6
     run_list:
     - recipe[selinux::disabled]
   - name: ubuntu-16.04
@@ -25,7 +27,7 @@ platforms:
       box: bento/ubuntu-18.04
   - name: debian-9
     driver:
-      box: bento/debian-9.6
+      box: bento/debian-9.8
 
 suites:
   - name: default

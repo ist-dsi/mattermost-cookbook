@@ -1,6 +1,6 @@
 default['mattermost']['package'] = {
-  'url' => 'https://releases.mattermost.com/5.12.0/mattermost-5.12.0-linux-amd64.tar.gz',
-  'checksum' => 'ce4b1b182e12ca499ba3e1a115f7635e0747430b741b3e10b4de54b8bcbfdfd7',
+  'url' => 'https://releases.mattermost.com/5.12.2/mattermost-5.12.2-linux-amd64.tar.gz',
+  'checksum' => 'c816ff49c640055459c68abd7fa5acdd213cd427f641cf3af271279c849f7e18',
 }
 
 default['mattermost']['config'] = {
