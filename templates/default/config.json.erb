@@ -82,7 +82,7 @@
         "DisableLegacyMFA": <%= node['mattermost']['app']['service_settings']['disable_legacy_mfa'] %>,
         "EnableBotAccountCreation": <%= node['mattermost']['app']['service_settings']['enable_bot_account_creation'] %>,
         "DisableBotsWhenOwnerIsDeactivated": <%= node['mattermost']['app']['service_settings']['disable_bots_when_owner_is_deactivated'] %>,
-        "TrustedProxyIPHeader": "<%= node['mattermost']['app']['service_settings']['trusted_proxy_ip__header'] %>"
+        "TrustedProxyIPHeader": "<%= node['mattermost']['app']['service_settings']['trusted_proxy_ip_header'] %>"
     },
     "ImageProxySettings": {
         "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
