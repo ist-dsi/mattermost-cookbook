@@ -35,7 +35,7 @@ describe file('/opt/mattermost/config/config.json') do
   it { should be_grouped_into 'mattermost' }
   its('mode') { should cmp '0640' }
   its('content') { should include 'ServiceSettings' }
-  its('content') { should include 'trusted_proxy_ip_header' }
+  its('content') { should include 'TrustedProxyIPHeader' }
 end
 
 describe service('mattermost') do
