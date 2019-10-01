@@ -423,6 +423,7 @@ default['mattermost']['app']['elastic_search_settings'] = {
   'password' => 'changeme',
   'enable_indexing' => false,
   'enable_searching' => false,
+  'skip_tls_verification' => false,
   'sniff' => true,
   'post_index_replicas' => 1,
   'post_index_shards' => 1,

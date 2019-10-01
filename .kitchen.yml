@@ -19,15 +19,15 @@ platforms:
       box: bento/centos-7.6
     run_list:
     - recipe[selinux::disabled]
-  - name: ubuntu-16.04
-    driver:
-      box: bento/ubuntu-16.04
   - name: ubuntu-18.04
     driver:
       box: bento/ubuntu-18.04
   - name: debian-9
     driver:
-      box: bento/debian-9.8
+      box: bento/debian-9.9
+  - name: debian-10
+    driver:
+      box: bento/debian-10.1
 
 suites:
   - name: default

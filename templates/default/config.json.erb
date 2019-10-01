@@ -397,6 +397,7 @@
         "Password": "<%= node['mattermost']['app']['elastic_search_settings']['password'] %>",
         "EnableIndexing": <%= node['mattermost']['app']['elastic_search_settings']['enable_indexing'] %>,
         "EnableSearching": <%= node['mattermost']['app']['elastic_search_settings']['enable_searching'] %>,
+        "SkipTLSVerification": <%= node['mattermost']['app']['elastic_search_settings']['skip_tls_verification'] %>,
         "Sniff": <%= node['mattermost']['app']['elastic_search_settings']['sniff'] %>,
         "PostIndexReplicas": <%= node['mattermost']['app']['elastic_search_settings']['post_index_replicas'] %>,
         "PostIndexShards": <%= node['mattermost']['app']['elastic_search_settings']['post_index_shards'] %>,
