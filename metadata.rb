@@ -16,7 +16,7 @@ end
 
 supports 'debian', '>= 9.0'
 supports 'ubuntu', '>= 18.04'
-supports 'centos', '>= 7'
+supports 'centos', '>= 7.0'
 depends 'tar'
 
 source_url 'https://github.com/ist-dsi/mattermost-cookbook' if respond_to?(:source_url)
