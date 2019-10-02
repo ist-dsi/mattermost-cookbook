@@ -471,3 +471,13 @@ default['mattermost']['app']['plugin_settings'] = {
   'plugins' => {},
   'plugin_states' => {},
 }
+
+default['mattermost']['app']['cluster_Settings'] = {
+  'network_interface' => '',
+  'bind_address' => '',
+  'advertise_address' => '',
+}
+
+default['mattermost']['app']['compliance_Settings'] = {
+  'sign_request' => '',
+}

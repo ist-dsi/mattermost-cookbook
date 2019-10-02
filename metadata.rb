@@ -1,6 +1,6 @@
 name 'mattermost-cookbook'
 license 'Apache-2.0'
-version '5.13.3'
+version '5.14.3'
 
 chef_version '>= 12.19'
 
@@ -15,8 +15,8 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 end
 
 supports 'debian', '>= 9.0'
-supports 'ubuntu', '>= 16.04'
-
+supports 'ubuntu', '>= 18.04'
+supports 'centos', '>= 7'
 depends 'tar'
 
 source_url 'https://github.com/ist-dsi/mattermost-cookbook' if respond_to?(:source_url)

@@ -27,7 +27,7 @@ platforms:
       box: bento/debian-9.9
   - name: debian-10
     driver:
-      box: bento/debian-10.1
+      box: bento/debian-10
 
 suites:
   - name: default

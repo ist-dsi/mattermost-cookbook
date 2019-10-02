@@ -36,6 +36,8 @@ describe file('/opt/mattermost/config/config.json') do
   its('mode') { should cmp '0640' }
   its('content') { should include 'ServiceSettings' }
   its('content') { should include 'TrustedProxyIPHeader' }
+  its('content') { should include 'ClusterSettings' }
+  its('content') { should include 'ComplianceSettings' }
 end
 
 describe service('mattermost') do
