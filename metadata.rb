@@ -1,6 +1,6 @@
 name 'mattermost-cookbook'
 license 'Apache-2.0'
-version '5.14.3'
+version '5.15.1'
 
 chef_version '>= 12.19'
 
@@ -16,7 +16,7 @@ end
 
 supports 'debian', '>= 9.0'
 supports 'ubuntu', '>= 18.04'
-supports 'centos', '>= 7.0'
+
 depends 'tar'
 
 source_url 'https://github.com/ist-dsi/mattermost-cookbook' if respond_to?(:source_url)
