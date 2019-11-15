@@ -134,8 +134,31 @@
     },
     "SqlSettings": {
         "DriverName": "<%= node['mattermost']['app']['sql_settings']['driver_name'] %>",
-        "DataSource": "<%= node['mattermost']['database']['username'] %>:<%= node['mattermost']['database']['password'] %>@tcp(<%= node['mattermost']['database']['address'] %>:<%= node['mattermost']['database']['port'] %>)/<%= node['mattermost']['database']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
-        "DataSourceReplicas": <%= node['mattermost']['app']['sql_settings']['data_source_replicas'] %>,
+<% replica_count = node['mattermost']['app']['sql_settings']['data_source_replicas'].count %>
+<% if (node['mattermost']['app']['sql_settings']['driver_name']=='postgres') %>
+        "DataSource": "postgres://<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@<%= node['mattermost']['app']['sql_settings']['address'] %>:<%= node['mattermost']['app']['sql_settings']['port'] %>/<%= node['mattermost']['app']['sql_settings']['database_name'] %>?sslmode=disable&connect_timeout=10",
+        "DataSourceReplicas": [
+    <%- node['mattermost']['app']['sql_settings']['data_source_replicas'].each_with_index do |replica, i| %>
+        <% if (i < ( replica_count - 1 )) %>
+        <% Chef::Log.info("Iterator is #{i}") %>
+            "postgres://<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>/<%= node['mattermost']['app']['sql_settings']['database_name'] %>?sslmode=disable&connect_timeout=10",
+        <% else %>
+            "postgres://<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>/<%= node['mattermost']['app']['sql_settings']['database_name'] %>?sslmode=disable&connect_timeout=10"
+        <% end %>
+    <%- end %>
+        ],
+<% elsif (node['mattermost']['app']['sql_settings']['driver_name']=='mysql') %>
+        "DataSource": "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= node['mattermost']['app']['sql_settings']['address'] %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
+    <%- node['mattermost']['app']['sql_settings']['data_source_replicas'].each_with_index do |replica, i| %>
+        "DataSourceReplicas": [
+        <% if (i < ( replica_count - 1 )) %>
+            "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
+        <% else %>
+            "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s"
+        <% end %>
+    <%- end %>
+        ],
+<% end %>
         "DataSourceSearchReplicas": <%= node['mattermost']['app']['sql_settings']['data_source_search_replicas'] %>,
         "MaxIdleConns": <%= node['mattermost']['app']['sql_settings']['max_idle_conns'] %>,
         "ConnMaxLifetimeMilliseconds": <%= node['mattermost']['app']['sql_settings']['conn_max_lifetime_milliseconds'] %>,

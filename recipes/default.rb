@@ -37,7 +37,33 @@ directory node['mattermost']['config']['data_dir'] do
   action :create
 end
 
+
+directory node['mattermost']['app']['file_settings']['directory'] do
+  owner node['mattermost']['config']['user']
+  group node['mattermost']['config']['user']
+  mode 0755
+  recursive true
+  action :create
+end
+
+
 directory "#{install_directory}/#{node['mattermost']['app']['plugin_settings']['client_directory']}" do
+  owner node['mattermost']['config']['user']
+  group node['mattermost']['config']['user']
+  mode 0755
+  recursive true
+  action :create
+end
+
+directory node['mattermost']['app']['log_settings']['file_location'] do
+  owner node['mattermost']['config']['user']
+  group node['mattermost']['config']['user']
+  mode 0755
+  recursive true
+  action :create
+end
+
+directory node['mattermost']['app']['notification_log_settings'] do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
   mode 0755
