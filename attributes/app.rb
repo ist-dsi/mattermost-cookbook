@@ -159,7 +159,7 @@ default['mattermost']['app']['notification_log_settings'] = {
   'enable_file' => true,
   'file_level' => 'INFO',
   'file_json' => true,
-  'file_location' => '',
+  'file_location' => '/var/log/mattermost',
 }
 
 default['mattermost']['app']['log_settings'] = {
@@ -169,7 +169,7 @@ default['mattermost']['app']['log_settings'] = {
   'enable_file' => true,
   'file_level' => 'INFO',
   'file_json' => true,
-  'file_location' => '',
+  'file_location' => '/var/log/mattermost',
   'enable_webhook_debugging' => true,
   'enable_diagnostics' => true,
 }
