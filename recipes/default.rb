@@ -1,11 +1,11 @@
 #
-# Cookbook Name:: mattermost
+# Cookbook:: mattermost
 # Recipe:: default
 #
-# Copyright (c) 2017 The Authors, All Rights Reserved.
+# Copyright:: (c) 2017 The Authors, All Rights Reserved.
 install_directory = "#{node['mattermost']['config']['install_path']}/mattermost"
 
-apt_package 'libcap2-bin' if node['platform_family'] == 'debian'
+apt_package 'libcap2-bin' if platform_family?('debian')
 
 user node['mattermost']['config']['user'] do
   action :create
@@ -14,7 +14,7 @@ end
 directory install_directory do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
-  mode 0755
+  mode '755'
   recursive true
   action :create
 end
@@ -32,7 +32,7 @@ end
 directory node['mattermost']['config']['data_dir'] do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
-  mode 0755
+  mode '755'
   recursive true
   action :create
 end
@@ -40,7 +40,7 @@ end
 directory "#{install_directory}/#{node['mattermost']['app']['plugin_settings']['client_directory']}" do
   owner node['mattermost']['config']['user']
   group node['mattermost']['config']['user']
-  mode 0755
+  mode '755'
   recursive true
   action :create
 end

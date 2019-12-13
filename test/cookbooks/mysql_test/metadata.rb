@@ -16,5 +16,5 @@ supports 'ubuntu', '>= 16.04'
 
 depends 'mariadb'
 
-source_url 'https://github.com/ist-dsi/mattermost-cookbook' if respond_to?(:source_url)
-issues_url 'https://github.com/ist-dsi/mattermost-cookbook/issues' if respond_to?(:issues_url)
+source_url 'https://github.com/ist-dsi/mattermost-cookbook'
+issues_url 'https://github.com/ist-dsi/mattermost-cookbook/issues'

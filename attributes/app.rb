@@ -135,7 +135,7 @@ default['mattermost']['app']['client_requirements'] = {
 
 default['mattermost']['app']['sql_settings'] = {
   'driver_name' => 'mysql',
-  'address' => 'dockerhost',
+  'address' => 'localhost',
   'port' => '3306',
   'username' => 'mmuser',
   'password' => 'mostest',
@@ -215,7 +215,7 @@ default['mattermost']['app']['email_settings'] = {
   'enable_smtp_auth' => false,
   'smtp_username' => '',
   'smtp_password' => '',
-  'smtp_server' => 'dockerhost',
+  'smtp_server' => 'localhost',
   'smtp_port' => '2500',
   'connection_security' => '',
   'invite_salt' => '', # SET THIS!
@@ -371,7 +371,7 @@ default['mattermost']['app']['saml_settings'] = {
 }
 
 default['mattermost']['app']['native_app_settings'] = {
-  'app_download_link' => 'https://about.mattermost.com/downloads/',
+  'app_download_link' => 'https://mattermost.com/download/#mattermostApps',
   'android_app_download_link' => 'https://about.mattermost.com/mattermost-android-app/',
   'ios_app_download_link' => 'https://about.mattermost.com/mattermost-ios-app/',
 }
@@ -418,7 +418,7 @@ default['mattermost']['app']['webrtc_settings'] = {
 }
 
 default['mattermost']['app']['elastic_search_settings'] = {
-  'connection_url' => 'http://dockerhost:9200',
+  'connection_url' => 'http://localhost:9200',
   'username' => 'elastic',
   'password' => 'changeme',
   'enable_indexing' => false,
@@ -470,6 +470,8 @@ default['mattermost']['app']['plugin_settings'] = {
   'enable_health_check' => true,
   'plugins' => {},
   'plugin_states' => {},
+  'enable_market_place' => true,
+  'market_place_url' => 'https://marketplace.integrations.mattermost.com',
 }
 
 default['mattermost']['app']['cluster_Settings'] = {
@@ -480,4 +482,11 @@ default['mattermost']['app']['cluster_Settings'] = {
 
 default['mattermost']['app']['compliance_Settings'] = {
   'sign_request' => '',
+}
+
+default['mattermost']['app']['guest_accounts_settings'] = {
+  'enable' => false,
+  'allow_email_accounts' => false,
+  'enforce_multifactor_authentication' => false,
+  'restrict_creation_to_domains' => false,
 }

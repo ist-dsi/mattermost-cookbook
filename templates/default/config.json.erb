@@ -448,6 +448,15 @@
         "ClientDirectory": "./<%= node['mattermost']['app']['plugin_settings']['client_directory'] %>",
         "EnableHealthCheck": <%= node['mattermost']['app']['plugin_settings']['enable_health_check'] %>,
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
-        "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>
+        "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>,
+        "EnableMarketplace": <%= node['mattermost']['app']['plugin_settings']['enable_market_place'] %>,
+        "MarketplaceUrl": "<%= node['mattermost']['app']['plugin_settings']['market_place_url'] %>"
     }
+    "GuestAccountsSettings": {
+        "Enable": <%= node['mattermost']['app']['guest_accounts_settings']['enable'] %>,
+        "AllowEmailAccounts": <%= node['mattermost']['app']['guest_accounts_settings']['allow_email_accounts'] %>,
+        "EnforceMultifactorAuthentication": <%= node['mattermost']['app']['guest_accounts_settings']['enforce_multifactor_authentication'] %>,
+        "RestrictCreationToDomains": "<%= node['mattermost']['app']['guest_accounts_settings']['restrict_creation_to_domains'] %>
+    }
+
 }
