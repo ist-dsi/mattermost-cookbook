@@ -40,7 +40,6 @@
         "CorsExposedHeaders": "<%= node['mattermost']['app']['service_settings']['cors_exposed_headers'] %>",
         "CorsAllowCredentials": <%= node['mattermost']['app']['service_settings']['cors_allow_credentials'] %>,
         "CorsDebug": <%= node['mattermost']['app']['service_settings']['cors_debug'] %>,
-        "CorsAllowCredentials": <%= node['mattermost']['app']['service_settings']['allow_cookies_for_subdomains'] %>,
         "AllowCookiesForSubdomains": <%= node['mattermost']['app']['service_settings']['allow_cookies_for_subdomains'] %>,
         "SessionLengthWebInDays": <%= node['mattermost']['app']['service_settings']['session_length_web_in_days'] %>,
         "SessionLengthMobileInDays": <%= node['mattermost']['app']['service_settings']['session_length_mobile_in_days'] %>,
@@ -82,7 +81,8 @@
         "DisableLegacyMFA": <%= node['mattermost']['app']['service_settings']['disable_legacy_mfa'] %>,
         "EnableBotAccountCreation": <%= node['mattermost']['app']['service_settings']['enable_bot_account_creation'] %>,
         "DisableBotsWhenOwnerIsDeactivated": <%= node['mattermost']['app']['service_settings']['disable_bots_when_owner_is_deactivated'] %>,
-        "TrustedProxyIPHeader": <%= node['mattermost']['app']['service_settings']['trusted_proxy_ip_header'] %>
+        "TrustedProxyIPHeader": <%= node['mattermost']['app']['service_settings']['trusted_proxy_ip_header'] %>,
+        "EnableLatex": <%= node['mattermost']['app']['service_settings']['enable_latex'] %>
     },
     "ImageProxySettings": {
         "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
@@ -134,8 +134,31 @@
     },
     "SqlSettings": {
         "DriverName": "<%= node['mattermost']['app']['sql_settings']['driver_name'] %>",
-        "DataSource": "<%= node['mattermost']['database']['username'] %>:<%= node['mattermost']['database']['password'] %>@tcp(<%= node['mattermost']['database']['address'] %>:<%= node['mattermost']['database']['port'] %>)/<%= node['mattermost']['database']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
-        "DataSourceReplicas": <%= node['mattermost']['app']['sql_settings']['data_source_replicas'] %>,
+<% replica_count = node['mattermost']['app']['sql_settings']['data_source_replicas'].count %>
+<% if (node['mattermost']['app']['sql_settings']['driver_name']=='postgres') %>
+        "DataSource": "postgres://<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@<%= node['mattermost']['app']['sql_settings']['address'] %>:<%= node['mattermost']['app']['sql_settings']['port'] %>/<%= node['mattermost']['app']['sql_settings']['database_name'] %>?sslmode=disable&connect_timeout=10",
+        "DataSourceReplicas": [ 
+    <%- node['mattermost']['app']['sql_settings']['data_source_replicas'].each_with_index do |replica, i| %>
+        <% if (i < ( replica_count - 1 )) %>
+        <% Chef::Log.info("Iterator is #{i}") %>
+            "postgres://<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>/<%= node['mattermost']['app']['sql_settings']['database_name'] %>?sslmode=disable&connect_timeout=10",
+        <% else %>
+            "postgres://<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>/<%= node['mattermost']['app']['sql_settings']['database_name'] %>?sslmode=disable&connect_timeout=10"
+        <% end %>
+    <%- end %>
+        ],
+<% elsif (node['mattermost']['app']['sql_settings']['driver_name']=='mysql') %>
+        "DataSource": "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= node['mattermost']['app']['sql_settings']['address'] %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
+    <%- node['mattermost']['app']['sql_settings']['data_source_replicas'].each_with_index do |replica, i| %>
+        "DataSourceReplicas": [
+        <% if (i < ( replica_count - 1 )) %>
+            "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
+        <% else %>
+            "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s"
+        <% end %>
+    <%- end %>
+        ],
+<% end %>
         "DataSourceSearchReplicas": <%= node['mattermost']['app']['sql_settings']['data_source_search_replicas'] %>,
         "MaxIdleConns": <%= node['mattermost']['app']['sql_settings']['max_idle_conns'] %>,
         "ConnMaxLifetimeMilliseconds": <%= node['mattermost']['app']['sql_settings']['conn_max_lifetime_milliseconds'] %>,
@@ -313,7 +336,8 @@
     "ComplianceSettings": {
         "Enable": <%= node['mattermost']['app']['compliance_settings']['enable'] %>,
         "Directory": "<%= node['mattermost']['app']['compliance_settings']['directory'] %>",
-        "EnableDaily": <%= node['mattermost']['app']['compliance_settings']['enable_daily'] %>
+        "EnableDaily": <%= node['mattermost']['app']['compliance_settings']['enable_daily'] %>,
+        "SignRequest":"<%= node['mattermost']['app']['compliance_Settings']['sign_request'] %>"
     },
     "LocalizationSettings": {
         "DefaultServerLocale": "<%= node['mattermost']['app']['localization_settings']['default_server_locale'] %>",
@@ -363,7 +387,10 @@
         "StreamingPort": <%= node['mattermost']['app']['cluster_settings']['streaming_port'] %>,
         "MaxIdleConns": <%= node['mattermost']['app']['cluster_settings']['max_idle_conns'] %>,
         "MaxIdleConnsPerHost": <%= node['mattermost']['app']['cluster_settings']['max_idle_conns_per_host'] %>,
-        "IdleConnTimeoutMilliseconds": <%= node['mattermost']['app']['cluster_settings']['idle_conn_timeout_milliseconds'] %>
+        "IdleConnTimeoutMilliseconds": <%= node['mattermost']['app']['cluster_settings']['idle_conn_timeout_milliseconds'] %>,
+        "NetworkInterface": "<%= node['mattermost']['app']['cluster_Settings']['network_interface'] %>",
+        "BindAddress": "<%= node['mattermost']['app']['cluster_Settings']['bind_address'] %>",
+        "AdvertiseAddress":"<%= node['mattermost']['app']['cluster_Settings']['advertise_address'] %>"
     },
     "MetricsSettings": {
         "Enable": <%= node['mattermost']['app']['metrics_settings']['enable'] %>,
