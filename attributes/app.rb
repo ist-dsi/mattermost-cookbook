@@ -82,6 +82,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_bot_account_creation' => false,
   'disable_bots_when_owner_is_deactivated' => true,
   'trusted_proxy_ip_header' => [],
+  'enable_latex' => true,
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,
@@ -146,7 +147,7 @@ default['mattermost']['app']['sql_settings'] = {
   'max_idle_conns' => 20,
   'max_open_conns' => 300,
   'trace' => false,
-  'at_rest_encrypt_key' => '', # SET THIS!
+  'at_rest_encrypt_key' => '',
   'query_timeout' => 30,
   'enable_public_channels_materialization' => true,
 }
@@ -158,7 +159,7 @@ default['mattermost']['app']['notification_log_settings'] = {
   'enable_file' => true,
   'file_level' => 'INFO',
   'file_json' => true,
-  'file_location' => '',
+  'file_location' => '/var/log/mattermost',
 }
 
 default['mattermost']['app']['log_settings'] = {
@@ -168,7 +169,7 @@ default['mattermost']['app']['log_settings'] = {
   'enable_file' => true,
   'file_level' => 'INFO',
   'file_json' => true,
-  'file_location' => '',
+  'file_location' => '/var/log/mattermost',
   'enable_webhook_debugging' => true,
   'enable_diagnostics' => true,
 }
@@ -484,9 +485,9 @@ default['mattermost']['app']['compliance_Settings'] = {
   'sign_request' => '',
 }
 
-default['mattermost']['app']['guest_accounts_settings'] = {
+default['mattermost']['app']['guest_account_settings']= {
   'enable' => false,
-  'allow_email_accounts' => false,
+  'allow_email_accounts' => true,
   'enforce_multifactor_authentication' => false,
-  'restrict_creation_to_domains' => false,
+  'restrict_creation_to_domains' => true,
 }
