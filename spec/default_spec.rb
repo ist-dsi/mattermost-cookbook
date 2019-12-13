@@ -19,7 +19,7 @@ describe 'mattermost-cookbook::default' do
   it 'creates data directory ' do
     expect(chef_run).to create_directory('/opt/mattermost/data').with(
       user: 'mattermost',
-      mode: 0755,
+      mode: '755',
       recursive: true
     )
   end
@@ -27,7 +27,7 @@ describe 'mattermost-cookbook::default' do
   it 'creates plugins directory ' do
     expect(chef_run).to create_directory('/opt/mattermost/client/plugins').with(
       user: 'mattermost',
-      mode: 0755,
+      mode: '755',
       recursive: true
     )
   end
