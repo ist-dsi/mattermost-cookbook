@@ -149,8 +149,8 @@
         ],
 <% elsif (node['mattermost']['app']['sql_settings']['driver_name']=='mysql') %>
         "DataSource": "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= node['mattermost']['app']['sql_settings']['address'] %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
-    <%- node['mattermost']['app']['sql_settings']['data_source_replicas'].each_with_index do |replica, i| %>
         "DataSourceReplicas": [
+    <%- node['mattermost']['app']['sql_settings']['data_source_replicas'].each_with_index do |replica, i| %>
         <% if (i < ( replica_count - 1 )) %>
             "<%= node['mattermost']['app']['sql_settings']['username'] %>:<%= node['mattermost']['app']['sql_settings']['password'] %>@tcp(<%= replica %>:<%= node['mattermost']['app']['sql_settings']['port'] %>)/<%= node['mattermost']['app']['sql_settings']['name'] %>?charset=utf8mb4,utf8&readTimeout=30s&writeTimeout=30s",
         <% else %>
@@ -482,6 +482,6 @@
         "Enable": <%= node['mattermost']['app']['guest_accounts_settings']['enable'] %>,
         "AllowEmailAccounts": <%= node['mattermost']['app']['guest_accounts_settings']['allow_email_accounts'] %>,
         "EnforceMultifactorAuthentication": <%= node['mattermost']['app']['guest_accounts_settings']['enforce_multifactor_authentication'] %>,
-        "RestrictCreationToDomains": "<%= node['mattermost']['app']['guest_accounts_settings']['restrict_creation_to_domains'] %>"
+        "RestrictCreationToDomains": <%= node['mattermost']['app']['guest_accounts_settings']['restrict_creation_to_domains'] %>
     }
 }

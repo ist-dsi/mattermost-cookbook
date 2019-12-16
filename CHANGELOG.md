@@ -1,7 +1,11 @@
 # Mattermost Cookbook Changelog
 
 This file is used to list changes made in each version of the Mattermost cookbook.
-## v5.16.3 (2019.12.13) 
+## v5.17.1 (2019.12.16)
+
+- [#57](https://github.com/ist-dsi/mattermost-cookbook/issues/57) Update to Mattermost 5.17.1
+
+## v5.16.3 (2019.12.13)
 
 - Now supports Mattermost 5.16.3
 
