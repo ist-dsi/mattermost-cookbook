@@ -485,7 +485,7 @@ default['mattermost']['app']['compliance_Settings'] = {
   'sign_request' => '',
 }
 
-default['mattermost']['app']['guest_account_settings']= {
+default['mattermost']['app']['guest_accounts_settings']= {
   'enable' => false,
   'allow_email_accounts' => true,
   'enforce_multifactor_authentication' => false,
