@@ -11,4 +11,8 @@ default['mattermost']['config'] = {
   'server_name' => 'localhost',
 }
 
+default['mattermost']['config']['path'] = {
+  default['mattermost']['config']['install_path'] + '/mattermost/config/config.json'
+}
+
 default['mattermost']['systemd']['after'] = %w( syslog.target network.target )
