@@ -25,6 +25,9 @@ platforms:
   - name: debian-9
     driver:
       box: bento/debian-9.9
+    lifecycle:
+      pre_converge:
+      - remote: sudo apt-get update
   - name: debian-10
     driver:
       box: bento/debian-10
@@ -40,10 +43,10 @@ suites:
           email_settings:
             smtp_server: localhost
             smtp_port: 25
-        database:
-          address: 127.0.0.1
-          username: root
-          password: ""
+          sql_settings:
+            address: 127.0.0.1
+            username: root
+            password: ""
     verifier:
       inspec_tests:
         - test/integration/default/inspec
