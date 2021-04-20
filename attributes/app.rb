@@ -387,6 +387,7 @@ default['mattermost']['app']['saml_settings'] = {
   'idp_metadata_url' => '',
   'enable_admin_attribute' => true,
   'admin_attribute' => '',
+  'service_provider_identifier' => '',
 }
 
 default['mattermost']['app']['native_app_settings'] = {
