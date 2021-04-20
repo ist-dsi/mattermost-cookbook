@@ -74,7 +74,6 @@
         "ExperimentalEnableHardenedMode": <%= node['mattermost']['app']['service_settings']['experimental_enable_hardened_mode'] %>,
         "ExperimentalLimitClientConfig": <%= node['mattermost']['app']['service_settings']['experimental_limit_client_config'] %>,
         "EnableEmailInvitations": <%= node['mattermost']['app']['service_settings']['enable_email_invitations'] %>,
-        "ExperimentalLdapGroupSync": <%= node['mattermost']['app']['service_settings']['experimental_ldap_group_sync'] %>,
         "GroupFilter": "<%= node['mattermost']['app']['service_settings']['group_filter'] %>",
         "GroupDisplayNameAttribute": "<%= node['mattermost']['app']['service_settings']['group_display_name_attribute'] %>",
         "GroupIdAttribute": "<%= node['mattermost']['app']['service_settings']['group_id_attribute'] %>",
@@ -122,7 +121,8 @@
         "ExperimentalEnableAutomaticReplies": <%= node['mattermost']['app']['team_settings']['experimental_enable_automatic_replies'] %>,
         "ExperimentalHideTownSquareinLHS": <%= node['mattermost']['app']['team_settings']['experimental_hide_town_square_in_lhs'] %>,
         "ExperimentalTownSquareIsReadOnly": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>,
-        "ExperimentalPrimaryTeam": "<%= node['mattermost']['app']['team_settings']['experimental_primary_team'] %>"
+        "ExperimentalPrimaryTeam": "<%= node['mattermost']['app']['team_settings']['experimental_primary_team'] %>",
+        "LockTeammateNameDisplay": <%= node['mattermost']['app']['team_settings']['experimental_town_square_is_read_only'] %>
     },
     "ClientRequirements": {
         "AndroidLatestVersion": "<%= node['mattermost']['app']['client_requirements']['android_latest_version'] %>",
@@ -329,9 +329,10 @@
         "QueryTimeout": <%= node['mattermost']['app']['ldap_settings']['query_timeout'] %>,
         "MaxPageSize": <%= node['mattermost']['app']['ldap_settings']['max_page_size'] %>,
         "LoginFieldName": "<%= node['mattermost']['app']['ldap_settings']['login_field_name'] %>",
-        "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
-        "LoginButtonBorderColor": "<%= node['mattermost']['app']['email_settings']['login_button_border_color'] %>",
-        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"
+        "LoginButtonColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_color'] %>",
+        "LoginButtonBorderColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_border_color'] %>",
+        "LoginButtonTextColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_text_color'] %>",
+        "GuestFilter": "<%= node['mattermost']['app']['ldap_settings']['guest_filter'] %>"
     },
     "ComplianceSettings": {
         "Enable": <%= node['mattermost']['app']['compliance_settings']['enable'] %>,
@@ -367,9 +368,13 @@
         "LocaleAttribute": "<%= node['mattermost']['app']['saml_settings']['locale_attribute'] %>",
         "PositionAttribute": "<%= node['mattermost']['app']['saml_settings']['position_attribute'] %>",
         "LoginButtonText": "<%= node['mattermost']['app']['saml_settings']['login_button_text'] %>",
-        "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
-        "LoginButtonBorderColor": "<%= node['mattermost']['app']['email_settings']['login_button_border_color'] %>",
-        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"
+        "LoginButtonColor": "<%= node['mattermost']['app']['saml_settings']['login_button_color'] %>",
+        "LoginButtonBorderColor": "<%= node['mattermost']['app']['saml_settings']['login_button_border_color'] %>",
+        "LoginButtonTextColor": "<%= node['mattermost']['app']['saml_settings']['login_button_text_color'] %>",
+        "SignatureAlgorithm": "<%= node['mattermost']['app']['saml_settings']['signature_algorithm'] %>",
+        "CanonicalAlgorithm": "<%= node['mattermost']['app']['saml_settings']['canonical_algorithm'] %>",
+        "GuestAttribute": "<%= node['mattermost']['app']['saml_settings']['guest_attribute'] %>"
+
     },
     "NativeAppSettings": {
         "AppDownloadLink": "<%= node['mattermost']['app']['native_app_settings']['app_download_link'] %>",
@@ -476,7 +481,9 @@
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
         "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>,
         "EnableMarketplace": <%= node['mattermost']['app']['plugin_settings']['enable_market_place'] %>,
-        "MarketplaceUrl": "<%= node['mattermost']['app']['plugin_settings']['market_place_url'] %>"
+        "MarketplaceUrl": "<%= node['mattermost']['app']['plugin_settings']['market_place_url'] %>",
+        "RequirePluginSignature": "<%= node['mattermost']['app']['plugin_settings']['require_plugin_signature'] %>",
+        "SignaturePublicKeyFiles": <%= require 'json'; node['mattermost']['app']['plugin_settings']['signature_public_keyfiles'].to_json %>
     },
     "GuestAccountsSettings": {
         "Enable": <%= node['mattermost']['app']['guest_accounts_settings']['enable'] %>,

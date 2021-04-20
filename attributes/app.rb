@@ -69,7 +69,6 @@ default['mattermost']['app']['service_settings'] = {
   'enable_tutorial' => true,
   'experimental_enable_default_channel_leave_join_messages' => true,
   'experimental_group_unread_channels' => 'disabled',
-  'experimental_ldap_group_sync' => false,
   'group_filter' => '',
   'group_display_name_attribute' => '',
   'group_id_attribute' => '',
@@ -123,6 +122,7 @@ default['mattermost']['app']['team_settings'] = {
   'experimental_hide_town_square_in_lhs' => false,
   'experimental_town_square_is_read_only' => false,
   'experimental_primary_team' => '',
+  'lock_teammate_name_display' => [],
 }
 
 default['mattermost']['app']['client_requirements'] = {
@@ -329,6 +329,7 @@ default['mattermost']['app']['ldap_settings'] = {
   'login_button_color' => '',
   'login_button_border_color' => '',
   'login_button_text_color' => '',
+  'guest_filter' => '',
 }
 
 default['mattermost']['app']['compliance_settings'] = {
@@ -369,6 +370,9 @@ default['mattermost']['app']['saml_settings'] = {
   'login_button_color' => '',
   'login_button_border_color' => '',
   'login_button_text_color' => '',
+  'signature_algorithm' => '',
+  'canonical_algorithm' => '',
+  'guest_attribute' => '',
 }
 
 default['mattermost']['app']['native_app_settings'] = {
@@ -473,6 +477,8 @@ default['mattermost']['app']['plugin_settings'] = {
   'plugin_states' => {},
   'enable_market_place' => true,
   'market_place_url' => 'https://marketplace.integrations.mattermost.com',
+  'require_plugin_signature' => true,
+  'signature_public_keyfiles' => {},
 }
 
 default['mattermost']['app']['cluster_Settings'] = {

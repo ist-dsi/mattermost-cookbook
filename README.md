@@ -10,6 +10,7 @@ This cookbook installs and configures [Mattermost, the opensource Slack alternat
 
 | Mattermost Version | Cookbook Version |
 |:------------------:|:----------------:|
+| 5.18.2             | v5.18.2          |
 | 5.17.1             | v5.17.1          |
 | 5.16.3             | v5.16.3          |
 | 5.15.1             | v5.15.1          |
