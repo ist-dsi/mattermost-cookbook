@@ -21,7 +21,7 @@ env:
   matrix:
   - INSTANCE=centos-7
   - INSTANCE=debian-10
-  - INSTANCE=ubuntu-1804
+#  - INSTANCE=ubuntu-1804
   - INSTANCE=debian-9
 
 before_script:

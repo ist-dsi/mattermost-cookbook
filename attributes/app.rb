@@ -82,6 +82,9 @@ default['mattermost']['app']['service_settings'] = {
   'disable_bots_when_owner_is_deactivated' => true,
   'trusted_proxy_ip_header' => [],
   'enable_latex' => true,
+  'enable_open_tracing' => false,
+  'idle_timeout' => 60,
+  'experimental_channel_sidebar_organization' => 'off',
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,
@@ -160,6 +163,7 @@ default['mattermost']['app']['notification_log_settings'] = {
   'file_level' => 'INFO',
   'file_json' => true,
   'file_location' => '/var/log/mattermost',
+  'smtp_server_timeout' => 10,
 }
 
 default['mattermost']['app']['log_settings'] = {

@@ -81,7 +81,10 @@
         "EnableBotAccountCreation": <%= node['mattermost']['app']['service_settings']['enable_bot_account_creation'] %>,
         "DisableBotsWhenOwnerIsDeactivated": <%= node['mattermost']['app']['service_settings']['disable_bots_when_owner_is_deactivated'] %>,
         "TrustedProxyIPHeader": <%= node['mattermost']['app']['service_settings']['trusted_proxy_ip_header'] %>,
-        "EnableLatex": <%= node['mattermost']['app']['service_settings']['enable_latex'] %>
+        "EnableLatex": <%= node['mattermost']['app']['service_settings']['enable_latex'] %>,
+        "EnableOpenTracing": <%= node['mattermost']['app']['service_settings']['enable_open_tracing'] %>,
+        "IdleTimeout": <%= node['mattermost']['app']['service_settings']['idle_timeout'] %>,
+        "ExperimentalChannelSidebarOrganization": "<%= node['mattermost']['app']['service_settings']['experimental_channel_sidebar_organization'] %>"
     },
     "ImageProxySettings": {
         "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
@@ -175,7 +178,8 @@
         "EnableFile": <%= node['mattermost']['app']['notification_log_settings']['enable_file'] %>,
         "FileLevel": "<%= node['mattermost']['app']['notification_log_settings']['file_level'] %>",
         "FileJson": <%= node['mattermost']['app']['notification_log_settings']['file_json'] %>,
-        "FileLocation": "<%= node['mattermost']['app']['notification_log_settings']['file_location'] %>"
+        "FileLocation": "<%= node['mattermost']['app']['notification_log_settings']['file_location'] %>",
+        "SMTPServerTimeout": <%= node['mattermost']['app']['notification_log_settings']['smtp_server_timeout'] %>
     },
     "LogSettings": {
         "EnableConsole": <%= node['mattermost']['app']['log_settings']['enable_console'] %>,
