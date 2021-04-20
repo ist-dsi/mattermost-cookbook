@@ -84,7 +84,11 @@
         "EnableLatex": <%= node['mattermost']['app']['service_settings']['enable_latex'] %>,
         "EnableOpenTracing": <%= node['mattermost']['app']['service_settings']['enable_open_tracing'] %>,
         "IdleTimeout": <%= node['mattermost']['app']['service_settings']['idle_timeout'] %>,
-        "ExperimentalChannelSidebarOrganization": "<%= node['mattermost']['app']['service_settings']['experimental_channel_sidebar_organization'] %>"
+        "ExperimentalChannelSidebarOrganization": "<%= node['mattermost']['app']['service_settings']['experimental_channel_sidebar_organization'] %>",
+        "ExtendSessionLengthWithActivity":<%= node['mattermost']['app']['service_settings']['extend_session_length_with_activity'] %>,
+        "EnableLocalMode":  <%= node['mattermost']['app']['service_settings']['enable_local_mode'] %>,
+        "LocalModeSocketLocation":  "<%= node['mattermost']['app']['service_settings']['local_mode_socket_location'] %>"
+
     },
     "ImageProxySettings": {
         "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
@@ -169,7 +173,8 @@
         "Trace": <%= node['mattermost']['app']['sql_settings']['trace'] %>,
         "AtRestEncryptKey": "<%= node['mattermost']['app']['sql_settings']['at_rest_encrypt_key'] %>",
         "QueryTimeout": <%= node['mattermost']['app']['sql_settings']['query_timeout'] %>,
-        "EnablePublicChannelsMaterialization": <%= node['mattermost']['app']['sql_settings']['enable_public_channels_materialization'] %>
+        "EnablePublicChannelsMaterialization": <%= node['mattermost']['app']['sql_settings']['enable_public_channels_materialization'] %>,
+        "DisableDatabaseSearch": <%= node['mattermost']['app']['sql_settings']['disable_database_search'] %>
     },
     "NotificationLogSettings": {
         "EnableConsole": <%= node['mattermost']['app']['notification_log_settings']['enable_console'] %>,
@@ -338,7 +343,8 @@
         "LoginButtonTextColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_text_color'] %>",
         "GuestFilter": "<%= node['mattermost']['app']['ldap_settings']['guest_filter'] %>",
         "EnableAdminFilter": <%= node['mattermost']['app']['ldap_settings']['enable_admin_filter'] %>,
-        "AdminFilter": "<%= node['mattermost']['app']['ldap_settings']['admin_filter'] %>"
+        "AdminFilter": "<%= node['mattermost']['app']['ldap_settings']['admin_filter'] %>",
+        "PictureAttribute": "<%= node['mattermost']['app']['ldap_settings']['picture_attribute'] %>"
     },
     "ComplianceSettings": {
         "Enable": <%= node['mattermost']['app']['compliance_settings']['enable'] %>,
@@ -501,5 +507,12 @@
         "AllowEmailAccounts": <%= node['mattermost']['app']['guest_accounts_settings']['allow_email_accounts'] %>,
         "EnforceMultifactorAuthentication": <%= node['mattermost']['app']['guest_accounts_settings']['enforce_multifactor_authentication'] %>,
         "RestrictCreationToDomains": <%= node['mattermost']['app']['guest_accounts_settings']['restrict_creation_to_domains'] %>
+    },
+    "BleveSettings": {
+        "IndexDir": "<%= node['mattermost']['app']['bleve_settings']['index_dir'] %>",
+        "EnableIndexing": <%= node['mattermost']['app']['bleve_settings']['enable_indexing'] %>,
+        "EnableSearching": <%= node['mattermost']['app']['bleve_settings']['enable_searching'] %>,
+        "EnableAutocomplete": <%= node['mattermost']['app']['bleve_settings']['enable_autocomplete'] %>,
+        "BulkIndexingTimeWindowSeconds": <%= node['mattermost']['app']['bleve_settings']['bulk_indexing_time_window_seconds'] %>
     }
 }

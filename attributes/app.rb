@@ -26,7 +26,7 @@ default['mattermost']['app']['service_settings'] = {
   'enable_post_username_override' => false,
   'enable_post_icon_override' => false,
   'enable_api_v3' => false,
-  'enable_link_previews' => false,
+  'enable_link_previews' => true,
   'enable_testing' => false,
   'enable_developer' => false,
   'enable_security_fix_alert' => true,
@@ -85,6 +85,9 @@ default['mattermost']['app']['service_settings'] = {
   'enable_open_tracing' => false,
   'idle_timeout' => 60,
   'experimental_channel_sidebar_organization' => 'off',
+  'extend_session_length_with_activity' => true,
+  'enable_local_mode' => false,
+  'local_mode_socket_location' => '/var/tmp/mattermost_local.socket',
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,
@@ -153,6 +156,7 @@ default['mattermost']['app']['sql_settings'] = {
   'at_rest_encrypt_key' => '',
   'query_timeout' => 30,
   'enable_public_channels_materialization' => true,
+  'disable_database_search' => false,
 }
 
 default['mattermost']['app']['notification_log_settings'] = {
@@ -336,6 +340,7 @@ default['mattermost']['app']['ldap_settings'] = {
   'guest_filter' => '',
   'enable_admin_filter' => false,
   'admin_filter' => '',
+  'picture_attribute' => '',
 }
 
 default['mattermost']['app']['compliance_settings'] = {
@@ -507,4 +512,12 @@ default['mattermost']['app']['guest_accounts_settings'] = {
   'allow_email_accounts' => true,
   'enforce_multifactor_authentication' => false,
   'restrict_creation_to_domains' => true,
+}
+
+default['mattermost']['app']['bleve_settings'] = {
+  'index_dir' => '',
+  'enable_indexing' => false,
+  'enable_searching' => false,
+  'enable_autocomplete' => false,
+  'bulk_indexing_time_window_seconds' => 3600,
 }
