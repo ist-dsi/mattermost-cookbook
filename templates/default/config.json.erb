@@ -332,7 +332,9 @@
         "LoginButtonColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_color'] %>",
         "LoginButtonBorderColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_border_color'] %>",
         "LoginButtonTextColor": "<%= node['mattermost']['app']['ldap_settings']['login_button_text_color'] %>",
-        "GuestFilter": "<%= node['mattermost']['app']['ldap_settings']['guest_filter'] %>"
+        "GuestFilter": "<%= node['mattermost']['app']['ldap_settings']['guest_filter'] %>",
+        "EnableAdminFilter": <%= node['mattermost']['app']['ldap_settings']['enable_admin_filter'] %>,
+        "AdminFilter": "<%= node['mattermost']['app']['ldap_settings']['admin_filter'] %>"
     },
     "ComplianceSettings": {
         "Enable": <%= node['mattermost']['app']['compliance_settings']['enable'] %>,
@@ -373,7 +375,10 @@
         "LoginButtonTextColor": "<%= node['mattermost']['app']['saml_settings']['login_button_text_color'] %>",
         "SignatureAlgorithm": "<%= node['mattermost']['app']['saml_settings']['signature_algorithm'] %>",
         "CanonicalAlgorithm": "<%= node['mattermost']['app']['saml_settings']['canonical_algorithm'] %>",
-        "GuestAttribute": "<%= node['mattermost']['app']['saml_settings']['guest_attribute'] %>"
+        "GuestAttribute": "<%= node['mattermost']['app']['saml_settings']['guest_attribute'] %>",
+        "IdpMetadataUrl": "<%= node['mattermost']['app']['saml_settings']['idp_metadata_url'] %>",
+        "EnableAdminAttribute": <%= node['mattermost']['app']['saml_settings']['enable_admin_attribute'] %>,
+        "AdminAttribute": "<%= node['mattermost']['app']['saml_settings']['admin_attribute'] %>"
 
     },
     "NativeAppSettings": {
@@ -481,6 +486,8 @@
         "Plugins": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugins'].to_json %>,
         "PluginStates": <%= require 'json'; node['mattermost']['app']['plugin_settings']['plugin_states'].to_json %>,
         "EnableMarketplace": <%= node['mattermost']['app']['plugin_settings']['enable_market_place'] %>,
+        "EnableRemoteMarketplace": <%= node['mattermost']['app']['plugin_settings']['enable_remote_marketplace'] %>,
+        "AutomaticPrepackagedPlugins": <%= node['mattermost']['app']['plugin_settings']['automatic_prepackaged_plugins'] %>,
         "MarketplaceUrl": "<%= node['mattermost']['app']['plugin_settings']['market_place_url'] %>",
         "RequirePluginSignature": "<%= node['mattermost']['app']['plugin_settings']['require_plugin_signature'] %>",
         "SignaturePublicKeyFiles": <%= require 'json'; node['mattermost']['app']['plugin_settings']['signature_public_keyfiles'].to_json %>

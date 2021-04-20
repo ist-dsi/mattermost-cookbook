@@ -330,6 +330,8 @@ default['mattermost']['app']['ldap_settings'] = {
   'login_button_border_color' => '',
   'login_button_text_color' => '',
   'guest_filter' => '',
+  'enable_admin_filter' => false,
+  'admin_filter' => '',
 }
 
 default['mattermost']['app']['compliance_settings'] = {
@@ -373,6 +375,9 @@ default['mattermost']['app']['saml_settings'] = {
   'signature_algorithm' => '',
   'canonical_algorithm' => '',
   'guest_attribute' => '',
+  'idp_metadata_url' => '',
+  'enable_admin_attribute' => true,
+  'admin_attribute' => '',
 }
 
 default['mattermost']['app']['native_app_settings'] = {
@@ -479,6 +484,8 @@ default['mattermost']['app']['plugin_settings'] = {
   'market_place_url' => 'https://marketplace.integrations.mattermost.com',
   'require_plugin_signature' => true,
   'signature_public_keyfiles' => {},
+  'enable_remote_marketplace' => true,
+  'automatic_prepackaged_plugins' => true,
 }
 
 default['mattermost']['app']['cluster_Settings'] = {
