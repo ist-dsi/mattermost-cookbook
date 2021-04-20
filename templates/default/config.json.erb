@@ -87,8 +87,8 @@
         "ExperimentalChannelSidebarOrganization": "<%= node['mattermost']['app']['service_settings']['experimental_channel_sidebar_organization'] %>",
         "ExtendSessionLengthWithActivity":<%= node['mattermost']['app']['service_settings']['extend_session_length_with_activity'] %>,
         "EnableLocalMode":  <%= node['mattermost']['app']['service_settings']['enable_local_mode'] %>,
-        "LocalModeSocketLocation":  "<%= node['mattermost']['app']['service_settings']['local_mode_socket_location'] %>"
-
+        "LocalModeSocketLocation":  "<%= node['mattermost']['app']['service_settings']['local_mode_socket_location'] %>",
+        "ExperimentalDataPrefetch":  "<%= node['mattermost']['app']['service_settings']['experimental_data_prefetch'] %>"
     },
     "ImageProxySettings": {
         "Enable": <%= node['mattermost']['app']['image_proxy_settings']['enable_image_proxy'] %>,
@@ -184,7 +184,7 @@
         "FileLevel": "<%= node['mattermost']['app']['notification_log_settings']['file_level'] %>",
         "FileJson": <%= node['mattermost']['app']['notification_log_settings']['file_json'] %>,
         "FileLocation": "<%= node['mattermost']['app']['notification_log_settings']['file_location'] %>",
-        "SMTPServerTimeout": <%= node['mattermost']['app']['notification_log_settings']['smtp_server_timeout'] %>
+        "SMTPServerTimeout": <%= node['mattermost']['app']['email_settings']['smtp_server_timeout'] %>
     },
     "LogSettings": {
         "EnableConsole": <%= node['mattermost']['app']['log_settings']['enable_console'] %>,
@@ -222,7 +222,8 @@
         "AmazonS3SSL": <%= node['mattermost']['app']['file_settings']['amazon_s3_ssl'] %>,
         "AmazonS3SignV2": <%= node['mattermost']['app']['file_settings']['amazon_s3_sign_v2'] %>,
         "AmazonS3SSE": <%= node['mattermost']['app']['file_settings']['amazon_s3_sse']%>,
-        "AmazonS3Trace": <%= node['mattermost']['app']['file_settings']['amazon_s3_trace']%>
+        "AmazonS3Trace": <%= node['mattermost']['app']['file_settings']['amazon_s3_trace']%>,
+        "AmazonS3PathPrefix": "<%= node['mattermost']['app']['file_settings']['amazon_S3_path_prefix']%>"
     },
     "EmailSettings": {
         "EnableSignUpWithEmail": <%= node['mattermost']['app']['email_settings']['enable_sign_up_with_email'] %>,
@@ -239,11 +240,13 @@
         "SMTPPassword": "<%= node['mattermost']['app']['email_settings']['smtp_password'] %>",
         "SMTPServer": "<%= node['mattermost']['app']['email_settings']['smtp_server'] %>",
         "SMTPPort": "<%= node['mattermost']['app']['email_settings']['smtp_port'] %>",
+        "SMTPServerTimeout": "<%= node['mattermost']['app']['email_settings']['smtp_server_timeout'] %>",
         "ConnectionSecurity": "<%= node['mattermost']['app']['email_settings']['connection_security'] %>",
         "InviteSalt": "<%= node['mattermost']['app']['email_settings']['invite_salt'] %>",
         "SendPushNotifications": <%= node['mattermost']['app']['email_settings']['send_push_notifications'] %>,
         "PushNotificationServer": "<%= node['mattermost']['app']['email_settings']['push_notification_server'] %>",
         "PushNotificationContents": "<%= node['mattermost']['app']['email_settings']['push_notification_contents'] %>",
+        "PushNotificationBuffer": <%= node['mattermost']['app']['email_settings']['push_notification_buffer'] %>,
         "EnableEmailBatching": <%= node['mattermost']['app']['email_settings']['enable_email_batching'] %>,
         "EmailBatchingBufferSize": <%= node['mattermost']['app']['email_settings']['email_batching_buffer_size'] %>,
         "EmailBatchingInterval": <%= node['mattermost']['app']['email_settings']['email_batching_interval'] %>,
@@ -252,7 +255,7 @@
         "EmailNotificationContentsType": "<%= node['mattermost']['app']['email_settings']['email_notification_contents_type'] %>",
         "LoginButtonColor": "<%= node['mattermost']['app']['email_settings']['login_button_color'] %>",
         "LoginButtonBorderColor": "<%= node['mattermost']['app']['email_settings']['login_button_border_color'] %>",
-        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"
+        "LoginButtonTextColor": "<%= node['mattermost']['app']['email_settings']['login_button_text_color'] %>"  
     },
     "RateLimitSettings": {
         "Enable": <%= node['mattermost']['app']['rate_limit_settings']['enable'] %>,
@@ -409,9 +412,10 @@
         "MaxIdleConns": <%= node['mattermost']['app']['cluster_settings']['max_idle_conns'] %>,
         "MaxIdleConnsPerHost": <%= node['mattermost']['app']['cluster_settings']['max_idle_conns_per_host'] %>,
         "IdleConnTimeoutMilliseconds": <%= node['mattermost']['app']['cluster_settings']['idle_conn_timeout_milliseconds'] %>,
-        "NetworkInterface": "<%= node['mattermost']['app']['cluster_Settings']['network_interface'] %>",
-        "BindAddress": "<%= node['mattermost']['app']['cluster_Settings']['bind_address'] %>",
-        "AdvertiseAddress":"<%= node['mattermost']['app']['cluster_Settings']['advertise_address'] %>"
+        "NetworkInterface": "<%= node['mattermost']['app']['cluster_settings']['network_interface'] %>",
+        "BindAddress": "<%= node['mattermost']['app']['cluster_settings']['bind_address'] %>",
+        "AdvertiseAddress": "<%= node['mattermost']['app']['cluster_settings']['advertise_address'] %>",
+        "EnableExperimentalGossipEncryption": <%= node['mattermost']['app']['cluster_settings']['enable_experimental_gossip_encryption'] %>
     },
     "MetricsSettings": {
         "Enable": <%= node['mattermost']['app']['metrics_settings']['enable'] %>,
@@ -424,7 +428,6 @@
         "ClientSideCertCheck": " <%= node['mattermost']['app']['experimental_settings']['client_side_cert_check'] %>",
         "DisablePostMetadata": <%= node['mattermost']['app']['experimental_settings']['disable_post_metadata'] %>,
         "LinkMetadataTimeoutMilliseconds": <%= node['mattermost']['app']['experimental_settings']['link_metadata_timeout_milliseconds'] %>
-
     },
     "AnalyticsSettings": {
         "MaxUsersForStatistics": <%= node['mattermost']['app']['analytics_settings']['max_users_for_statistics'] %>
@@ -479,11 +482,6 @@
     "JobSettings": {
         "RunJobs": <%= node['mattermost']['app']['job_settings']['run_jobs'] %>,
         "RunScheduler": <%= node['mattermost']['app']['job_settings']['run_scheduler'] %>
-    },
-    "ClusterSettings": {
-        "NetworkInterface": "<%= node['mattermost']['app']['cluster_Settings']['network_interface'] %>",
-        "BindAddress": "<%= node['mattermost']['app']['cluster_Settings']['bind_address'] %>",
-        "AdvertiseAddress":"<%= node['mattermost']['app']['cluster_Settings']['advertise_address'] %>"
     },
     "ComplianceSettings": {
         "SignRequest":"<%= node['mattermost']['app']['compliance_Settings']['sign_request'] %>"

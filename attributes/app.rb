@@ -88,6 +88,7 @@ default['mattermost']['app']['service_settings'] = {
   'extend_session_length_with_activity' => true,
   'enable_local_mode' => false,
   'local_mode_socket_location' => '/var/tmp/mattermost_local.socket',
+  'experimental_data_prefetch' => true,
 }
 default['mattermost']['app']['image_proxy_settings'] = {
   'enable_image_proxy' => true,
@@ -167,7 +168,6 @@ default['mattermost']['app']['notification_log_settings'] = {
   'file_level' => 'INFO',
   'file_json' => true,
   'file_location' => '/var/log/mattermost',
-  'smtp_server_timeout' => 10,
 }
 
 default['mattermost']['app']['log_settings'] = {
@@ -209,6 +209,7 @@ default['mattermost']['app']['file_settings'] = {
   'amazon_s3_sign_v2' => false,
   'amazon_s3_sse' => false,
   'amazon_s3_trace' => false,
+  'amazon_S3_path_prefix' => '',
 }
 
 default['mattermost']['app']['email_settings'] = {
@@ -225,12 +226,14 @@ default['mattermost']['app']['email_settings'] = {
   'smtp_username' => '',
   'smtp_password' => '',
   'smtp_server' => 'localhost',
+  'smtp_server_timeout' => 10,
   'smtp_port' => '2500',
   'connection_security' => '',
   'invite_salt' => '', # SET THIS!
   'send_push_notifications' => false,
   'push_notification_server' => '',
   'push_notification_contents' => 'generic',
+  'push_notification_buffer' => 1000,
   'enable_email_batching' => false,
   'email_batching_buffer_size' => 256,
   'email_batching_interval' => 30,
@@ -408,6 +411,10 @@ default['mattermost']['app']['cluster_settings'] = {
   'max_idle_conns' => 100,
   'max_idle_conns_per_host' => 128,
   'idle_conn_timeout_milliseconds' => 90000,
+  'network_interface' => '',
+  'bind_address' => '',
+  'advertise_address' => '',
+  'enable_experimental_gossip_encryption' => false,
 }
 
 default['mattermost']['app']['metrics_settings'] = {
@@ -496,12 +503,6 @@ default['mattermost']['app']['plugin_settings'] = {
   'signature_public_keyfiles' => {},
   'enable_remote_marketplace' => true,
   'automatic_prepackaged_plugins' => true,
-}
-
-default['mattermost']['app']['cluster_Settings'] = {
-  'network_interface' => '',
-  'bind_address' => '',
-  'advertise_address' => '',
 }
 
 default['mattermost']['app']['compliance_Settings'] = {
